@@ -1,2 +1,2 @@
 # Sci-Craft
-A minecraft mod about sience fiction, space and stuff
+A minecraft mod about seience fiction, space and stuff
