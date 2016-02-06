@@ -1,0 +1,18 @@
+# Creative Tabs
+itemGroup.scicraft=Sci-Craft
+
+# Items
+item.scicraft:AluminumIngot.name=Aluminum Ingot
+item.scicraft:CopperIngot.name=Copper Ingot
+item.scicraft:TinIngot.name=Tin Ingot
+item.scicraft:SteelIngot.name=Steel Ingot
+
+
+# Blocks
+tile.scicraft:AluminumOre.name=Aluminum Ore
+tile.scicraft:CopperOre.name=Copper Ore
+tile.scicraft:TinOre.name=Tin Ore
+tile.scicraft:AluminumBlock.name=Aluminum Block
+tile.scicraft:CopperBlock.name=Copper Block
+tile.scicraft:TinBlock.name=Tin Block
+tile.scicraft:SteelBlock.name=Steel Block
