@@ -1,5 +1,6 @@
 # Creative Tabs
 itemGroup.scicraft=Sci-Craft
+itemGroup.scicraft_moon=Sci-Craft Moon
 
 # Items
 item.scicraft:AluminumIngot.name=Aluminum Ingot
@@ -12,7 +13,20 @@ item.scicraft:SteelIngot.name=Steel Ingot
 tile.scicraft:AluminumOre.name=Aluminum Ore
 tile.scicraft:CopperOre.name=Copper Ore
 tile.scicraft:TinOre.name=Tin Ore
+
 tile.scicraft:AluminumBlock.name=Aluminum Block
 tile.scicraft:CopperBlock.name=Copper Block
 tile.scicraft:TinBlock.name=Tin Block
 tile.scicraft:SteelBlock.name=Steel Block
+
+tile.scicraft:PortalBlock=Portal
+
+tile.scicraft:MoonDust.name=Moon Dust
+tile.scicraft:MoonRock.name=Moon Rock
+tile.scicraft:MoonAluminumOre.name=Aluminum Ore
+tile.scicraft:MoonCopperOre.name=Copper Ore
+tile.scicraft:MoonTinOre.name=Tin Ore
+
+
+# Entities
+entity.scicraft:Alien.name=Alien

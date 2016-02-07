@@ -1,11 +1,12 @@
 package com.fogo01.scicraft;
 
+import com.fogo01.scicraft.biomes.WorldTypeMoon;
+import com.fogo01.scicraft.dimensions.DimensionRegistry;
 import com.fogo01.scicraft.genaration.BlockGeneration;
 import com.fogo01.scicraft.handler.ConfigurationHandler;
 import com.fogo01.scicraft.handler.GuiHandler;
 import com.fogo01.scicraft.init.*;
-import com.fogo01.scicraft.proxy.ClientProxy;
-import com.fogo01.scicraft.proxy.CommonProxy;
+import com.fogo01.scicraft.proxy.IProxy;
 import com.fogo01.scicraft.reference.Reference;
 import com.fogo01.scicraft.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.world.WorldType;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERISION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SciCraft {
@@ -25,8 +27,7 @@ public class SciCraft {
     public static SciCraft instance;
 
     @SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
-    public static CommonProxy Common_Proxy;
-    public static ClientProxy Client_proxy;
+    public static IProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -37,25 +38,30 @@ public class SciCraft {
         ModItems.init();
         ModBlocks.init();
         OreDict.init();
+        ModEntities.init();
         ModAchievements.init();
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 
+        BiomeRegistry.registerBiome();
         LogHelper.info("Pre Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
         TileEntities.init();
-        ClientProxy.registerTileEntitySpecialRender();
 
         Recipies.init();
+
+        proxy.registerRenderThings();
 
         LogHelper.info("Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
+        WorldType MOON = new WorldTypeMoon("Moon");
+        DimensionRegistry.registerDimension();
 
         LogHelper.info("Post Initialization Complete!");
     }

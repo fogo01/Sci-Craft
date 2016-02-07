@@ -52,3 +52,4 @@ fabric.properties
 .gradle/
 build/
 eclipse/
+*.tcn

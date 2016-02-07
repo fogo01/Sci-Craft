@@ -1,5 +1,5 @@
 package com.fogo01.scicraft.proxy;
 
-public abstract class CommonProxy {
+public abstract class CommonProxy implements IProxy {
 
 }

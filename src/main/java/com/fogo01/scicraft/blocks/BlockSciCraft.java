@@ -1,4 +1,4 @@
-package com.fogo01.scicraft.block;
+package com.fogo01.scicraft.blocks;
 
 import com.fogo01.scicraft.crativetab.CreativeTabSciCraft;
 import com.fogo01.scicraft.reference.Reference;
