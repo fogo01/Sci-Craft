@@ -24,6 +24,10 @@ public class Names {
         public static final String COPPER_INGOT = "CopperIngot";
         public static final String TIN_INGOT = "TinIngot";
         public static final String STEEL_INGOT = "SteelIngot";
+
+        public static final String[] ARMOR_TYPES = {"ThoughSpaceSuit", "SpaceSuit"};
+        public static final String[] SPACE_SUIT = {"SpaceSuitHelmet", "SpaceSuitChestplate", "SpaceSuitLeggings", "SpaceSuitBoots"};
+        public static final String[] THOUGH_SPACE_SUIT = {"ThoughSpaceSuitHelmet", "ThoughSpaceSuitChestplate", "ThoughSpaceSuitLeggings", "ThoughSpaceSuitBoots"};
     }
 
     public static final class Containers {
