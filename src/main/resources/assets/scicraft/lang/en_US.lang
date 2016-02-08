@@ -23,6 +23,12 @@ tile.scicraft:PortalBlock=Portal
 
 tile.scicraft:MoonDust.name=Moon Dust
 tile.scicraft:MoonRock.name=Moon Rock
+tile.scicraft:MoonCoalOre.name=Coal Ore
+tile.scicraft:MoonIronOre.name=Iron Ore
+tile.scicraft:MoonGoldOre.name=Gold Ore
+tile.scicraft:MoonLapisOre.name=Lapis Lazuli Ore
+tile.scicraft:MoonRedstoneOre.name=Redstone Ore
+tile.scicraft:MoonDiamondOre.name=Diamond Ore
 tile.scicraft:MoonAluminumOre.name=Aluminum Ore
 tile.scicraft:MoonCopperOre.name=Copper Ore
 tile.scicraft:MoonTinOre.name=Tin Ore
