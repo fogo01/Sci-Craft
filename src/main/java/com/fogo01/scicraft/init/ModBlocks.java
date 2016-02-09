@@ -1,7 +1,7 @@
 package com.fogo01.scicraft.init;
 
 import com.fogo01.scicraft.blocks.*;
-import com.fogo01.scicraft.blocks.ItemBlocks.ItemBlockMoonOre;
+import com.fogo01.scicraft.blocks.ItemBlocks.*;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.blocks.BlockSciCraft;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -14,6 +14,7 @@ public class ModBlocks {
     public static final BlockSciCraft ALUMINUM_BLOCK = new BlockAluminumBlock();
     public static final BlockSciCraft COPPER_BLOCK = new BlockCopperBlock();
     public static final BlockSciCraft TIN_BLOCK = new BlockTinBlock();
+    public static final BlockSciCraft BRONZE_BLOCK = new BlockBronzeBlock();
     public static final BlockSciCraft STEEL_BLOCK = new BlockSteelBlock();
 
     public static final BlockSciCraft MOON_DUST = new BlockMoonDust();
@@ -30,6 +31,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(ALUMINUM_BLOCK, Names.Blocks.ALUMINUM_BLOCK);
         GameRegistry.registerBlock(COPPER_BLOCK, Names.Blocks.COPPER_BLOCK);
         GameRegistry.registerBlock(TIN_BLOCK, Names.Blocks.TIN_BLOCK);
+        GameRegistry.registerBlock(BRONZE_BLOCK, Names.Blocks.BRONZE_BLOCK);
         GameRegistry.registerBlock(STEEL_BLOCK, Names.Blocks.STEEL_BLOCK);
 
         GameRegistry.registerBlock(MOON_DUST, Names.Blocks.MOON_DUST);

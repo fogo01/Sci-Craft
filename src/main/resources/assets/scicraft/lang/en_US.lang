@@ -2,11 +2,43 @@
 itemGroup.scicraft=Sci-Craft
 itemGroup.scicraft_moon=Sci-Craft Moon
 
+
 # Items
 item.scicraft:AluminumIngot.name=Aluminum Ingot
 item.scicraft:CopperIngot.name=Copper Ingot
 item.scicraft:TinIngot.name=Tin Ingot
+item.scicraft:BronzeIngot.name=Bronze Ingot
 item.scicraft:SteelIngot.name=Steel Ingot
+
+item.scicraft:CopperHelmet.name=Copper Helmet
+item.scicraft:CopperChestplate.name=Copper Chestplate
+item.scicraft:CopperLeggings.name=Copper Leggings
+item.scicraft:CopperBoots.name=Copper Boots
+
+item.scicraft:TinHelmet.name=Tin Helmet
+item.scicraft:TinChestplate.name=Tin Chestplate
+item.scicraft:TinLeggings.name=Tin Leggings
+item.scicraft:TinBoots.name=Tin Boots
+
+item.scicraft:BronzeHelmet.name=Bronze Helmet
+item.scicraft:BronzeChestplate.name=Bronze Chestplate
+item.scicraft:BronzeLeggings.name=Bronze Leggings
+item.scicraft:BronzeBoots.name=Bronze Boots
+
+item.scicraft:SteelHelmet.name=Steel Helmet
+item.scicraft:SteelChestplate.name=Steel Chestplate
+item.scicraft:SteelLeggings.name=Steel Leggings
+item.scicraft:SteelBoots.name=Steel Boots
+
+item.scicraft:SpaceSuitHelmet.name=Spacesuit Helmet
+item.scicraft:SpaceSuitChestplate.name=Spacesuit Chestplate
+item.scicraft:SpaceSuitLeggings.name=Spacesuit Leggings
+item.scicraft:SpaceSuitBoots.name=Spacesuit Boots
+
+item.scicraft:ThoughSpaceSuitHelmet.name=Though Spacesuit Helmet
+item.scicraft:ThoughSpaceSuitChestplate.name=Though Spacesuit Chestplate
+item.scicraft:ThoughSpaceSuitLeggings.name=Though Spacesuit Leggings
+item.scicraft:ThoughSpaceSuitBoots.name=Though Spacesuit Boots
 
 
 # Blocks
@@ -17,9 +49,10 @@ tile.scicraft:TinOre.name=Tin Ore
 tile.scicraft:AluminumBlock.name=Aluminum Block
 tile.scicraft:CopperBlock.name=Copper Block
 tile.scicraft:TinBlock.name=Tin Block
+tile.scicraft:BronzeBlock.name=Bronze Block
 tile.scicraft:SteelBlock.name=Steel Block
 
-tile.scicraft:PortalBlock=Portal
+tile.scicraft:PortalBlock.name=Portal
 
 tile.scicraft:MoonDust.name=Moon Dust
 tile.scicraft:MoonRock.name=Moon Rock

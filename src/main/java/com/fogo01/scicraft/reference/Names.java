@@ -9,6 +9,7 @@ public class Names {
         public static final String ALUMINUM_BLOCK = "AluminumBlock";
         public static final String COPPER_BLOCK = "CopperBlock";
         public static final String TIN_BLOCK = "TinBlock";
+        public static final String BRONZE_BLOCK = "BronzeBlock";
         public static final String STEEL_BLOCK = "SteelBlock";
 
         public static final String MOON_DUST = "MoonDust";
@@ -23,9 +24,14 @@ public class Names {
         public static final String ALUMINUM_INGOT = "AluminumIngot";
         public static final String COPPER_INGOT = "CopperIngot";
         public static final String TIN_INGOT = "TinIngot";
+        public static final String BRONZE_INGOT = "BronzeIngot";
         public static final String STEEL_INGOT = "SteelIngot";
 
-        public static final String[] ARMOR_TYPES = {"ThoughSpaceSuit", "SpaceSuit"};
+        public static final String[] ARMOR_TYPES = {"Copper", "Tin", "Steel", "Bronze", "ThoughSpaceSuit", "SpaceSuit"};
+        public static final String[] COPPER_ARMOR = {"CopperHelmet", "CopperChestplate", "CopperLeggings", "CopperBoots"};
+        public static final String[] TIN_ARMOR = {"TinHelmet", "TinChestplate", "TinLeggings", "TinBoots"};
+        public static final String[] BRONZE_ARMOR = {"BronzeHelmet", "BronzeChestplate", "BronzeLeggings", "BronzeBoots"};
+        public static final String[] STEEL_ARMOR = {"SteelHelmet", "SteelChestplate", "SteelLeggings", "SteelBoots"};
         public static final String[] SPACE_SUIT = {"SpaceSuitHelmet", "SpaceSuitChestplate", "SpaceSuitLeggings", "SpaceSuitBoots"};
         public static final String[] THOUGH_SPACE_SUIT = {"ThoughSpaceSuitHelmet", "ThoughSpaceSuitChestplate", "ThoughSpaceSuitLeggings", "ThoughSpaceSuitBoots"};
     }

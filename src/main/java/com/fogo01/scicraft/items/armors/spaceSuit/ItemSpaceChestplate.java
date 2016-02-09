@@ -1,5 +1,6 @@
-package com.fogo01.scicraft.items;
+package com.fogo01.scicraft.items.armors.spaceSuit;
 
+import com.fogo01.scicraft.items.ItemSciCraftArmor;
 import com.fogo01.scicraft.reference.Materials;
 import com.fogo01.scicraft.reference.Names;
 
