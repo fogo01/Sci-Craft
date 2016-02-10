@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSpaceLeggings extends ItemSciCraftArmor {
     public ItemSpaceLeggings() {
         super(Materials.Armor.ARMOR_SPACESUIT, 2, 2);
-        this.setUnlocalizedName(Names.Items.SPACE_SUIT[2]);
+        this.setUnlocalizedName(Names.Items.SPACE_SUIT[armorType]);
     }
 }
