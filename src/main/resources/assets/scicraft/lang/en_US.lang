@@ -10,6 +10,31 @@ item.scicraft:TinIngot.name=Tin Ingot
 item.scicraft:BronzeIngot.name=Bronze Ingot
 item.scicraft:SteelIngot.name=Steel Ingot
 
+item.scicraft:CopperSword.name=Copper Sword
+item.scicraft:TinSword.name=Tin Sword
+item.scicraft:BronzeSword.name=Bronze Sword
+item.scicraft:SteelSword.name=Steel Sword
+
+item.scicraft:CopperPickaxe.name=Copper Pickaxe
+item.scicraft:TinPickaxe.name=Tin Pickaxe
+item.scicraft:BronzePickaxe.name=Bronze Pickaxe
+item.scicraft:SteelPickaxe.name=Steel Pickaxe
+
+item.scicraft:CopperShovel.name=Copper Shovel
+item.scicraft:TinShovel.name=Tin Shovel
+item.scicraft:BronzeShovel.name=Bronze Shovel
+item.scicraft:SteelShovel.name=Steel Shovel
+
+item.scicraft:CopperAxe.name=Copper Axe
+item.scicraft:TinAxe.name=Tin Axe
+item.scicraft:BronzeAxe.name=Bronze Axe
+item.scicraft:SteelAxe.name=Steel Axe
+
+item.scicraft:CopperHoe.name=Copper Hoe
+item.scicraft:TinHoe.name=Tin Hoe
+item.scicraft:BronzeHoe.name=Bronze Hoe
+item.scicraft:SteelHoe.name=Steel Hoe
+
 item.scicraft:CopperHelmet.name=Copper Helmet
 item.scicraft:CopperChestplate.name=Copper Chestplate
 item.scicraft:CopperLeggings.name=Copper Leggings

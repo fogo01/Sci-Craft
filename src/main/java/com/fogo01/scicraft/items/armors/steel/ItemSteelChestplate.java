@@ -6,7 +6,7 @@ import com.fogo01.scicraft.reference.Names;
 
 public class ItemSteelChestplate extends ItemSciCraftArmor {
     public ItemSteelChestplate() {
-        super(Materials.ARMOR_STEEL, 1, 1);
+        super(Materials.Armor.ARMOR_STEEL, 1, 1);
         this.setUnlocalizedName(Names.Items.STEEL_ARMOR[1]);
     }
 }

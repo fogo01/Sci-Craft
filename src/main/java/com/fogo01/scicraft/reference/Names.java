@@ -27,6 +27,12 @@ public class Names {
         public static final String BRONZE_INGOT = "BronzeIngot";
         public static final String STEEL_INGOT = "SteelIngot";
 
+        public static final String[] SWORDS = {"CopperSword", "TinSword", "BronzeSword", "SteelSword"};
+        public static final String[] PICKAXES = {"CopperPickaxe", "TinPickaxe", "BronzePickaxe", "SteelPickaxe"};
+        public static final String[] SHOVELS = {"CopperShovel", "TinShovel", "BronzeShovel", "SteelShovel"};
+        public static final String[] AXES = {"CopperAxe", "TinAxe", "BronzeAxe", "SteelAxe"};
+        public static final String[] HOES = {"CopperHoe", "TinHoe", "BronzeHoe", "SteelHoe"};
+
         public static final String[] ARMOR_TYPES = {"Copper", "Tin", "Steel", "Bronze", "ThoughSpaceSuit", "SpaceSuit"};
         public static final String[] COPPER_ARMOR = {"CopperHelmet", "CopperChestplate", "CopperLeggings", "CopperBoots"};
         public static final String[] TIN_ARMOR = {"TinHelmet", "TinChestplate", "TinLeggings", "TinBoots"};

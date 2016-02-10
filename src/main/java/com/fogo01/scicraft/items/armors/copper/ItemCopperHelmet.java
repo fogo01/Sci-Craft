@@ -6,7 +6,7 @@ import com.fogo01.scicraft.reference.Names;
 
 public class ItemCopperHelmet extends ItemSciCraftArmor {
     public ItemCopperHelmet() {
-        super(Materials.ARMOR_COPPER, 1, 0);
+        super(Materials.Armor.ARMOR_COPPER, 1, 0);
         this.setUnlocalizedName(Names.Items.COPPER_ARMOR[0]);
     }
 }

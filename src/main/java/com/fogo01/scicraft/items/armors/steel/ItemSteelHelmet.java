@@ -6,7 +6,7 @@ import com.fogo01.scicraft.reference.Names;
 
 public class ItemSteelHelmet extends ItemSciCraftArmor {
     public ItemSteelHelmet() {
-        super(Materials.ARMOR_STEEL, 1, 0);
+        super(Materials.Armor.ARMOR_STEEL, 1, 0);
         this.setUnlocalizedName(Names.Items.STEEL_ARMOR[0]);
     }
 }

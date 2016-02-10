@@ -6,7 +6,7 @@ import com.fogo01.scicraft.reference.Names;
 
 public class ItemTinHelmet extends ItemSciCraftArmor {
     public ItemTinHelmet() {
-        super(Materials.ARMOR_TIN, 1, 0);
+        super(Materials.Armor.ARMOR_TIN, 1, 0);
         this.setUnlocalizedName(Names.Items.TIN_ARMOR[0]);
     }
 }

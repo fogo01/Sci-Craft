@@ -6,7 +6,7 @@ import com.fogo01.scicraft.reference.Names;
 
 public class ItemSpaceHelmet extends ItemSciCraftArmor {
     public ItemSpaceHelmet() {
-        super(Materials.ARMOR_SPACESUIT, 1, 0);
+        super(Materials.Armor.ARMOR_SPACESUIT, 1, 0);
         this.setUnlocalizedName(Names.Items.SPACE_SUIT[0]);
     }
 }
