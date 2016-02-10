@@ -40,6 +40,12 @@ public class BlockGeneration implements IWorldGenerator {
             addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 1);
         if(ConfigurationHandler.SnGen)
             addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 2);
+        if (ConfigurationHandler.AgGen)
+            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 3);
+        if (ConfigurationHandler.PbGen)
+            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 4);
+        if (ConfigurationHandler.UGen)
+            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(2), 3, 13, 24, 5);
     }
 
     private void generateNether(World world, Random random, int x, int z) {
@@ -60,6 +66,9 @@ public class BlockGeneration implements IWorldGenerator {
         addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 6);
         addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 7);
         addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 8);
+        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 9);
+        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 10);
+        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 1, 3, 5, 16, 11);
     }
 
     private void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY) {
