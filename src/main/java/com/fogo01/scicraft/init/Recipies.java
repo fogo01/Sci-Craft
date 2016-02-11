@@ -15,6 +15,7 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.SILVER_BLOCK), "III", "III", "III", 'I', "ingotSilver"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.LEAD_BLOCK), "III", "III", "III", 'I', "ingotLead"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.URANIUM_BLOCK), "III", "III", "III", 'I', "ingotUranium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.UNOBTANIUM_BLOCK), "III", "III", "III", 'I', "ingotUnobtanium"));
 
         String[] metals = {"Copper", "Tin", "Silver", "Lead", "Bronze", "Steel", "Unobtanium"};
         for (int i = 0; i < ModItems.SWORDS.length; i++)
@@ -43,10 +44,10 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.SILVER_ARMOR[2]), "III", "I I", "I I", 'I', "ingotSilver"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.SILVER_ARMOR[3]), "I I", "I I", 'I', "ingotSilver"));
         
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[0]), "III", "I I", 'I', "ingotSilver"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[1]), "I I", "III", "III", 'I', "ingotCopper"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[2]), "III", "I I", "I I", 'I', "ingotCopper"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[3]), "I I", "I I", 'I', "ingotCopper"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[0]), "III", "I I", 'I', "ingotLead"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[1]), "I I", "III", "III", 'I', "ingotLead"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[2]), "III", "I I", "I I", 'I', "ingotLead"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.LEAD_ARMOR[3]), "I I", "I I", 'I', "ingotLead"));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.BRONZE_ARMOR[0]), "III", "I I", 'I', "ingotBronze"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.BRONZE_ARMOR[1]), "I I", "III", "III", 'I', "ingotBronze"));
@@ -58,10 +59,10 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.STEEL_ARMOR[2]), "III", "I I", "I I", 'I', "ingotSteel"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.STEEL_ARMOR[3]), "I I", "I I", 'I', "ingotSteel"));
 
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[0]), "III", "I I", 'I', ModItems.UNOBTANIUM_INGOT));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[1]), "I I", "III", "III", 'I', ModItems.UNOBTANIUM_INGOT));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[2]), "III", "I I", "I I", 'I', ModItems.UNOBTANIUM_INGOT));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[3]), "I I", "I I", 'I', ModItems.UNOBTANIUM_INGOT));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[0]), "III", "I I", 'I', "ingotUnobtanium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[1]), "I I", "III", "III", 'I', "ingotUnobtanium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[2]), "III", "I I", "I I", 'I', "ingotUnobtanium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.UNOBTANIUM_ARMOR[3]), "I I", "I I", 'I', "ingotUnobtanium"));
 
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.ALUMINUM_INGOT, 9), ModBlocks.ALUMINUM_BLOCK));
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.COPPER_INGOT, 9), ModBlocks.COPPER_BLOCK));

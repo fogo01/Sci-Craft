@@ -13,6 +13,7 @@ public class OreDict {
         OreDictionary.registerOre("ingotUranium", ModItems.URANIUM_INGOT);
         OreDictionary.registerOre("ingotBronze", ModItems.BRONZE_INGOT);
         OreDictionary.registerOre("ingotSteel", ModItems.STEEL_INGOT);
+        OreDictionary.registerOre("ingotUnobtanium", ModItems.UNOBTANIUM_INGOT);
 
         OreDictionary.registerOre("oreAluminum", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 0));
         OreDictionary.registerOre("oreCopper", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 1));
@@ -29,5 +30,6 @@ public class OreDict {
         OreDictionary.registerOre("blockUranium", ModBlocks.URANIUM_BLOCK);
         OreDictionary.registerOre("blockBronze", ModBlocks.BRONZE_BLOCK);
         OreDictionary.registerOre("blockSteel", ModBlocks.STEEL_BLOCK);
+        OreDictionary.registerOre("blockUnobtanium", ModBlocks.UNOBTANIUM_BLOCK);
     }
 }

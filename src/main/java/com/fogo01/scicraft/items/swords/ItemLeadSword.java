@@ -4,9 +4,9 @@ import com.fogo01.scicraft.items.ItemSciCraftSword;
 import com.fogo01.scicraft.reference.Materials;
 import com.fogo01.scicraft.reference.Names;
 
-public class ItemSteelSword extends ItemSciCraftSword {
-    public ItemSteelSword() {
-        super(Materials.Tools.TOOL_STEEL);
-        this.setUnlocalizedName(Names.Items.SWORDS[5]);
+public class ItemLeadSword extends ItemSciCraftSword {
+    public ItemLeadSword() {
+        super(Materials.Tools.TOOL_LEAD);
+        this.setUnlocalizedName(Names.Items.SWORDS[3]);
     }
 }
