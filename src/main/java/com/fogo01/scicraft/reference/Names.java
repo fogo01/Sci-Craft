@@ -20,6 +20,9 @@ public class Names {
         public static final String MOON_ORE = "MoonOre";
         public static final String[] MOON_ORES = {"MoonCoalOre", "MoonIronOre", "MoonGoldOre", "MoonLapisOre", "MoonRedstoneOre", "MoonDiamondOre", "MoonAluminumOre", "MoonCopperOre", "MoonTinOre", "MoonSilverOre", "MoonLeadOre", "UnobtaniumOre"};
 
+        public static final String OIL_BLOCK = "OilBlock";
+        public static final String OIL_WELL_PLACER = "OilWellPlacer";
+
         public static final String PORTAL_BLOCK = "PortalBlock";
     }
 
@@ -33,6 +36,8 @@ public class Names {
         public static final String BRONZE_INGOT = "BronzeIngot";
         public static final String STEEL_INGOT = "SteelIngot";
         public static final String UNOBTANIUM_INGOT = "UnobtaniumIngot";
+
+        public static final String OIL_BUCKET = "OilBucket";
 
         public static final String[] SWORDS = {"CopperSword", "TinSword", "SilverSword", "LeadSword", "BronzeSword", "SteelSword", "UnobtaniumSword"};
         public static final String[] PICKAXES = {"CopperPickaxe", "TinPickaxe", "SilverPickaxe", "LeadPickaxe", "BronzePickaxe", "SteelPickaxe", "UnobtaniumPickaxe"};
@@ -58,5 +63,9 @@ public class Names {
 
     public static final class Entities {
         public static final String ENTITY_ALIEN = "Alien";
+    }
+
+    public static final class Fluids {
+        public static final String FLUID_OIL = "Oil";
     }
 }

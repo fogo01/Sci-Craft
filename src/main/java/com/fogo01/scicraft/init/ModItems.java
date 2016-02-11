@@ -11,6 +11,7 @@ import com.fogo01.scicraft.items.armors.steel.*;
 import com.fogo01.scicraft.items.armors.unobtanium.*;
 import com.fogo01.scicraft.items.armors.spaceSuit.*;
 import com.fogo01.scicraft.items.armors.thoughSpaceSuit.*;
+import com.fogo01.scicraft.items.buckets.ItemOilBucket;
 import com.fogo01.scicraft.items.swords.*;
 import com.fogo01.scicraft.items.pickaxes.*;
 import com.fogo01.scicraft.items.shovels.*;
@@ -29,6 +30,8 @@ public class ModItems {
     public static final ItemSciCraft BRONZE_INGOT = new ItemBronzeIngot();
     public static final ItemSciCraft STEEL_INGOT = new ItemSteelIngot();
     public static final ItemSciCraft UNOBTANIUM_INGOT = new ItemUnobtaniumIngot();
+
+    public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
 
     public static final ItemSciCraftSword[] SWORDS = {new ItemCopperSword(), new ItemTinSword(), new ItemSilverSword(), new ItemLeadSword(), new ItemBronzeSword(), new ItemSteelSword(), new ItemUnobtaniumSword()};
     public static final ItemSciCraftPickaxe[] PICKAXES = {new ItemCopperPickaxe(), new ItemTinPickaxe(), new ItemSilverPickaxe(), new ItemLeadPickaxe(), new ItemBronzePickaxe(), new ItemSteelPickaxe(), new ItemUnobtaniumPickaxe()};
@@ -56,6 +59,8 @@ public class ModItems {
         GameRegistry.registerItem(BRONZE_INGOT, Names.Items.BRONZE_INGOT);
         GameRegistry.registerItem(STEEL_INGOT, Names.Items.STEEL_INGOT);
         GameRegistry.registerItem(UNOBTANIUM_INGOT, Names.Items.UNOBTANIUM_INGOT);
+
+        GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
 
         for (int i = 0; i < SWORDS.length; i++) {
             GameRegistry.registerItem(SWORDS[i], Names.Items.SWORDS[i]);

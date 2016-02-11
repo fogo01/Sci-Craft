@@ -14,6 +14,8 @@ item.scicraft:BronzeIngot.name=Bronze Ingot
 item.scicraft:SteelIngot.name=Steel Ingot
 item.scicraft:UnobtaniumIngot.name=Unobtanium Ingot
 
+item.scicraft:OilBucket.name=Oil Bucket
+
 item.scicraft:CopperSword.name=Copper Sword
 item.scicraft:TinSword.name=Tin Sword
 item.scicraft:SilverSword.name=Silver Sword
@@ -117,6 +119,9 @@ tile.scicraft:UraniumBlock.name=Uranium Block
 tile.scicraft:BronzeBlock.name=Bronze Block
 tile.scicraft:SteelBlock.name=Steel Block
 tile.scicraft:UnobtaniumBlock.name=Unobtanium Block
+
+tile.scicraft:OilBlock.name=Oil
+tile.scicraft:OilWellPlacer.name=Oil Well Placer
 
 tile.scicraft:PortalBlock.name=Portal
 
