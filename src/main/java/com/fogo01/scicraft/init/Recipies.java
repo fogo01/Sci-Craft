@@ -9,12 +9,15 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class Recipies {
 	public static void init(){
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.ALUMINUM_BLOCK), "III", "III", "III", 'I', "ingotAluminum"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.COPPER_BLOCK), "III", "III", "III", 'I', "ingotCopper"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.TIN_BLOCK), "III", "III", "III", 'I', "ingotTin"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.SILVER_BLOCK), "III", "III", "III", 'I', "ingotSilver"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.LEAD_BLOCK), "III", "III", "III", 'I', "ingotLead"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.URANIUM_BLOCK), "III", "III", "III", 'I', "ingotUranium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 0), "III", "III", "III", 'I', "ingotAluminum"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 1), "III", "III", "III", 'I', "ingotCopper"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 2), "III", "III", "III", 'I', "ingotTin"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 3), "III", "III", "III", 'I', "ingotSilver"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 4), "III", "III", "III", 'I', "ingotLead"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 5),"III", "III", "III", 'I', "ingotBronze"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 6),"III", "III", "III", 'I', "ingotSteel"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 7), "III", "III", "III", 'I', "ingotUranium"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.METAL_BLOCK, 1, 8),"III", "III", "III", 'I', "ingotUnobtanium"));
 
         String[] metals = {"Copper", "Tin", "Bronze", "Steel"};
         for (int i = 0; i < ModItems.SWORDS.length; i++)
@@ -48,12 +51,15 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.STEEL_ARMOR[2]), "III", "I I", "I I", 'I', "ingotSteel"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.STEEL_ARMOR[3]), "I I", "I I", 'I', "ingotSteel"));
 
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.ALUMINUM_INGOT, 9), ModBlocks.ALUMINUM_BLOCK));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.COPPER_INGOT, 9), ModBlocks.COPPER_BLOCK));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.TIN_INGOT, 9), ModBlocks.TIN_BLOCK));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.SILVER_INGOT, 9), ModBlocks.SILVER_BLOCK));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.LEAD_INGOT, 9), ModBlocks.LEAD_BLOCK));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.URANIUM_INGOT, 9), ModBlocks.URANIUM_BLOCK));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.ALUMINUM_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 0)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.COPPER_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 1)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.TIN_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 2)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.SILVER_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 3)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.LEAD_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 4)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.BRONZE_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 5)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.STEEL_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 6)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.URANIUM_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 7)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.UNOBTANIUM_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 8)));
 
 
         GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 0), new ItemStack(ModItems.ALUMINUM_INGOT), 0.6F);

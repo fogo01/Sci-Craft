@@ -5,15 +5,10 @@ public class Names {
         public static final String OVERWORLD_ORE = "Ore";
         public static final String[] OVERWORLD_ORES = {"AluminumOre", "CopperOre", "TinOre", "SilverOre", "LeadOre", "UraniumOre"};
 
-        public static final String ALUMINUM_BLOCK = "AluminumBlock";
-        public static final String COPPER_BLOCK = "CopperBlock";
-        public static final String TIN_BLOCK = "TinBlock";
-        public static final String BRONZE_BLOCK = "BronzeBlock";
-        public static final String STEEL_BLOCK = "SteelBlock";
-        public static final String SILVER_BLOCK = "SilverBlock";
-        public static final String LEAD_BLOCK = "LeadBlock";
-        public static final String URANIUM_BLOCK = "UraniumBlock";
-        public static final String UNOBTANIUM_BLOCK = "UnobtaniumBlock";
+
+        public static final String METAL_BLOCK = "Block";
+        public static final String[] METAL_BLOCKS ={"AluminumBlock", "CopperBlock", "TinBlock", "SilverBlock", "LeadBlock", "BronzeBlock", "SteelBlock", "UraniumBlock", "UnobtaniumBlock"};
+
 
         public static final String MOON_DUST = "MoonDust";
         public static final String MOON_ROCK = "MoonRock";
