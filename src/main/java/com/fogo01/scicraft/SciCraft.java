@@ -46,6 +46,7 @@ public class SciCraft {
         ModAchievements.init();
 
         BucketHandler.INSTANCE.buckets.put(ModBlocks.OIL_BLOCK, ModItems.OIL_BUCKET);
+        BucketHandler.INSTANCE.buckets.put(ModBlocks.FUEL_BLOCK, ModItems.FUEL_BUCKET);
         MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);

@@ -11,7 +11,7 @@ import com.fogo01.scicraft.items.armors.steel.*;
 import com.fogo01.scicraft.items.armors.unobtanium.*;
 import com.fogo01.scicraft.items.armors.spaceSuit.*;
 import com.fogo01.scicraft.items.armors.thoughSpaceSuit.*;
-import com.fogo01.scicraft.items.buckets.ItemOilBucket;
+import com.fogo01.scicraft.items.buckets.*;
 import com.fogo01.scicraft.items.swords.*;
 import com.fogo01.scicraft.items.pickaxes.*;
 import com.fogo01.scicraft.items.shovels.*;
@@ -32,6 +32,7 @@ public class ModItems {
     public static final ItemSciCraft UNOBTANIUM_INGOT = new ItemUnobtaniumIngot();
 
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
+    public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
 
     public static final ItemSciCraftSword[] SWORDS = {new ItemCopperSword(), new ItemTinSword(), new ItemSilverSword(), new ItemLeadSword(), new ItemBronzeSword(), new ItemSteelSword(), new ItemUnobtaniumSword()};
     public static final ItemSciCraftPickaxe[] PICKAXES = {new ItemCopperPickaxe(), new ItemTinPickaxe(), new ItemSilverPickaxe(), new ItemLeadPickaxe(), new ItemBronzePickaxe(), new ItemSteelPickaxe(), new ItemUnobtaniumPickaxe()};
@@ -41,7 +42,7 @@ public class ModItems {
 
     public static final ItemSciCraftArmor[] COPPER_ARMOR = {new ItemCopperHelmet(), new ItemCopperChestplate(), new ItemCopperLeggings(), new ItemCopperBoots()};
     public static final ItemSciCraftArmor[] TIN_ARMOR = {new ItemTinHelmet(), new ItemTinChestplate(), new ItemTinLeggings(), new ItemTinBoots()};
-    public static final ItemSciCraftArmor[] SILVER_ARMOR = {new ItemTinHelmet(), new ItemSilverChestplate(), new ItemSilverLeggings(), new ItemSilverBoots()};
+    public static final ItemSciCraftArmor[] SILVER_ARMOR = {new ItemSilverHelmet(), new ItemSilverChestplate(), new ItemSilverLeggings(), new ItemSilverBoots()};
     public static final ItemSciCraftArmor[] LEAD_ARMOR = {new ItemLeadHelmet(), new ItemLeadChestplate(), new ItemLeadLeggings(), new ItemLeadBoots()};
     public static final ItemSciCraftArmor[] BRONZE_ARMOR = {new ItemBronzeHelmet(), new ItemBronzeChestplate(), new ItemBronzeLeggings(), new ItemBronzeBoots()};
     public static final ItemSciCraftArmor[] STEEL_ARMOR = {new ItemSteelHelmet(), new ItemSteelChestplate(), new ItemSteelLeggings(), new ItemSteelBoots()};
@@ -61,6 +62,7 @@ public class ModItems {
         GameRegistry.registerItem(UNOBTANIUM_INGOT, Names.Items.UNOBTANIUM_INGOT);
 
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
+        GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);
 
         for (int i = 0; i < SWORDS.length; i++) {
             GameRegistry.registerItem(SWORDS[i], Names.Items.SWORDS[i]);

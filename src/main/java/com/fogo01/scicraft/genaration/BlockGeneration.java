@@ -1,13 +1,11 @@
 package com.fogo01.scicraft.genaration;
 
-import com.fogo01.scicraft.blocks.BlockSciCraft;
 import com.fogo01.scicraft.handler.ConfigurationHandler;
 import com.fogo01.scicraft.init.ModBlocks;
 import com.fogo01.scicraft.reference.Dimensions;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -32,7 +30,6 @@ public class BlockGeneration implements IWorldGenerator {
         }
     }
 
-
     private void generateSurface(World world, Random random, int x, int z) {
         if(ConfigurationHandler.AlGen)
             addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 0);
@@ -46,6 +43,8 @@ public class BlockGeneration implements IWorldGenerator {
             addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 4);
         if (ConfigurationHandler.UGen)
             addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(2), 3, 13, 24, 5);
+
+        addOilWell(ModBlocks.OIL_BLOCK, world, random, x, z, 16, 16, 1, 1, 16, 30);
     }
 
     private void generateNether(World world, Random random, int x, int z) {
@@ -54,6 +53,17 @@ public class BlockGeneration implements IWorldGenerator {
 
     private void generateEnd(World world, Random random, int x, int z) {
 
+    }
+
+    private void addOilWell(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY) {
+        if (random.nextInt(640) > 0)
+            return;
+        for (int i = 0; i < chanceToSpawn; i++) {
+            int posX = blockXPos + random.nextInt(maxX);
+            int posY = minY + random.nextInt(maxY - minY);
+            int posZ = blockZPos + random.nextInt(maxZ);
+            new OilWell().generate(world, random, posX, posY, posZ);
+        }
     }
 
     private void generateMoon(World world, Random random, int x, int z) {
