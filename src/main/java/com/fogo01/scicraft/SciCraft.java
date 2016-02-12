@@ -3,6 +3,7 @@ package com.fogo01.scicraft;
 import com.fogo01.scicraft.biomes.WorldTypeMoon;
 import com.fogo01.scicraft.dimensions.DimensionRegistry;
 import com.fogo01.scicraft.genaration.BlockGeneration;
+import com.fogo01.scicraft.handler.BucketHandler;
 import com.fogo01.scicraft.handler.ConfigurationHandler;
 import com.fogo01.scicraft.handler.GuiHandler;
 import com.fogo01.scicraft.init.*;
@@ -18,6 +19,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.WorldType;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERISION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SciCraft {
@@ -35,11 +37,16 @@ public class SciCraft {
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
+        ModFluids.init();
+        ModBuckets.init();
         ModItems.init();
         ModBlocks.init();
         OreDict.init();
         ModEntities.init();
         ModAchievements.init();
+
+        BucketHandler.INSTANCE.buckets.put(ModBlocks.OIL_BLOCK, ModItems.OIL_BUCKET);
+        MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 

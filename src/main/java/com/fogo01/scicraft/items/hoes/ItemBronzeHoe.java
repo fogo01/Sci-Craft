@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemBronzeHoe extends ItemSciCraftHoe {
     public ItemBronzeHoe() {
         super(Materials.Tools.TOOL_BRONZE);
-        this.setUnlocalizedName(Names.Items.HOES[2]);
+        this.setUnlocalizedName(Names.Items.HOES[4]);
     }
 }

@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSteelSword extends ItemSciCraftSword {
     public ItemSteelSword() {
         super(Materials.Tools.TOOL_STEEL);
-        this.setUnlocalizedName(Names.Items.SWORDS[3]);
+        this.setUnlocalizedName(Names.Items.SWORDS[5]);
     }
 }

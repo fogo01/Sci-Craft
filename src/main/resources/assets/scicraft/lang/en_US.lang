@@ -14,30 +14,47 @@ item.scicraft:BronzeIngot.name=Bronze Ingot
 item.scicraft:SteelIngot.name=Steel Ingot
 item.scicraft:UnobtaniumIngot.name=Unobtanium Ingot
 
+item.scicraft:OilBucket.name=Oil Bucket
+
 item.scicraft:CopperSword.name=Copper Sword
 item.scicraft:TinSword.name=Tin Sword
+item.scicraft:SilverSword.name=Silver Sword
+item.scicraft:LeadSword.name=Lead Sword
 item.scicraft:BronzeSword.name=Bronze Sword
 item.scicraft:SteelSword.name=Steel Sword
+item.scicraft:UnobtaniumSword.name=Unobtanium Sword
 
 item.scicraft:CopperPickaxe.name=Copper Pickaxe
 item.scicraft:TinPickaxe.name=Tin Pickaxe
+item.scicraft:SilverPickaxe.name=Silver Pickaxe
+item.scicraft:LeadPickaxe.name=Lead Pickaxe
 item.scicraft:BronzePickaxe.name=Bronze Pickaxe
 item.scicraft:SteelPickaxe.name=Steel Pickaxe
+item.scicraft:UnobtaniumPickaxe.name=Unobtanium Pickaxe
 
 item.scicraft:CopperShovel.name=Copper Shovel
 item.scicraft:TinShovel.name=Tin Shovel
+item.scicraft:SilverShovel.name=Silver Shovel
+item.scicraft:LeadShovel.name=Lead Shovel
 item.scicraft:BronzeShovel.name=Bronze Shovel
 item.scicraft:SteelShovel.name=Steel Shovel
+item.scicraft:UnobtaniumShovel.name=Unobtanium Shovel
 
 item.scicraft:CopperAxe.name=Copper Axe
 item.scicraft:TinAxe.name=Tin Axe
+item.scicraft:SilverAxe.name=Silver Axe
+item.scicraft:LeadAxe.name=Lead Axe
 item.scicraft:BronzeAxe.name=Bronze Axe
 item.scicraft:SteelAxe.name=Steel Axe
+item.scicraft:UnobtaniumAxe.name=Unobtanium Axe
 
 item.scicraft:CopperHoe.name=Copper Hoe
 item.scicraft:TinHoe.name=Tin Hoe
+item.scicraft:SilverHoe.name=Silver Hoe
+item.scicraft:LeadHoe.name=Lead Hoe
 item.scicraft:BronzeHoe.name=Bronze Hoe
 item.scicraft:SteelHoe.name=Steel Hoe
+item.scicraft:UnobtaniumHoe.name=Unobtanium Hoe
 
 item.scicraft:CopperHelmet.name=Copper Helmet
 item.scicraft:CopperChestplate.name=Copper Chestplate
@@ -49,6 +66,16 @@ item.scicraft:TinChestplate.name=Tin Chestplate
 item.scicraft:TinLeggings.name=Tin Leggings
 item.scicraft:TinBoots.name=Tin Boots
 
+item.scicraft:SilverHelmet.name=Silver Helmet
+item.scicraft:SilverChestplate.name=Silver Chestplate
+item.scicraft:SilverLeggings.name=Silver Leggings
+item.scicraft:SilverBoots.name=Silver Boots
+
+item.scicraft:LeadHelmet.name=Lead Helmet
+item.scicraft:LeadChestplate.name=Lead Chestplate
+item.scicraft:LeadLeggings.name=Lead Leggings
+item.scicraft:LeadBoots.name=Lead Boots
+
 item.scicraft:BronzeHelmet.name=Bronze Helmet
 item.scicraft:BronzeChestplate.name=Bronze Chestplate
 item.scicraft:BronzeLeggings.name=Bronze Leggings
@@ -58,6 +85,11 @@ item.scicraft:SteelHelmet.name=Steel Helmet
 item.scicraft:SteelChestplate.name=Steel Chestplate
 item.scicraft:SteelLeggings.name=Steel Leggings
 item.scicraft:SteelBoots.name=Steel Boots
+
+item.scicraft:UnobtaniumHelmet.name=Unobtanium Helmet
+item.scicraft:UnobtaniumChestplate.name=Unobtanium Chestplate
+item.scicraft:UnobtaniumLeggings.name=Unobtanium Leggings
+item.scicraft:UnobtaniumBoots.name=Unobtanium Boots
 
 item.scicraft:SpaceSuitHelmet.name=Spacesuit Helmet
 item.scicraft:SpaceSuitChestplate.name=Spacesuit Chestplate
@@ -87,6 +119,9 @@ tile.scicraft:UraniumBlock.name=Uranium Block
 tile.scicraft:BronzeBlock.name=Bronze Block
 tile.scicraft:SteelBlock.name=Steel Block
 tile.scicraft:UnobtaniumBlock.name=Unobtanium Block
+
+tile.scicraft:OilBlock.name=Oil
+tile.scicraft:OilWellPlacer.name=Oil Well Placer
 
 tile.scicraft:PortalBlock.name=Portal
 

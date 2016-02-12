@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSteelBoots extends ItemSciCraftArmor {
     public ItemSteelBoots() {
         super(Materials.Armor.ARMOR_STEEL, 1, 3);
-        this.setUnlocalizedName(Names.Items.STEEL_ARMOR[3]);
+        this.setUnlocalizedName(Names.Items.STEEL_ARMOR[armorType]);
     }
 }

@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemBronzeHelmet extends ItemSciCraftArmor {
     public ItemBronzeHelmet() {
         super(Materials.Armor.ARMOR_BRONZE, 1, 0);
-        this.setUnlocalizedName(Names.Items.BRONZE_ARMOR[0]);
+        this.setUnlocalizedName(Names.Items.BRONZE_ARMOR[armorType]);
     }
 }

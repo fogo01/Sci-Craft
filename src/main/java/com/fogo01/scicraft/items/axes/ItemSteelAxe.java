@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSteelAxe extends ItemSciCraftAxe {
     public ItemSteelAxe() {
         super(Materials.Tools.TOOL_STEEL);
-        this.setUnlocalizedName(Names.Items.AXES[3]);
+        this.setUnlocalizedName(Names.Items.AXES[5]);
     }
 }

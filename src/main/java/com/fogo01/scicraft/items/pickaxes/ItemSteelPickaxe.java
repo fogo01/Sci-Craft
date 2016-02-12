@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSteelPickaxe extends ItemSciCraftPickaxe {
     public ItemSteelPickaxe() {
         super(Materials.Tools.TOOL_STEEL);
-        this.setUnlocalizedName(Names.Items.PICKAXES[3]);
+        this.setUnlocalizedName(Names.Items.PICKAXES[5]);
     }
 }

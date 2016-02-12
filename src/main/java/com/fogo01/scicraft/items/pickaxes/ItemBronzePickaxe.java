@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemBronzePickaxe extends ItemSciCraftPickaxe {
     public ItemBronzePickaxe() {
         super(Materials.Tools.TOOL_BRONZE);
-        this.setUnlocalizedName(Names.Items.PICKAXES[2]);
+        this.setUnlocalizedName(Names.Items.PICKAXES[4]);
     }
 }

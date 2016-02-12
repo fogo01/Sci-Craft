@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemThoughSpaceChestplate extends ItemSciCraftArmor {
     public ItemThoughSpaceChestplate() {
         super(Materials.Armor.ARMOR_THOUGH_SPACESUIT, 1, 1);
-        this.setUnlocalizedName(Names.Items.THOUGH_SPACE_SUIT[1]);
+        this.setUnlocalizedName(Names.Items.THOUGH_SPACE_SUIT[armorType]);
     }
 }

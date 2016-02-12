@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemSteelLeggings extends ItemSciCraftArmor {
     public ItemSteelLeggings() {
         super(Materials.Armor.ARMOR_STEEL, 2, 2);
-        this.setUnlocalizedName(Names.Items.STEEL_ARMOR[2]);
+        this.setUnlocalizedName(Names.Items.STEEL_ARMOR[armorType]);
     }
 }

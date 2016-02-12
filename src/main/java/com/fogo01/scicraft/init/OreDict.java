@@ -22,6 +22,7 @@ public class OreDict {
         OreDictionary.registerOre("oreLead", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 4));
         OreDictionary.registerOre("oreUranium", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 5));
 
+
         OreDictionary.registerOre("blockAluminum", new ItemStack(ModBlocks.METAL_BLOCK, 1, 0));
         OreDictionary.registerOre("blockCopper", new ItemStack(ModBlocks.METAL_BLOCK, 1, 1));
         OreDictionary.registerOre("blockTin", new ItemStack(ModBlocks.METAL_BLOCK, 1, 2));

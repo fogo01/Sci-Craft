@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemBronzeShovel extends ItemSciCraftShovel {
     public ItemBronzeShovel() {
         super(Materials.Tools.TOOL_BRONZE);
-        this.setUnlocalizedName(Names.Items.SHOVELS[2]);
+        this.setUnlocalizedName(Names.Items.SHOVELS[4]);
     }
 }

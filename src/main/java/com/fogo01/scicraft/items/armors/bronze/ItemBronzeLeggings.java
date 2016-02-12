@@ -7,6 +7,6 @@ import com.fogo01.scicraft.reference.Names;
 public class ItemBronzeLeggings extends ItemSciCraftArmor {
     public ItemBronzeLeggings() {
         super(Materials.Armor.ARMOR_BRONZE, 2, 2);
-        this.setUnlocalizedName(Names.Items.BRONZE_ARMOR[2]);
+        this.setUnlocalizedName(Names.Items.BRONZE_ARMOR[armorType]);
     }
 }
