@@ -1,9 +1,5 @@
 package com.fogo01.scicraft.handler;
 
-import com.fogo01.scicraft.client.gui.inventory.GuiSolarPanel;
-import com.fogo01.scicraft.container.inventory.ContainerSolarPanel;
-import com.fogo01.scicraft.reference.GUIs;
-import com.fogo01.scicraft.tileentity.TileEntitySolarPanel;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -15,9 +11,8 @@ public class GuiHandler implements IGuiHandler {
         TileEntity entity = world.getTileEntity(x, y ,z);
 
         if (entity != null) {
-            if (ID == GUIs.SOLAR_PANEL.ordinal()) {
-                TileEntitySolarPanel tileEntitySolarPanel = (TileEntitySolarPanel) world.getTileEntity(x, y, z);
-                return new ContainerSolarPanel(player.inventory, tileEntitySolarPanel);
+            switch (ID){
+
             }
         }
         return null;
@@ -28,9 +23,8 @@ public class GuiHandler implements IGuiHandler {
         TileEntity entity = world.getTileEntity(x, y ,z);
 
         if (entity != null) {
-            if (ID == GUIs.SOLAR_PANEL.ordinal()) {
-                TileEntitySolarPanel tileEntitySolarPanel = (TileEntitySolarPanel) world.getTileEntity(x, y, z);
-                return new GuiSolarPanel(player.inventory, tileEntitySolarPanel);
+            switch (ID){
+
             }
         }
         return null;
