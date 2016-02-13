@@ -31,6 +31,10 @@ public class ModItems {
     public static final ItemSciCraft STEEL_INGOT = new ItemSteelIngot();
     public static final ItemSciCraft UNOBTANIUM_INGOT = new ItemUnobtaniumIngot();
 
+    public static final ItemSciCraft WRENCH = new ItemWrench();
+
+    public static final ItemSciCraft BATTERY = new ItemBattery();
+
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
     public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
 
@@ -60,6 +64,10 @@ public class ModItems {
         GameRegistry.registerItem(BRONZE_INGOT, Names.Items.BRONZE_INGOT);
         GameRegistry.registerItem(STEEL_INGOT, Names.Items.STEEL_INGOT);
         GameRegistry.registerItem(UNOBTANIUM_INGOT, Names.Items.UNOBTANIUM_INGOT);
+
+        GameRegistry.registerItem(WRENCH, Names.Items.WRENCH);
+
+        GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);
 
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
         GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);
