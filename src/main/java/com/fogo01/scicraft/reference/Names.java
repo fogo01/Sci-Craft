@@ -9,6 +9,8 @@ public class Names {
         public static final String METAL_BLOCK = "Block";
         public static final String[] METAL_BLOCKS ={"AluminumBlock", "CopperBlock", "TinBlock", "SilverBlock", "LeadBlock", "BronzeBlock", "SteelBlock", "UraniumBlock", "UnobtaniumBlock"};
 
+        public static final String SOLAR_PANEL = "SolarPanel";
+        public static final String ENERGY_CABLE = "EnergyCable";
 
         public static final String MOON_DUST = "MoonDust";
         public static final String MOON_ROCK = "MoonRock";
@@ -33,6 +35,10 @@ public class Names {
         public static final String STEEL_INGOT = "SteelIngot";
         public static final String UNOBTANIUM_INGOT = "UnobtaniumIngot";
 
+        public static final String WRENCH = "Wrench";
+
+        public static final String BATTERY = "Battery";
+
         public static final String OIL_BUCKET = "OilBucket";
         public static final String FUEL_BUCKET = "FuelBucket";
 
@@ -55,7 +61,7 @@ public class Names {
     }
 
     public static final class Containers {
-
+        public static final String CONTAINER_SOLAR_PANEL = "container.SolarPanel";
     }
 
     public static final class Entities {
