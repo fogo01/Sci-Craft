@@ -1,17 +1,19 @@
 package com.fogo01.scicraft.tileentity;
 
+import com.fogo01.scicraft.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntitySciCraft extends TileEntity implements ISidedInventory {
-    private String localizedName;
-    private static final int[] slotsTop = new int[]{0};
-    private static final int[] slotsBottom = new int[]{0};
-    private static final int[] slotsSides = new int[]{0};
-    private ItemStack[] inventory;
+public class TileEntitySciCraft extends TileEntity {
+    public String localizedName;
+    public static final int[] slotsTop = new int[]{0};
+    public static final int[] slotsBottom = new int[]{0};
+    public static final int[] slotsSides = new int[]{0};
+    public ItemStack[] inventory;
 
+    /**
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
         return side == 0 ? slotsBottom : (side == 1 ? slotsTop : slotsSides);
@@ -24,17 +26,17 @@ public class TileEntitySciCraft extends TileEntity implements ISidedInventory {
 
     @Override
     public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return false;
+        return true;
     }
 
     @Override
     public int getSizeInventory() {
-        return 0;
+        return inventory.length;
     }
 
     @Override
-    public ItemStack getStackInSlot(int p_70301_1_) {
-        return null;
+    public ItemStack getStackInSlot(int slot) {
+        return this.inventory[slot];
     }
 
     @Override
@@ -68,33 +70,48 @@ public class TileEntitySciCraft extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        return null;
+    public ItemStack getStackInSlotOnClosing(int slot) {
+        if (inventory[slot] != null)
+        {
+            ItemStack itemStack = inventory[slot];
+            inventory[slot] = null;
+            return itemStack;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @Override
-    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
+    public void setInventorySlotContents(int slot, ItemStack itemStack) {
+        inventory[slot] = itemStack;
 
+        if (itemStack != null && itemStack.stackSize > this.getInventoryStackLimit()) {
+            itemStack.stackSize = this.getInventoryStackLimit();
+        }
+
+        this.markDirty();
     }
 
     @Override
     public String getInventoryName() {
-        return null;
+        return this.localizedName;
     }
 
     @Override
     public boolean hasCustomInventoryName() {
-        return false;
+        return this.localizedName != null && this.localizedName.length() > 0;
     }
 
     @Override
     public int getInventoryStackLimit() {
-        return 0;
+        return 64;
     }
 
     @Override
-    public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-        return false;
+    public boolean isUseableByPlayer(EntityPlayer player) {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
     }
 
     @Override
@@ -109,6 +126,7 @@ public class TileEntitySciCraft extends TileEntity implements ISidedInventory {
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        return false;
+        return true;
     }
+    */
 }

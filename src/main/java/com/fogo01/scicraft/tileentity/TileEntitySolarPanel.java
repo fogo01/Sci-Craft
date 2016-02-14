@@ -3,7 +3,6 @@ package com.fogo01.scicraft.tileentity;
 import com.fogo01.scicraft.blocks.containers.BlockSolarPanel;
 import com.fogo01.scicraft.reference.Chargeables;
 import com.fogo01.scicraft.reference.Names;
-import com.fogo01.scicraft.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -12,17 +11,20 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
 
 public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements ISidedInventory {
-    private String localizedName;
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{0};
     private static final int[] slotsSides = new int[]{0};
     private ItemStack[] inventory = new ItemStack[1];
-    public int maxEnergyAmount = 32000;
-    public int currentEnergyAmount = 0;
-    public int transferRate = 100;
     public int energyProduction = 0;
     public int itemEnergyAmount = 0;
     private int maxItemEnergyAmount = 1;
+
+    public TileEntitySolarPanel() {
+        maxEnergyAmount = 32000;
+        currentEnergyAmount = 0;
+        transferRate = 100;
+        acceptingEnergy = false;
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {

@@ -62,6 +62,7 @@ public class SciCraft {
         Recipies.init();
 
         proxy.registerRenderThings();
+        proxy.registerTileEntitySpecialRender();
 
         LogHelper.info("Initialization Complete!");
     }

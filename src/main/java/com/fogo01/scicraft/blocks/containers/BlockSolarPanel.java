@@ -6,7 +6,6 @@ import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.GUIs;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.tileentity.TileEntitySolarPanel;
-import com.fogo01.scicraft.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,9 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
 
 public class BlockSolarPanel extends BlockSciCraftContainer {
     @SideOnly(Side.CLIENT)
@@ -39,7 +36,7 @@ public class BlockSolarPanel extends BlockSciCraftContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (!player.isSneaking())
-            if (player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.WRENCH)
+            if (player.getHeldItem() != null && (player.getHeldItem().getItem() == ModItems.WRENCH || player.getHeldItem().getItem() == ModItems.MULTIMETER))
                 return false;
             if (!world.isRemote)
                 if (world.getTileEntity(x, y, z) instanceof TileEntitySolarPanel)

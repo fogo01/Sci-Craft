@@ -1,9 +1,9 @@
 package com.fogo01.scicraft.tileentity;
 
-import net.minecraft.inventory.ISidedInventory;
 
-public class TileEntitySciCraftEnergy extends TileEntitySciCraft implements ISidedInventory {
+public class TileEntitySciCraftEnergy extends TileEntitySciCraft {
     public int maxEnergyAmount;
     public int currentEnergyAmount;
     public int transferRate;
+    public boolean acceptingEnergy;
 }

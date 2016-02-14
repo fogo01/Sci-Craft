@@ -32,6 +32,7 @@ public class ModItems {
     public static final ItemSciCraft UNOBTANIUM_INGOT = new ItemUnobtaniumIngot();
 
     public static final ItemSciCraft WRENCH = new ItemWrench();
+    public static final ItemSciCraft MULTIMETER = new ItemMultimeter();
 
     public static final ItemSciCraft BATTERY = new ItemBattery();
 
@@ -66,6 +67,7 @@ public class ModItems {
         GameRegistry.registerItem(UNOBTANIUM_INGOT, Names.Items.UNOBTANIUM_INGOT);
 
         GameRegistry.registerItem(WRENCH, Names.Items.WRENCH);
+        GameRegistry.registerItem(MULTIMETER, Names.Items.MULTIMETER);
 
         GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);
 

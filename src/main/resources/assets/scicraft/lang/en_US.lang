@@ -14,6 +14,10 @@ item.scicraft:BronzeIngot.name=Bronze Ingot
 item.scicraft:SteelIngot.name=Steel Ingot
 item.scicraft:UnobtaniumIngot.name=Unobtanium Ingot
 
+item.scicraft:Wrench.name=Wrench
+item.scicraft:Multimeter.name=Multimeter
+item.scicraft:Battery.name=Battery
+
 item.scicraft:OilBucket.name=Oil Bucket
 item.scicraft:FuelBucket.name=Fuel Bucket
 
@@ -110,6 +114,9 @@ tile.scicraft:TinOre.name=Tin Ore
 tile.scicraft:SilverOre.name=Silver Ore
 tile.scicraft:LeadOre.name=Lead Ore
 tile.scicraft:UraniumOre.name=Uranium Ore
+
+tile.scicraft:SolarPanel.name=Solar Panel
+tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block
 tile.scicraft:CopperBlock.name=Copper Block

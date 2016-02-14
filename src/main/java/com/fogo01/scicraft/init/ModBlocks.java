@@ -14,6 +14,7 @@ public class ModBlocks {
     public static final BlockSciCraft METAL_BLOCK = new BlockMetalBlock();
 
     public static final BlockSciCraftContainer SOLAR_PANEL = new BlockSolarPanel();
+    public static final BlockSciCraftContainer ENERGY_CABLE = new BlockEnergyCable();
 
     public static final BlockSciCraft MOON_DUST = new BlockMoonDust();
     public static final BlockSciCraft MOON_ROCK = new BlockMoonRock();
@@ -31,6 +32,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(METAL_BLOCK, ItemBlockMetalBlock.class, Names.Blocks.METAL_BLOCK);
 
         GameRegistry.registerBlock(SOLAR_PANEL, Names.Blocks.SOLAR_PANEL);
+        GameRegistry.registerBlock(ENERGY_CABLE, Names.Blocks.ENERGY_CABLE);
 
         GameRegistry.registerBlock(MOON_DUST, Names.Blocks.MOON_DUST);
         GameRegistry.registerBlock(MOON_ROCK, Names.Blocks.MOON_ROCK);
