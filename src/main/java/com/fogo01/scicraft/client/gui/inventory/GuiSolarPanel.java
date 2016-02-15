@@ -2,6 +2,7 @@ package com.fogo01.scicraft.client.gui.inventory;
 
 import com.fogo01.scicraft.container.inventory.ContainerSolarPanel;
 import com.fogo01.scicraft.reference.Reference;
+import com.fogo01.scicraft.reference.Units;
 import com.fogo01.scicraft.tileentity.TileEntitySolarPanel;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
@@ -26,10 +27,10 @@ public class GuiSolarPanel extends GuiContainer {
         name = I18n.format("container.inventory", new Object[0]);
         this.fontRendererObj.drawString(name, 8, this.ySize - 96 + 2, 4210752);
 
-        name = "Energy Production: " + tileEntitySolarPanel.energyProduction + "W";
+        name = "Energy Production: " + tileEntitySolarPanel.energyProduction + Units.Energy.ENERGY_GAIN_SHORT;
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 20, 4210752);
 
-        name = "Energy: " + tileEntitySolarPanel.currentEnergyAmount + "/" + tileEntitySolarPanel.maxEnergyAmount + "W";
+        name = "Energy: " + tileEntitySolarPanel.currentEnergyAmount + "/" + tileEntitySolarPanel.maxEnergyAmount + Units.Energy.ENERGY_STORAGE_SHORT;
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 60, 4210752);
     }
 

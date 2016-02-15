@@ -13,7 +13,11 @@ public class TileEntityEnergyCable extends TileEntityPipe {
     @Override
     public void updateEntity() {
         this.updateConnections();
+        if (!worldObj.isRemote)
+            this.tryEnergyTransfer();
 
+
+        /*
         for (int i = 0; i < connections.length; i++) {
             if (connections[i] != null) {
                 int x = 0, y = 0, z = 0;
@@ -57,5 +61,6 @@ public class TileEntityEnergyCable extends TileEntityPipe {
                 }
             }
         }
+        */
     }
 }

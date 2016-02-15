@@ -1,8 +1,11 @@
 package com.fogo01.scicraft.handler;
 
+import com.fogo01.scicraft.client.gui.inventory.GuiBatteryCell;
 import com.fogo01.scicraft.client.gui.inventory.GuiSolarPanel;
+import com.fogo01.scicraft.container.inventory.ContainerBatteryCell;
 import com.fogo01.scicraft.container.inventory.ContainerSolarPanel;
 import com.fogo01.scicraft.reference.GUIs;
+import com.fogo01.scicraft.tileentity.TileEntityBatteryCell;
 import com.fogo01.scicraft.tileentity.TileEntitySolarPanel;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +21,9 @@ public class GuiHandler implements IGuiHandler {
             if (ID == GUIs.SOLAR_PANEL.ordinal()) {
                 TileEntitySolarPanel tileEntitySolarPanel = (TileEntitySolarPanel) world.getTileEntity(x, y, z);
                 return new ContainerSolarPanel(player.inventory, tileEntitySolarPanel);
+            } else if (ID == GUIs.BATTERY_CELL.ordinal()) {
+                TileEntityBatteryCell tileEntityBatteryCell = (TileEntityBatteryCell) world.getTileEntity(x, y, z);
+                return new ContainerBatteryCell(player.inventory, tileEntityBatteryCell);
             }
         }
         return null;
@@ -31,6 +37,9 @@ public class GuiHandler implements IGuiHandler {
             if (ID == GUIs.SOLAR_PANEL.ordinal()) {
                 TileEntitySolarPanel tileEntitySolarPanel = (TileEntitySolarPanel) world.getTileEntity(x, y, z);
                 return new GuiSolarPanel(player.inventory, tileEntitySolarPanel);
+            } else if (ID == GUIs.BATTERY_CELL.ordinal()) {
+                TileEntityBatteryCell tileEntityBatteryCell = (TileEntityBatteryCell) world.getTileEntity(x, y, z);
+                return new GuiBatteryCell(player.inventory, tileEntityBatteryCell);
             }
         }
         return null;

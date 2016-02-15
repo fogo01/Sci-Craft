@@ -3,10 +3,8 @@ package com.fogo01.scicraft.proxy;
 import com.fogo01.scicraft.entities.monsters.EntityAlien;
 import com.fogo01.scicraft.models.ModelAlien;
 import com.fogo01.scicraft.render.tileentities.TileEntityRenderEnergyCable;
-import com.fogo01.scicraft.render.tileentities.TileEntityRenderPipe;
 import com.fogo01.scicraft.render.mobs.RenderEntityAlien;
 import com.fogo01.scicraft.tileentity.TileEntityEnergyCable;
-import com.fogo01.scicraft.tileentity.TileEntityPipe;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

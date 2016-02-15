@@ -1,30 +1,28 @@
 package com.fogo01.scicraft.tileentity;
 
-import com.fogo01.scicraft.blocks.containers.BlockSolarPanel;
 import com.fogo01.scicraft.reference.Chargeables;
 import com.fogo01.scicraft.reference.Names;
-import com.fogo01.scicraft.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.MathHelper;
 
-public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements ISidedInventory {
+public class TileEntityBatteryCell extends TileEntitySciCraftEnergy implements ISidedInventory {
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{0};
     private static final int[] slotsSides = new int[]{0};
-    public int energyProduction = 0;
-    public int itemEnergyAmount = 0;
-    private int maxItemEnergyAmount = 1;
+    public int itemEnergyAmount1 = 0;
+    private int maxItemEnergyAmount1 = 1;
+    public int itemEnergyAmount2 = 0;
+    private int maxItemEnergyAmount2 = 1;
 
-    public TileEntitySolarPanel() {
-        maxEnergyAmount = 32000;
+    public TileEntityBatteryCell() {
+        maxEnergyAmount = (int)1e6;
         currentEnergyAmount = 0;
-        transferRate = 100;
-        acceptingEnergy = false;
-        inventory = new ItemStack[1];
+        transferRate = 16000;
+        acceptingEnergy = true;
+        inventory = new ItemStack[2];
     }
 
     @Override
@@ -150,7 +148,7 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
 
     @Override
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.localizedName : Names.Containers.CONTAINER_SOLAR_PANEL;
+        return this.hasCustomInventoryName() ? this.localizedName : Names.Containers.CONTAINER_BATTERY_CELL;
     }
 
     @Override
@@ -192,63 +190,32 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
 
     @Override
     public void updateEntity() {
-        if (this.worldObj != null && !this.worldObj.isRemote) {
-            this.tryEnergyTransfer();
+        itemEnergyAmount1 = 0;
+        maxItemEnergyAmount1 = 1;
+        if (inventory[0] != null) {
+            itemEnergyAmount1 = inventory[0].getMaxDamage() - inventory[0].getItemDamage();
+            maxItemEnergyAmount1 = inventory[0].getMaxDamage();
+        }
 
-            if (this.worldObj.getTotalWorldTime() % 20L == 0L) {
-                this.blockType = this.getBlockType();
+        itemEnergyAmount2 = 0;
+        maxItemEnergyAmount2 = 1;
+        if (inventory[1] != null) {
+            itemEnergyAmount2 = inventory[1].getMaxDamage() - inventory[1].getItemDamage();
+            maxItemEnergyAmount2 = inventory[1].getMaxDamage();
 
-                if (this.blockType instanceof BlockSolarPanel) {
-                    this.energyProduction = 0;
-                    if (currentEnergyAmount < maxEnergyAmount)
-                        this.energyProduction = getLightLevel() * 80;
-                }
-            }
-
-            if (energyProduction > 0) {
-                if (currentEnergyAmount + energyProduction >= maxEnergyAmount)
-                    currentEnergyAmount = maxEnergyAmount;
-                else
-                    currentEnergyAmount += energyProduction;
-            }
-
-            itemEnergyAmount = 0;
-            maxItemEnergyAmount = 1;
-            if (inventory[0] != null) {
-                itemEnergyAmount = inventory[0].getMaxDamage() - inventory[0].getItemDamage();
-                maxItemEnergyAmount = inventory[0].getMaxDamage();
-
-                if (isChargeable(inventory[0])) {
-                    if (inventory[0].getItemDamage() > 0) {
-                        if (inventory[0].getItemDamage() > transferRate) {
-                            if (currentEnergyAmount >= transferRate) {
-                                inventory[0].setItemDamage(inventory[0].getItemDamage() - transferRate);
-                                currentEnergyAmount -= transferRate;
-                            }
-                        } else {
-                            currentEnergyAmount -= inventory[0].getItemDamage();
-                            inventory[0].setItemDamage(0);
+            if (isChargeable(inventory[1])) {
+                if (inventory[1].getItemDamage() > 0) {
+                    if (inventory[1].getItemDamage() > transferRate) {
+                        if (currentEnergyAmount >= transferRate) {
+                            inventory[1].setItemDamage(inventory[1].getItemDamage() - transferRate);
+                            currentEnergyAmount -= transferRate;
                         }
+                    } else {
+                        currentEnergyAmount -= inventory[1].getItemDamage();
+                        inventory[1].setItemDamage(0);
                     }
                 }
             }
-        }
-    }
-
-    private int getLightLevel() {
-        if (worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord)) {
-            float celestialAngleRadians = worldObj.getCelestialAngleRadians(1.0F);
-            if (celestialAngleRadians > Math.PI) {
-                celestialAngleRadians = (2 * (float)Math.PI - celestialAngleRadians);
-            }
-
-            float light = 1.5F * MathHelper.cos(celestialAngleRadians / 1.2F);
-            light = Math.max(0, light);
-            light = Math.min(1, light);
-
-            return (int)light;
-        } else {
-            return 0;
         }
     }
 
@@ -256,7 +223,11 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
         return this.currentEnergyAmount * i / this.maxEnergyAmount;
     }
 
-    public int getItemEnergyAmountScaled(int i) {
-        return this.itemEnergyAmount * i / 32000;
+    public int getItemEnergyAmount1Scaled(int i) {
+        return this.itemEnergyAmount1 * i / 32000;
+    }
+
+    public int getItemEnergyAmount2Scaled(int i) {
+        return this.itemEnergyAmount2 * i / 32000;
     }
 }

@@ -10,6 +10,7 @@ public class Names {
         public static final String[] METAL_BLOCKS ={"AluminumBlock", "CopperBlock", "TinBlock", "SilverBlock", "LeadBlock", "BronzeBlock", "SteelBlock", "UraniumBlock", "UnobtaniumBlock"};
 
         public static final String SOLAR_PANEL = "SolarPanel";
+        public static final String BATTERY_CELL = "BatteryCell";
         public static final String PIPE = "Pipe";
         public static final String ENERGY_CABLE = "EnergyCable";
 
@@ -64,6 +65,7 @@ public class Names {
 
     public static final class Containers {
         public static final String CONTAINER_SOLAR_PANEL = "container.SolarPanel";
+        public static final String CONTAINER_BATTERY_CELL = "container.BatteryCell";
     }
 
     public static final class Entities {

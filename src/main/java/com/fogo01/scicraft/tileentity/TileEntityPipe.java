@@ -60,7 +60,7 @@ public class TileEntityPipe extends TileEntitySciCraftEnergy {
             } else
                 return false;
         } else
-            return world.getTileEntity(x, y, z) instanceof TileEntityPipe;
+            return world.getTileEntity(x, y, z) instanceof TileEntityPipe || world.getTileEntity(x, y, z) instanceof TileEntityBatteryCell;
     }
 
     public boolean onlyOneOpposite(ForgeDirection[] directions) {

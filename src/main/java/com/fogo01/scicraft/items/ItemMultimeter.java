@@ -1,6 +1,7 @@
 package com.fogo01.scicraft.items;
 
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Units;
 import com.fogo01.scicraft.tileentity.TileEntitySciCraftEnergy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,7 @@ public class ItemMultimeter extends ItemSciCraft {
         if (!world.isRemote) {
             if (world.getTileEntity(x, y, z) instanceof TileEntitySciCraftEnergy) {
                 TileEntitySciCraftEnergy tileEntity = (TileEntitySciCraftEnergy)world.getTileEntity(x, y, z);
-                player.addChatMessage(new ChatComponentText("Energy: " + tileEntity.currentEnergyAmount + "/" + tileEntity.maxEnergyAmount + "W"));
+                player.addChatMessage(new ChatComponentText("Energy: " + tileEntity.currentEnergyAmount + "/" + tileEntity.maxEnergyAmount + Units.Energy.ENERGY_STORAGE_SHORT));
             }
         }
         return true;

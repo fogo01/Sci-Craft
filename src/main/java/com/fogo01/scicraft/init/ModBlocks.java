@@ -2,6 +2,7 @@ package com.fogo01.scicraft.init;
 
 import com.fogo01.scicraft.blocks.*;
 import com.fogo01.scicraft.blocks.ItemBlocks.*;
+import com.fogo01.scicraft.blocks.containers.BlockBatteryCell;
 import com.fogo01.scicraft.blocks.containers.BlockSolarPanel;
 import com.fogo01.scicraft.blocks.fluids.*;
 import com.fogo01.scicraft.reference.Names;
@@ -14,6 +15,7 @@ public class ModBlocks {
     public static final BlockSciCraft METAL_BLOCK = new BlockMetalBlock();
 
     public static final BlockSciCraftContainer SOLAR_PANEL = new BlockSolarPanel();
+    public static final BlockSciCraftContainer BATTERY_CELL = new BlockBatteryCell();
     public static final BlockSciCraftContainer ENERGY_CABLE = new BlockEnergyCable();
 
     public static final BlockSciCraft MOON_DUST = new BlockMoonDust();
@@ -32,6 +34,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(METAL_BLOCK, ItemBlockMetalBlock.class, Names.Blocks.METAL_BLOCK);
 
         GameRegistry.registerBlock(SOLAR_PANEL, Names.Blocks.SOLAR_PANEL);
+        GameRegistry.registerBlock(BATTERY_CELL, Names.Blocks.BATTERY_CELL);
         GameRegistry.registerBlock(ENERGY_CABLE, Names.Blocks.ENERGY_CABLE);
 
         GameRegistry.registerBlock(MOON_DUST, Names.Blocks.MOON_DUST);
