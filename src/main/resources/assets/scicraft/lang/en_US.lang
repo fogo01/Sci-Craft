@@ -151,5 +151,10 @@ tile.scicraft:MoonLeadOre.name=Lead Ore
 tile.scicraft:UnobtaniumOre.name=Unobtanium Ore
 
 
+# Containers
+container.SolarPanel=Solar Panel
+container.BatteryCell=Battery Cell
+
+
 # Entities
 entity.scicraft:Alien.name=Alien
