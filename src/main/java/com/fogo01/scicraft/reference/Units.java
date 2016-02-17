@@ -5,7 +5,7 @@ public class Units {
         public static final String ENERGY_GAIN = "Watt";
         public static final String ENERGY_GAIN_SHORT = "W";
 
-        public static final String ENERGY_STORAGE = "Watt Hours";
-        public static final String ENERGY_STORAGE_SHORT = "Wh";
+        public static final String ENERGY_STORAGE = "Joules";
+        public static final String ENERGY_STORAGE_SHORT = "J";
     }
 }
