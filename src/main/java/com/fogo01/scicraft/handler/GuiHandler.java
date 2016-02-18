@@ -1,12 +1,9 @@
 package com.fogo01.scicraft.handler;
 
-import com.fogo01.scicraft.client.gui.inventory.GuiBatteryCell;
-import com.fogo01.scicraft.client.gui.inventory.GuiSolarPanel;
-import com.fogo01.scicraft.container.inventory.ContainerBatteryCell;
-import com.fogo01.scicraft.container.inventory.ContainerSolarPanel;
+import com.fogo01.scicraft.client.gui.inventory.*;
+import com.fogo01.scicraft.container.inventory.*;
 import com.fogo01.scicraft.reference.GUIs;
-import com.fogo01.scicraft.tileentity.TileEntityBatteryCell;
-import com.fogo01.scicraft.tileentity.TileEntitySolarPanel;
+import com.fogo01.scicraft.tileentity.*;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -24,6 +21,12 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.BATTERY_CELL.ordinal()) {
                 TileEntityBatteryCell tileEntityBatteryCell = (TileEntityBatteryCell) world.getTileEntity(x, y, z);
                 return new ContainerBatteryCell(player.inventory, tileEntityBatteryCell);
+            } else if (ID == GUIs.POWERED_FURNACE.ordinal()) {
+                TileEntityPoweredFurnace tileEntityPoweredFurnace = (TileEntityPoweredFurnace) world.getTileEntity(x, y, z);
+                return new ContainerPoweredFurnace(player.inventory, tileEntityPoweredFurnace);
+            } else if (ID == GUIs.CRUSHER.ordinal()) {
+                TileEntityCrusher tileEntityCrusher = (TileEntityCrusher) world.getTileEntity(x, y, z);
+                return new ContainerCrusher(player.inventory, tileEntityCrusher);
             }
         }
         return null;
@@ -40,6 +43,12 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.BATTERY_CELL.ordinal()) {
                 TileEntityBatteryCell tileEntityBatteryCell = (TileEntityBatteryCell) world.getTileEntity(x, y, z);
                 return new GuiBatteryCell(player.inventory, tileEntityBatteryCell);
+            } else if (ID == GUIs.POWERED_FURNACE.ordinal()) {
+                TileEntityPoweredFurnace tileEntityPoweredFurnace = (TileEntityPoweredFurnace) world.getTileEntity(x, y, z);
+                return new GuiPoweredFurnace(player.inventory, tileEntityPoweredFurnace);
+            } else if (ID == GUIs.CRUSHER.ordinal()) {
+                TileEntityCrusher tileEntityCrusher = (TileEntityCrusher) world.getTileEntity(x, y, z);
+                return new GuiCrusher(player.inventory, tileEntityCrusher);
             }
         }
         return null;

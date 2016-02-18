@@ -117,6 +117,8 @@ tile.scicraft:UraniumOre.name=Uranium Ore
 
 tile.scicraft:SolarPanel.name=Solar Panel
 tile.scicraft:BatteryCell.name=Battery Cell
+tile.scicraft:PoweredFurnace.name=Powered Furnace
+tile.scicraft:Crusher.name=Crusher
 tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block
@@ -154,6 +156,8 @@ tile.scicraft:UnobtaniumOre.name=Unobtanium Ore
 # Containers
 container.SolarPanel=Solar Panel
 container.BatteryCell=Battery Cell
+conatiner.PoweredFurnace=Furnace
+container.Crusher=Crusher
 
 
 # Entities

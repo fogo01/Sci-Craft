@@ -11,6 +11,8 @@ public class Names {
 
         public static final String SOLAR_PANEL = "SolarPanel";
         public static final String BATTERY_CELL = "BatteryCell";
+        public static final String POWERED_FURNACE = "PoweredFurnace";
+        public static final String CRUSHER = "Crusher";
         public static final String PIPE = "Pipe";
         public static final String ENERGY_CABLE = "EnergyCable";
 
@@ -66,6 +68,8 @@ public class Names {
     public static final class Containers {
         public static final String CONTAINER_SOLAR_PANEL = "container.SolarPanel";
         public static final String CONTAINER_BATTERY_CELL = "container.BatteryCell";
+        public static final String CONTAINER_POWERED_FURNACE = "container.PoweredFurnace";
+        public static final String CONTAINER_CRUSHER = "container.Crusher";
     }
 
     public static final class Entities {
