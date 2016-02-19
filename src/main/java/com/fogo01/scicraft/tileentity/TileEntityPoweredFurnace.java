@@ -12,6 +12,9 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{1};
     private static final int[] slotsSides = new int[]{2};
+    public int energyUse = 10;
+    public int cookSpeed = 20;
+    public int cookTime = 0;
 
     public TileEntityPoweredFurnace() {
         maxEnergyAmount = 32000;
@@ -25,6 +28,7 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
         currentEnergyAmount = nbtTagCompound.getInteger("currentEnergyAmount");
+        cookTime = nbtTagCompound.getInteger("crushTime");
 
         NBTTagList nbttaglist = nbtTagCompound.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
@@ -45,6 +49,7 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setInteger("currentEnergyAmount", currentEnergyAmount);
+        nbtTagCompound.setInteger("crushTime", cookTime);
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < this.inventory.length; ++i) {
@@ -164,15 +169,85 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return true;
+        return slot != 1 ? false : (slot == 2 ? isBattery(itemStack) : true);
     }
 
     @Override
     public void updateEntity() {
+        if (inventory[2] != null)
+            transferEnergyFromItem(inventory[2], transferRate);
 
+        boolean flag1 = false;
+
+        //if (!this.worldObj.isRemote) {
+            if (this.inventory[0] != null) {
+                if (this.canSmelt()) {
+                    this.cookTime++;
+                    this.currentEnergyAmount -= energyUse;
+
+                    if (this.cookTime == cookSpeed) {
+                        this.cookTime = 0;
+                        this.smeltItem();
+                        flag1 = true;
+                    }
+                } else {
+                    this.cookTime = 0;
+                }
+            }
+        //}
+
+        if (flag1) {
+            this.markDirty();
+        }
+    }
+
+    /**
+     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     */
+    private boolean canSmelt() {
+        if (this.inventory[0] == null) {
+            return false;
+        } else {
+            if (currentEnergyAmount < energyUse)
+                return false;
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.inventory[0]);
+            if (itemstack == null)
+                return false;
+            if (this.inventory[1] == null)
+                return true;
+            if (!this.inventory[1].isItemEqual(itemstack))
+                return false;
+            int result = inventory[1].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.inventory[1].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+        }
+    }
+
+    /**
+     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
+     */
+    public void smeltItem() {
+        if (this.canSmelt()) {
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.inventory[0]);
+
+            if (this.inventory[1] == null) {
+                this.inventory[1] = itemstack.copy();
+            } else if (this.inventory[1].getItem() == itemstack.getItem()) {
+                this.inventory[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            }
+
+            --this.inventory[0].stackSize;
+
+            if (this.inventory[0].stackSize <= 0) {
+                this.inventory[0] = null;
+            }
+        }
     }
 
     public int getEnergyAmountScaled(int i) {
         return this.currentEnergyAmount * i / this.maxEnergyAmount;
+    }
+
+    public int getCookProgressScaled(int i) {
+        return this.cookTime * i / cookSpeed;
     }
 }

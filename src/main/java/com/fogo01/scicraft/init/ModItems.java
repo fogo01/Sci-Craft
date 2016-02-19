@@ -35,6 +35,7 @@ public class ModItems {
     public static final ItemSciCraft MULTIMETER = new ItemMultimeter();
 
     public static final ItemSciCraft BATTERY = new ItemBattery();
+    public static final ItemSciCraft MEDIUM_BATTERY = new ItemMediumBattery();
 
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
     public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
@@ -70,6 +71,7 @@ public class ModItems {
         GameRegistry.registerItem(MULTIMETER, Names.Items.MULTIMETER);
 
         GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);
+        GameRegistry.registerItem(MEDIUM_BATTERY, Names.Items.MEDIUM_BATTERY);
 
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
         GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);

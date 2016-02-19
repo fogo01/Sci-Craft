@@ -1,7 +1,9 @@
 package com.fogo01.scicraft.init;
 
+import com.fogo01.scicraft.crafting.MachineRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -94,5 +96,12 @@ public class Recipies {
         GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 9), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 3), 0.0F);
         GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 10), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 4), 0.0F);
         GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 11), new ItemStack(ModItems.UNOBTANIUM_INGOT), 1.0F);
+
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.stone), new ItemStack(Blocks.cobblestone));
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.gravel));
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.gravel), new ItemStack(Blocks.sand));
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.sandstone), new ItemStack(Blocks.sand, 4));
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.clay), new ItemStack(Items.clay_ball, 4));
+        MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.glowstone), new ItemStack(Items.glowstone_dust, 4));
 	}
 }

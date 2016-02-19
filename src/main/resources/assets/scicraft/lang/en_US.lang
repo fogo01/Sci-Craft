@@ -17,6 +17,7 @@ item.scicraft:UnobtaniumIngot.name=Unobtanium Ingot
 item.scicraft:Wrench.name=Wrench
 item.scicraft:Multimeter.name=Multimeter
 item.scicraft:Battery.name=Battery
+item.scicraft:MediumBattery.name=MediumBattery
 
 item.scicraft:OilBucket.name=Oil Bucket
 item.scicraft:FuelBucket.name=Fuel Bucket
@@ -156,7 +157,7 @@ tile.scicraft:UnobtaniumOre.name=Unobtanium Ore
 # Containers
 container.SolarPanel=Solar Panel
 container.BatteryCell=Battery Cell
-conatiner.PoweredFurnace=Furnace
+container.PoweredFurnace=Powered Furnace
 container.Crusher=Crusher
 
 

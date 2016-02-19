@@ -257,6 +257,6 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
     }
 
     public int getItemEnergyAmountScaled(int i) {
-        return this.itemEnergyAmount * i / 32000;
+        return (int)(this.itemEnergyAmount * i / (double)this.maxItemEnergyAmount);
     }
 }

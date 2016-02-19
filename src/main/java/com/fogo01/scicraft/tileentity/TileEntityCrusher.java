@@ -1,5 +1,6 @@
 package com.fogo01.scicraft.tileentity;
 
+import com.fogo01.scicraft.crafting.MachineRecipes;
 import com.fogo01.scicraft.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -11,6 +12,9 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{1};
     private static final int[] slotsSides = new int[]{2};
+    public int energyUse = 10;
+    public int crushSpeed = 20;
+    public int crushTime = 0;
 
     public TileEntityCrusher() {
         maxEnergyAmount = 32000;
@@ -166,7 +170,82 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
         return true;
     }
 
+    @Override
+    public void updateEntity() {
+        if (inventory[2] != null)
+            transferEnergyFromItem(inventory[2], transferRate);
+
+        boolean flag1 = false;
+
+        //if (!this.worldObj.isRemote) {
+        if (this.inventory[0] != null) {
+            if (this.canCrush()) {
+                this.crushTime++;
+                this.currentEnergyAmount -= energyUse;
+
+                if (this.crushTime == crushSpeed) {
+                    this.crushTime = 0;
+                    this.crushItem();
+                    flag1 = true;
+                }
+            } else {
+                this.crushTime = 0;
+            }
+        }
+        //}
+
+        if (flag1) {
+            this.markDirty();
+        }
+    }
+
+    /**
+     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     */
+    private boolean canCrush() {
+        if (this.inventory[0] == null) {
+            return false;
+        } else {
+            if (currentEnergyAmount < energyUse)
+                return false;
+            ItemStack itemstack = MachineRecipes.CrusherRecipes.crushing().getCrushingResult(this.inventory[0]);
+            if (itemstack == null)
+                return false;
+            if (this.inventory[1] == null)
+                return true;
+            if (!this.inventory[1].isItemEqual(itemstack))
+                return false;
+            int result = inventory[1].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.inventory[1].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+        }
+    }
+
+    /**
+     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
+     */
+    public void crushItem() {
+        if (this.canCrush()) {
+            ItemStack itemstack = MachineRecipes.CrusherRecipes.crushing().getCrushingResult(this.inventory[0]);
+
+            if (this.inventory[1] == null) {
+                this.inventory[1] = itemstack.copy();
+            } else if (this.inventory[1].getItem() == itemstack.getItem()) {
+                this.inventory[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            }
+
+            --this.inventory[0].stackSize;
+
+            if (this.inventory[0].stackSize <= 0) {
+                this.inventory[0] = null;
+            }
+        }
+    }
+
     public int getEnergyAmountScaled(int i) {
         return this.currentEnergyAmount * i / this.maxEnergyAmount;
+    }
+
+    public int getCrushProgressScaled(int i) {
+        return this.crushTime * i / crushSpeed;
     }
 }

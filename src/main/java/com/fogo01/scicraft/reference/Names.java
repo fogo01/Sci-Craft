@@ -43,6 +43,8 @@ public class Names {
         public static final String MULTIMETER = "Multimeter";
 
         public static final String BATTERY = "Battery";
+        public static final String MEDIUM_BATTERY = "MediumBattery";
+        public static final String LARGE_BATTERY = "LargeBattery";
 
         public static final String OIL_BUCKET = "OilBucket";
         public static final String FUEL_BUCKET = "FuelBucket";

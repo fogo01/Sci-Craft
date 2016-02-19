@@ -192,28 +192,28 @@ public class TileEntityBatteryCell extends TileEntitySciCraftEnergy implements I
     public void updateEntity() {
         itemEnergyAmount1 = 0;
         maxItemEnergyAmount1 = 1;
-        if (inventory[0] != null) {
+        if (inventory[0] != null && isBattery(inventory[0])) {
+            transferEnergyFromItem(inventory[0], transferRate);
             itemEnergyAmount1 = inventory[0].getMaxDamage() - inventory[0].getItemDamage();
             maxItemEnergyAmount1 = inventory[0].getMaxDamage();
         }
 
+
         itemEnergyAmount2 = 0;
         maxItemEnergyAmount2 = 1;
-        if (inventory[1] != null) {
+        if (inventory[1] != null && isChargeable(inventory[1])) {
             itemEnergyAmount2 = inventory[1].getMaxDamage() - inventory[1].getItemDamage();
             maxItemEnergyAmount2 = inventory[1].getMaxDamage();
 
-            if (isChargeable(inventory[1])) {
-                if (inventory[1].getItemDamage() > 0) {
-                    if (inventory[1].getItemDamage() > transferRate) {
-                        if (currentEnergyAmount >= transferRate) {
-                            inventory[1].setItemDamage(inventory[1].getItemDamage() - transferRate);
-                            currentEnergyAmount -= transferRate;
-                        }
-                    } else {
-                        currentEnergyAmount -= inventory[1].getItemDamage();
-                        inventory[1].setItemDamage(0);
+            if (inventory[1].getItemDamage() > 0) {
+                if (inventory[1].getItemDamage() > transferRate) {
+                    if (currentEnergyAmount >= transferRate) {
+                        inventory[1].setItemDamage(inventory[1].getItemDamage() - transferRate);
+                        currentEnergyAmount -= transferRate;
                     }
+                } else {
+                    currentEnergyAmount -= inventory[1].getItemDamage();
+                    inventory[1].setItemDamage(0);
                 }
             }
         }
@@ -224,10 +224,10 @@ public class TileEntityBatteryCell extends TileEntitySciCraftEnergy implements I
     }
 
     public int getItemEnergyAmount1Scaled(int i) {
-        return this.itemEnergyAmount1 * i / 32000;
+        return (int)(this.itemEnergyAmount1 * i / (double)this.maxItemEnergyAmount1);
     }
 
     public int getItemEnergyAmount2Scaled(int i) {
-        return this.itemEnergyAmount2 * i / 32000;
+        return (int)(this.itemEnergyAmount2 * i / (double)this.maxItemEnergyAmount2);
     }
 }

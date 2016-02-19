@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 public class ContainerPoweredFurnace extends Container {
     private TileEntityPoweredFurnace tileEntityPoweredFurnace;
     private int lastEnergyAmount;
+    //private int lastCookTime;
 
     public ContainerPoweredFurnace(InventoryPlayer inventoryPlayer, TileEntityPoweredFurnace tileEntityPoweredFurnace) {
         this.tileEntityPoweredFurnace = tileEntityPoweredFurnace;
@@ -41,6 +42,7 @@ public class ContainerPoweredFurnace extends Container {
     public void addCraftingToCrafters(ICrafting iCrafting) {
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityPoweredFurnace.currentEnergyAmount);
+        //iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityPoweredFurnace.cookTime);
     }
 
     @Override
@@ -53,9 +55,15 @@ public class ContainerPoweredFurnace extends Container {
             if (this.lastEnergyAmount != this.tileEntityPoweredFurnace.currentEnergyAmount) {
                 icrafting.sendProgressBarUpdate(this, 0, this.tileEntityPoweredFurnace.currentEnergyAmount);
             }
+            /**
+            if (this.lastCookTime != this.tileEntityPoweredFurnace.cookTime) {
+                icrafting.sendProgressBarUpdate(this, 1, this.tileEntityPoweredFurnace.cookTime);
+            }
+            */
         }
 
         this.lastEnergyAmount = this.tileEntityPoweredFurnace.currentEnergyAmount;
+        //this.lastCookTime = this.tileEntityPoweredFurnace.cookTime;
     }
 
     @SideOnly(Side.CLIENT)
@@ -63,6 +71,11 @@ public class ContainerPoweredFurnace extends Container {
         if (p_75137_1_ == 0) {
             this.tileEntityPoweredFurnace.currentEnergyAmount = p_75137_2_;
         }
+        /**
+        if (p_75137_1_ == 0) {
+            this.tileEntityPoweredFurnace.cookTime = p_75137_2_;
+        }
+         */
     }
 
     @Override

@@ -1,7 +1,8 @@
 package com.fogo01.scicraft.tileentity;
 
-
-import com.fogo01.scicraft.utility.LogHelper;
+import com.fogo01.scicraft.reference.Chargeables;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -120,5 +121,33 @@ public class TileEntitySciCraftEnergy extends TileEntitySciCraft {
             }
         }
         return true;
+    }
+
+    public void transferEnergyFromItem(ItemStack itemStack, int amount) {
+        TileEntitySciCraftEnergy tileEntity = (TileEntitySciCraftEnergy)worldObj.getTileEntity(xCoord, yCoord, zCoord);
+        if (itemStack.getMaxDamage() - itemStack.getItemDamage() >= amount) {
+            if (tileEntity.maxEnergyAmount - tileEntity.currentEnergyAmount >= amount) {
+                itemStack.setItemDamage(itemStack.getItemDamage() + amount);
+                tileEntity.currentEnergyAmount += amount;
+            } else {
+                itemStack.setItemDamage(itemStack.getItemDamage() + (tileEntity.maxEnergyAmount - tileEntity.currentEnergyAmount));
+                tileEntity.currentEnergyAmount = tileEntity.maxEnergyAmount;
+            }
+        } else {
+            if (tileEntity.maxEnergyAmount - tileEntity.currentEnergyAmount >= itemStack.getMaxDamage() - itemStack.getItemDamage()) {
+                tileEntity.currentEnergyAmount += itemStack.getMaxDamage() - itemStack.getItemDamage();
+                itemStack.setItemDamage(itemStack.getMaxDamage());
+            } else {
+                itemStack.setItemDamage(itemStack.getItemDamage() + (tileEntity.maxEnergyAmount - tileEntity.currentEnergyAmount));
+                tileEntity.currentEnergyAmount = tileEntity.maxEnergyAmount;
+            }
+        }
+    }
+
+    public boolean isBattery(ItemStack itemStack){
+        for (int i = 0; i < Chargeables.batteries.length; i++)
+        if (Chargeables.batteries[i] == itemStack.getItem())
+            return true;
+        return false;
     }
 }

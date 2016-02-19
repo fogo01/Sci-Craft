@@ -37,5 +37,9 @@ public class GuiPoweredFurnace extends GuiContainer {
 
         int i = this.tileEntityPoweredFurnace.getEnergyAmountScaled(40);
         this.drawTexturedModalRect(k + 155, l + 57 - i, 176, 40 - i, 10, i);
+
+        i = this.tileEntityPoweredFurnace.getCookProgressScaled(24);
+        this.drawTexturedModalRect(k + 79, l + 34, 186, 1, i + 1, 16);
+
     }
 }
