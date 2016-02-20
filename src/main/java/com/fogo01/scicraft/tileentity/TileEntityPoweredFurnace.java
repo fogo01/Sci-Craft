@@ -1,5 +1,6 @@
 package com.fogo01.scicraft.tileentity;
 
+import com.fogo01.scicraft.blocks.containers.BlockPoweredFurnace;
 import com.fogo01.scicraft.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -28,7 +29,7 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
         currentEnergyAmount = nbtTagCompound.getInteger("currentEnergyAmount");
-        cookTime = nbtTagCompound.getInteger("crushTime");
+        cookTime = nbtTagCompound.getInteger("cookTime");
 
         NBTTagList nbttaglist = nbtTagCompound.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
@@ -49,7 +50,7 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setInteger("currentEnergyAmount", currentEnergyAmount);
-        nbtTagCompound.setInteger("crushTime", cookTime);
+        nbtTagCompound.setInteger("cookTime", cookTime);
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < this.inventory.length; ++i) {
@@ -177,9 +178,10 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
         if (inventory[2] != null)
             transferEnergyFromItem(inventory[2], transferRate);
 
+        boolean flag = this.isSmelting();
         boolean flag1 = false;
 
-        //if (!this.worldObj.isRemote) {
+        if (!this.worldObj.isRemote) {
             if (this.inventory[0] != null) {
                 if (this.canSmelt()) {
                     this.cookTime++;
@@ -194,16 +196,22 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
                     this.cookTime = 0;
                 }
             }
-        //}
+
+            if (flag != isSmelting()) {
+                flag1 = true;
+                BlockPoweredFurnace.updateBlockState(this.isSmelting(), worldObj, xCoord, yCoord, zCoord);
+            }
+        }
 
         if (flag1) {
             this.markDirty();
         }
     }
 
-    /**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
-     */
+    private boolean isSmelting() {
+        return this.cookTime > 0;
+    }
+
     private boolean canSmelt() {
         if (this.inventory[0] == null) {
             return false;
@@ -222,9 +230,6 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
         }
     }
 
-    /**
-     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
-     */
     public void smeltItem() {
         if (this.canSmelt()) {
             ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.inventory[0]);
@@ -248,6 +253,6 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     }
 
     public int getCookProgressScaled(int i) {
-        return this.cookTime * i / cookSpeed;
+        return this.cookTime * i / this.cookSpeed;
     }
 }

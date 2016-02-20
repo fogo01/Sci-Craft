@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class BlockSciCraftContainer extends BlockContainer {
+    public static boolean keepInventory = false;
+
     protected BlockSciCraftContainer() {
         super(Material.rock);
         this.setCreativeTab(CreativeTabSciCraft.SciCraft_TAB);
@@ -37,29 +39,25 @@ public abstract class BlockSciCraftContainer extends BlockContainer {
     }
 
     @Override
-    public void breakBlock(World world, int x, int y, int z, Block block, int meta)
-    {
-        dropInventory(world, x, y, z);
+    public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+        if (!keepInventory)
+            dropInventory(world, x, y, z);
         super.breakBlock(world, x, y, z, block, meta);
     }
 
-    protected void dropInventory(World world, int x, int y, int z)
-    {
+    protected void dropInventory(World world, int x, int y, int z) {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 
-        if (!(tileEntity instanceof IInventory))
-        {
+        if (!(tileEntity instanceof IInventory)) {
             return;
         }
 
         IInventory inventory = (IInventory) tileEntity;
 
-        for (int i = 0; i < inventory.getSizeInventory(); i++)
-        {
+        for (int i = 0; i < inventory.getSizeInventory(); i++) {
             ItemStack itemStack = inventory.getStackInSlot(i);
 
-            if (itemStack != null && itemStack.stackSize > 0)
-            {
+            if (itemStack != null && itemStack.stackSize > 0) {
                 Random rand = new Random();
 
                 float dX = rand.nextFloat() * 0.8F + 0.1F;
@@ -68,8 +66,7 @@ public abstract class BlockSciCraftContainer extends BlockContainer {
 
                 EntityItem entityItem = new EntityItem(world, x + dX, y + dY, z + dZ, itemStack.copy());
 
-                if (itemStack.hasTagCompound())
-                {
+                if (itemStack.hasTagCompound()) {
                     entityItem.getEntityItem().setTagCompound((NBTTagCompound) itemStack.getTagCompound().copy());
                 }
 

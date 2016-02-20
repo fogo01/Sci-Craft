@@ -39,6 +39,6 @@ public class GuiCrusher extends GuiContainer {
         this.drawTexturedModalRect(k + 155, l + 57 - i, 176, 40 - i, 10, i);
 
         i = this.tileEntityCrusher.getCrushProgressScaled(24);
-        this.drawTexturedModalRect(k + 79, l + 34, 186, 1, i + 1, 16);
+        this.drawTexturedModalRect(k + 79, l + 35, 186, 1, i + 1, 16);
     }
 }

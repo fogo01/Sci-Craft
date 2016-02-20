@@ -27,6 +27,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.CRUSHER.ordinal()) {
                 TileEntityCrusher tileEntityCrusher = (TileEntityCrusher) world.getTileEntity(x, y, z);
                 return new ContainerCrusher(player.inventory, tileEntityCrusher);
+            } else if (ID == GUIs.ALLOY_SMELTER.ordinal()) {
+                TileEntityAlloySmelter tileEntityAlloySmelter = (TileEntityAlloySmelter) world.getTileEntity(x, y, z);
+                return new ContainerAlloySmelter(player.inventory, tileEntityAlloySmelter);
             }
         }
         return null;
@@ -49,6 +52,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.CRUSHER.ordinal()) {
                 TileEntityCrusher tileEntityCrusher = (TileEntityCrusher) world.getTileEntity(x, y, z);
                 return new GuiCrusher(player.inventory, tileEntityCrusher);
+            } else if (ID == GUIs.ALLOY_SMELTER.ordinal()) {
+                TileEntityAlloySmelter tileEntityAlloySmelter = (TileEntityAlloySmelter) world.getTileEntity(x, y, z);
+                return new GuiAlloySmelter(player.inventory, tileEntityAlloySmelter);
             }
         }
         return null;

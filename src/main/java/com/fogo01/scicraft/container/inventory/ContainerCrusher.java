@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 public class ContainerCrusher extends Container {
     private TileEntityCrusher tileEntityCrusher;
     private int lastEnergyAmount;
+    private int lastCrushTime;
 
     public ContainerCrusher(InventoryPlayer inventoryPlayer, TileEntityCrusher tileEntityCrusher) {
         this.tileEntityCrusher = tileEntityCrusher;
@@ -41,6 +42,7 @@ public class ContainerCrusher extends Container {
     public void addCraftingToCrafters(ICrafting iCrafting) {
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityCrusher.currentEnergyAmount);
+        iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityCrusher.crushTime);
     }
 
     @Override
@@ -53,6 +55,9 @@ public class ContainerCrusher extends Container {
             if (this.lastEnergyAmount != this.tileEntityCrusher.currentEnergyAmount) {
                 icrafting.sendProgressBarUpdate(this, 0, this.tileEntityCrusher.currentEnergyAmount);
             }
+            if (this.lastCrushTime != this.tileEntityCrusher.crushTime) {
+                icrafting.sendProgressBarUpdate(this, 1, this.tileEntityCrusher.crushTime);
+            }
         }
 
         this.lastEnergyAmount = this.tileEntityCrusher.currentEnergyAmount;
@@ -62,6 +67,9 @@ public class ContainerCrusher extends Container {
     public void updateProgressBar(int p_75137_1_, int p_75137_2_) {
         if (p_75137_1_ == 0) {
             this.tileEntityCrusher.currentEnergyAmount = p_75137_2_;
+        }
+        if (p_75137_1_ == 1) {
+            this.tileEntityCrusher.crushTime = p_75137_2_;
         }
     }
 

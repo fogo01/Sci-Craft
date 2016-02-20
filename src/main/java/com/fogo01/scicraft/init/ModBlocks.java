@@ -2,10 +2,7 @@ package com.fogo01.scicraft.init;
 
 import com.fogo01.scicraft.blocks.*;
 import com.fogo01.scicraft.blocks.ItemBlocks.*;
-import com.fogo01.scicraft.blocks.containers.BlockBatteryCell;
-import com.fogo01.scicraft.blocks.containers.BlockCrusher;
-import com.fogo01.scicraft.blocks.containers.BlockPoweredFurnace;
-import com.fogo01.scicraft.blocks.containers.BlockSolarPanel;
+import com.fogo01.scicraft.blocks.containers.*;
 import com.fogo01.scicraft.blocks.fluids.*;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.blocks.BlockSciCraft;
@@ -18,8 +15,12 @@ public class ModBlocks {
 
     public static final BlockSciCraftContainer SOLAR_PANEL = new BlockSolarPanel();
     public static final BlockSciCraftContainer BATTERY_CELL = new BlockBatteryCell();
-    public static final BlockSciCraftContainer POWERED_FURNACE = new BlockPoweredFurnace();
-    public static final BlockSciCraftContainer CRUSHER = new BlockCrusher();
+    public static final BlockSciCraftContainer POWERED_FURNACE = new BlockPoweredFurnace(false);
+    public static final BlockSciCraftContainer POWERED_FURNACE_ACTIVE = new BlockPoweredFurnace(true);
+    public static final BlockSciCraftContainer CRUSHER = new BlockCrusher(false);
+    public static final BlockSciCraftContainer CRUSHER_ACTIVE = new BlockCrusher(true);
+    public static final BlockSciCraftContainer ALLOY_SMELTER = new BlockAlloySmelter(false);
+    public static final BlockSciCraftContainer ALLOY_SMELTER_ACTIVE = new BlockAlloySmelter(true);
     public static final BlockSciCraftContainer ENERGY_CABLE = new BlockEnergyCable();
 
     public static final BlockSciCraft MOON_DUST = new BlockMoonDust();
@@ -40,7 +41,11 @@ public class ModBlocks {
         GameRegistry.registerBlock(SOLAR_PANEL, Names.Blocks.SOLAR_PANEL);
         GameRegistry.registerBlock(BATTERY_CELL, Names.Blocks.BATTERY_CELL);
         GameRegistry.registerBlock(POWERED_FURNACE, Names.Blocks.POWERED_FURNACE);
+        GameRegistry.registerBlock(POWERED_FURNACE_ACTIVE, Names.Blocks.POWERED_FURNACE_ACTIVE);
         GameRegistry.registerBlock(CRUSHER, Names.Blocks.CRUSHER);
+        GameRegistry.registerBlock(CRUSHER_ACTIVE, Names.Blocks.CRUSHER_ACTIVE);
+        GameRegistry.registerBlock(ALLOY_SMELTER, Names.Blocks.ALLOY_SMELTER);
+        GameRegistry.registerBlock(ALLOY_SMELTER_ACTIVE, Names.Blocks.ALLOY_SMELTER_ACTIVE);
         GameRegistry.registerBlock(ENERGY_CABLE, Names.Blocks.ENERGY_CABLE);
 
         GameRegistry.registerBlock(MOON_DUST, Names.Blocks.MOON_DUST);

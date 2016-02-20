@@ -7,7 +7,7 @@ import com.fogo01.scicraft.init.ModBlocks;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.GUIs;
 import com.fogo01.scicraft.reference.Names;
-import com.fogo01.scicraft.tileentity.TileEntityPoweredFurnace;
+import com.fogo01.scicraft.tileentity.TileEntityAlloySmelter;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -20,7 +20,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockPoweredFurnace extends BlockSciCraftContainer {
+public class BlockAlloySmelter extends BlockSciCraftContainer {
     @SideOnly(Side.CLIENT)
     private IIcon iconTop;
     @SideOnly(Side.CLIENT)
@@ -31,9 +31,9 @@ public class BlockPoweredFurnace extends BlockSciCraftContainer {
     private IIcon iconSideActive;
     private boolean isActive;
 
-    public BlockPoweredFurnace(boolean blockState) {
+    public BlockAlloySmelter(boolean blockState) {
         super();
-        this.setBlockName(Names.Blocks.POWERED_FURNACE);
+        this.setBlockName(Names.Blocks.ALLOY_SMELTER);
         this.setHarvestLevel("pickaxe", 1);
         this.setHardness(3.0F);
         this.setResistance(5.0F);
@@ -47,8 +47,8 @@ public class BlockPoweredFurnace extends BlockSciCraftContainer {
             if (player.getHeldItem() != null && (player.getHeldItem().getItem() == ModItems.WRENCH || player.getHeldItem().getItem() == ModItems.MULTIMETER))
                 return false;
         if (!world.isRemote)
-            if (world.getTileEntity(x, y, z) instanceof TileEntityPoweredFurnace)
-                player.openGui(SciCraft.instance, GUIs.POWERED_FURNACE.ordinal(), world, x, y, z);
+            if (world.getTileEntity(x, y, z) instanceof TileEntityAlloySmelter)
+                player.openGui(SciCraft.instance, GUIs.ALLOY_SMELTER.ordinal(), world, x, y, z);
 
         return true;
     }
@@ -89,7 +89,7 @@ public class BlockPoweredFurnace extends BlockSciCraftContainer {
 
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-        int l = MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
         if (l == 0) {
             world.setBlockMetadataWithNotify(x, y, z, 2, 2);
@@ -107,12 +107,12 @@ public class BlockPoweredFurnace extends BlockSciCraftContainer {
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new TileEntityPoweredFurnace();
+        return new TileEntityAlloySmelter();
     }
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return metadata == 0 && side == 3 ? (isActive ? iconSideActive : iconSide) : side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? iconSide : this.blockIcon));
+        return metadata == 0 && side == 3 ? (isActive ? iconSideActive : iconSide) : side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? (isActive ? iconSideActive : iconSide) : this.blockIcon));
     }
 
     @Override
@@ -130,9 +130,9 @@ public class BlockPoweredFurnace extends BlockSciCraftContainer {
         keepInventory = true;
 
         if (smelting) {
-            world.setBlock(x, y, z, ModBlocks.POWERED_FURNACE_ACTIVE);
+            world.setBlock(x, y, z, ModBlocks.ALLOY_SMELTER_ACTIVE);
         } else {
-            world.setBlock(x, y, z, ModBlocks.POWERED_FURNACE);
+            world.setBlock(x, y, z, ModBlocks.ALLOY_SMELTER);
         }
 
         keepInventory = false;

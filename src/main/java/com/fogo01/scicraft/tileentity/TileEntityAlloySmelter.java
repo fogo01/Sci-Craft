@@ -1,7 +1,6 @@
 package com.fogo01.scicraft.tileentity;
 
 import com.fogo01.scicraft.blocks.containers.BlockAlloySmelter;
-import com.fogo01.scicraft.blocks.containers.BlockCrusher;
 import com.fogo01.scicraft.crafting.MachineRecipes;
 import com.fogo01.scicraft.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,26 +9,27 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISidedInventory {
-    private static final int[] slotsTop = new int[]{0};
-    private static final int[] slotsBottom = new int[]{1};
-    private static final int[] slotsSides = new int[]{2};
-    public int energyUse = 10;
-    public int crushSpeed = 20;
-    public int crushTime = 0;
+public class TileEntityAlloySmelter extends TileEntitySciCraftEnergy implements ISidedInventory {
+    private static final int[] slotsTop = new int[]{0, 1};
+    private static final int[] slotsBottom = new int[]{2};
+    private static final int[] slotsSides = new int[]{3};
+    public int energyUse = 80;
+    public int cookSpeed = 200;
+    public int cookTime = 0;
 
-    public TileEntityCrusher() {
+    public TileEntityAlloySmelter() {
         maxEnergyAmount = 32000;
         currentEnergyAmount = 0;
         transferRate = 1600;
         acceptingEnergy = true;
-        inventory = new ItemStack[3];
+        inventory = new ItemStack[4];
     }
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
         currentEnergyAmount = nbtTagCompound.getInteger("currentEnergyAmount");
+        cookTime = nbtTagCompound.getInteger("cookTime");
 
         NBTTagList nbttaglist = nbtTagCompound.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
@@ -50,6 +50,7 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setInteger("currentEnergyAmount", currentEnergyAmount);
+        nbtTagCompound.setInteger("cookTime", cookTime);
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < this.inventory.length; ++i) {
@@ -139,7 +140,7 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
 
     @Override
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.localizedName : Names.Containers.CONTAINER_CRUSHER;
+        return this.hasCustomInventoryName() ? this.localizedName : Names.Containers.CONTAINER_ALLOY_SMELTER;
     }
 
     @Override
@@ -169,36 +170,38 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return true;
+        return slot != 1 ? false : (slot == 2 ? isBattery(itemStack) : true);
     }
 
     @Override
     public void updateEntity() {
-        if (inventory[2] != null)
-            transferEnergyFromItem(inventory[2], transferRate);
+        if (inventory[3] != null)
+            transferEnergyFromItem(inventory[3], transferRate);
 
-        boolean flag = this.isCrushing();
+        boolean flag = this.isSmelting();
         boolean flag1 = false;
 
         if (!this.worldObj.isRemote) {
-            if (this.inventory[0] != null) {
-                if (this.canCrush()) {
-                    this.crushTime++;
+            if (this.inventory[0] != null && this.inventory[1] != null) {
+                if (this.canSmelt()) {
+                    this.cookTime++;
                     this.currentEnergyAmount -= energyUse;
 
-                    if (this.crushTime == crushSpeed) {
-                        this.crushTime = 0;
-                        this.crushItem();
+                    if (this.cookTime == cookSpeed) {
+                        this.cookTime = 0;
+                        this.smeltItem();
                         flag1 = true;
                     }
                 } else {
-                    this.crushTime = 0;
+                    this.cookTime = 0;
                 }
+            } else {
+                this.cookTime = 0;
             }
 
-            if (flag != isCrushing()) {
+            if (flag != isSmelting()) {
                 flag1 = true;
-                BlockCrusher.updateBlockState(this.isCrushing(), worldObj, xCoord, yCoord, zCoord);
+                BlockAlloySmelter.updateBlockState(this.isSmelting(), worldObj, xCoord, yCoord, zCoord);
             }
         }
 
@@ -207,49 +210,46 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
         }
     }
 
-    private boolean isCrushing() {
-        return this.crushTime > 0;
+    private boolean isSmelting() {
+        return this.cookTime > 0;
     }
 
-    /**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
-     */
-    private boolean canCrush() {
-        if (this.inventory[0] == null) {
+    private boolean canSmelt() {
+        if (this.inventory[0] == null || this.inventory[1] == null) {
             return false;
         } else {
             if (currentEnergyAmount < energyUse)
                 return false;
-            ItemStack itemstack = MachineRecipes.CrusherRecipes.crushing().getCrushingResult(this.inventory[0]);
+            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.getSmeltingResult(this.inventory[0], this.inventory[1]);
             if (itemstack == null)
                 return false;
-            if (this.inventory[1] == null)
+            if (this.inventory[2] == null)
                 return true;
-            if (!this.inventory[1].isItemEqual(itemstack))
+            if (!this.inventory[2].isItemEqual(itemstack))
                 return false;
-            int result = inventory[1].stackSize + itemstack.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.inventory[1].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+            int result = inventory[2].stackSize + itemstack.stackSize;
+            return result <= getInventoryStackLimit() && result <= this.inventory[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
     }
 
-    /**
-     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
-     */
-    public void crushItem() {
-        if (this.canCrush()) {
-            ItemStack itemstack = MachineRecipes.CrusherRecipes.crushing().getCrushingResult(this.inventory[0]);
+    public void smeltItem() {
+        if (this.canSmelt()) {
+            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.getSmeltingResult(this.inventory[0], this.inventory[1]);
 
-            if (this.inventory[1] == null) {
-                this.inventory[1] = itemstack.copy();
-            } else if (this.inventory[1].getItem() == itemstack.getItem()) {
-                this.inventory[1].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
-            }
+            if (this.inventory[2] == null)
+                this.inventory[2] = itemstack.copy();
+            else if (this.inventory[2].getItem() == itemstack.getItem())
+                this.inventory[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
 
-            --this.inventory[0].stackSize;
 
-            if (this.inventory[0].stackSize <= 0) {
+            int[] decreaseAmount = MachineRecipes.AlloySmelterRecipes.getDecreaseAmount(this.inventory[0], this.inventory[1]);
+            this.inventory[0].stackSize -= decreaseAmount[0];
+            this.inventory[1].stackSize -= decreaseAmount[1];
+
+            if (this.inventory[0].stackSize <= 0)
                 this.inventory[0] = null;
-            }
+            if (this.inventory[1].stackSize <= 1)
+                this.inventory[1] = null;
         }
     }
 
@@ -257,7 +257,7 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
         return this.currentEnergyAmount * i / this.maxEnergyAmount;
     }
 
-    public int getCrushProgressScaled(int i) {
-        return this.crushTime * i / crushSpeed;
+    public int getCookProgressScaled(int i) {
+        return this.cookTime * i / this.cookSpeed;
     }
 }

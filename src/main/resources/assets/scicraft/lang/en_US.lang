@@ -120,6 +120,8 @@ tile.scicraft:SolarPanel.name=Solar Panel
 tile.scicraft:BatteryCell.name=Battery Cell
 tile.scicraft:PoweredFurnace.name=Powered Furnace
 tile.scicraft:Crusher.name=Crusher
+tile.scicraft:AlloySmelter.name=Alloy Smelter
+tile.scicraft:AlloySmelterActive.name=Alloy Smelter Active
 tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block
@@ -159,6 +161,7 @@ container.SolarPanel=Solar Panel
 container.BatteryCell=Battery Cell
 container.PoweredFurnace=Powered Furnace
 container.Crusher=Crusher
+container.AlloySmelter=Alloy Smelter
 
 
 # Entities

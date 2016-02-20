@@ -10,6 +10,7 @@ public class TileEntities {
         GameRegistry.registerTileEntity(TileEntityBatteryCell.class, Names.Blocks.BATTERY_CELL);
         GameRegistry.registerTileEntity(TileEntityPoweredFurnace.class, Names.Blocks.POWERED_FURNACE);
         GameRegistry.registerTileEntity(TileEntityCrusher.class, Names.Blocks.CRUSHER);
+        GameRegistry.registerTileEntity(TileEntityAlloySmelter.class, Names.Blocks.ALLOY_SMELTER);
         GameRegistry.registerTileEntity(TileEntityEnergyCable.class, Names.Blocks.ENERGY_CABLE);
     }
 }

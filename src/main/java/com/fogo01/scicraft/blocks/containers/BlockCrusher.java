@@ -2,12 +2,15 @@ package com.fogo01.scicraft.blocks.containers;
 
 import com.fogo01.scicraft.SciCraft;
 import com.fogo01.scicraft.blocks.BlockSciCraftContainer;
+import com.fogo01.scicraft.crativetab.CreativeTabSciCraft;
+import com.fogo01.scicraft.init.ModBlocks;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.GUIs;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.tileentity.TileEntityCrusher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,13 +27,18 @@ public class BlockCrusher extends BlockSciCraftContainer {
     private IIcon iconBottom;
     @SideOnly(Side.CLIENT)
     private IIcon iconSide;
+    @SideOnly(Side.CLIENT)
+    private IIcon iconSideActive;
+    private boolean isActive;
 
-    public BlockCrusher() {
+    public BlockCrusher(boolean blockState) {
         super();
         this.setBlockName(Names.Blocks.CRUSHER);
         this.setHarvestLevel("pickaxe", 1);
         this.setHardness(3.0F);
         this.setResistance(5.0F);
+        this.setCreativeTab(blockState ? null : CreativeTabSciCraft.SciCraft_TAB);
+        this.isActive = blockState;
     }
 
     @Override
@@ -43,6 +51,40 @@ public class BlockCrusher extends BlockSciCraftContainer {
                 player.openGui(SciCraft.instance, GUIs.CRUSHER.ordinal(), world, x, y, z);
 
         return true;
+    }
+
+    @Override
+    public void onBlockAdded(World world, int x, int y, int z) {
+        super.onBlockAdded(world, x, y, z);
+        this.setDefaultOrientation(world, x, y, z);
+    }
+
+    private void setDefaultOrientation(World world, int x, int y, int z) {
+        if (!world.isRemote) {
+            Block block = world.getBlock(x, y, z - 1);
+            Block block1 = world.getBlock(x, y, z + 1);
+            Block block2 = world.getBlock(x - 1, y, z);
+            Block block3 = world.getBlock(x + 1, y, z);
+            byte b0 = 3;
+
+            if (block.func_149730_j() && !block1.func_149730_j()) {
+                b0 = 3;
+            }
+
+            if (block1.func_149730_j() && !block.func_149730_j()) {
+                b0 = 2;
+            }
+
+            if (block2.func_149730_j() && !block3.func_149730_j()) {
+                b0 = 5;
+            }
+
+            if (block3.func_149730_j() && !block2.func_149730_j()) {
+                b0 = 4;
+            }
+
+            world.setBlockMetadataWithNotify(x, y, z, b0, 2);
+        }
     }
 
     @Override
@@ -70,14 +112,35 @@ public class BlockCrusher extends BlockSciCraftContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? iconSide : this.blockIcon));
+        return metadata == 0 && side == 3 ? (isActive ? iconSideActive : iconSide) : side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? iconSide : this.blockIcon));
     }
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
         blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
         iconSide = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_side"));
+        iconSideActive = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_side_on"));
         iconTop = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_top"));
         iconBottom = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_bottom"));
+    }
+
+    public static void updateBlockState(boolean crushing, World world, int x, int y, int z) {
+        int metadata = world.getBlockMetadata(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        keepInventory = true;
+
+        if (crushing) {
+            world.setBlock(x, y, z, ModBlocks.CRUSHER_ACTIVE);
+        } else {
+            world.setBlock(x, y, z, ModBlocks.CRUSHER);
+        }
+
+        keepInventory = false;
+        world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
+
+        if (tileEntity != null) {
+            tileEntity.validate();
+            world.setTileEntity(x, y, z, tileEntity);
+        }
     }
 }
