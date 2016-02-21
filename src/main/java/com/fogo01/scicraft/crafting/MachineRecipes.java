@@ -1,12 +1,8 @@
 package com.fogo01.scicraft.crafting;
 
-import com.fogo01.scicraft.init.ModItems;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class MachineRecipes {
 
@@ -48,36 +44,48 @@ public class MachineRecipes {
     }
 
     public static class AlloySmelterRecipes {
-        private static ItemStack[][] recipes = new ItemStack[][]{
-                {new ItemStack(ModItems.COPPER_INGOT, 3), new ItemStack(ModItems.TIN_INGOT, 1), new ItemStack(ModItems.BRONZE_INGOT, 4)},
-                {new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.coal, 4), new ItemStack(ModItems.STEEL_INGOT, 1)}
-        };
+        private static final AlloySmelterRecipes smeltingBase = new AlloySmelterRecipes();
+        private List<ItemStack[]> recipes = new ArrayList<ItemStack[]>();
 
-        public static ItemStack getSmeltingResult(ItemStack itemStack1, ItemStack itemStack2){
+        public static AlloySmelterRecipes smelting() {
+            return smeltingBase;
+        }
+
+        public void addRecipe(ItemStack input1, ItemStack input2, ItemStack output) {
+            recipes.add(new ItemStack[]{input1, input2, output});
+        }
+
+        public ItemStack getSmeltingResult(ItemStack itemStack1, ItemStack itemStack2){
             return getOutput(itemStack1, itemStack2);
         }
 
-        public static int[] getDecreaseAmount(ItemStack itemStack1, ItemStack itemStack2) {
-            for (int i = 0; i < recipes.length; i++) {
-                if (itemStack1.isItemEqual(recipes[i][0]) && itemStack2.isItemEqual(recipes[i][1])) {
-                    return new int[]{recipes[i][0].stackSize, recipes[i][1].stackSize};
+        public int[] getDecreaseAmount(ItemStack itemStack1, ItemStack itemStack2) {
+            ItemStack[][] recipe = new ItemStack[recipes.size()][3];
+            recipes.toArray(recipe);
+
+            for (int i = 0; i < recipe.length; i++) {
+                if (itemStack1.isItemEqual(recipe[i][0]) && itemStack2.isItemEqual(recipe[i][1])) {
+                    return new int[]{recipe[i][0].stackSize, recipe[i][1].stackSize};
                 }
-                if (itemStack1.isItemEqual(recipes[i][1]) && itemStack2.isItemEqual(recipes[i][0])) {
-                    return new int[]{recipes[i][1].stackSize, recipes[i][0].stackSize};
+                if (itemStack1.isItemEqual(recipe[i][1]) && itemStack2.isItemEqual(recipe[i][0])) {
+                    return new int[]{recipe[i][1].stackSize, recipe[i][0].stackSize};
                 }
             }
             return new int[]{1, 1};
         }
         
-        private static ItemStack getOutput(ItemStack itemStack1, ItemStack itemStack2) {
-            for (int i = 0; i < recipes.length; i++) {
-                if (itemStack1.isItemEqual(recipes[i][0]) && itemStack2.isItemEqual(recipes[i][1])) {
-                    if (itemStack1.stackSize >= recipes[i][0].stackSize && itemStack2.stackSize >= recipes[i][1].stackSize)
-                        return recipes[i][2];
+        private ItemStack getOutput(ItemStack itemStack1, ItemStack itemStack2) {
+            ItemStack[][] recipe = new ItemStack[recipes.size()][3];
+            recipes.toArray(recipe);
+
+            for (int i = 0; i < recipe.length; i++) {
+                if (itemStack1.isItemEqual(recipe[i][0]) && itemStack2.isItemEqual(recipe[i][1])) {
+                    if (itemStack1.stackSize >= recipe[i][0].stackSize && itemStack2.stackSize >= recipe[i][1].stackSize)
+                        return recipe[i][2];
                 }
-                if (itemStack1.isItemEqual(recipes[i][1]) && itemStack2.isItemEqual(recipes[i][0])) {
-                    if (itemStack1.stackSize >= recipes[i][1].stackSize && itemStack2.stackSize >= recipes[i][0].stackSize)
-                        return recipes[i][2];
+                if (itemStack1.isItemEqual(recipe[i][1]) && itemStack2.isItemEqual(recipe[i][0])) {
+                    if (itemStack1.stackSize >= recipe[i][1].stackSize && itemStack2.stackSize >= recipe[i][0].stackSize)
+                        return recipe[i][2];
                 }
             }
             return null;

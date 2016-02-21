@@ -220,7 +220,7 @@ public class TileEntityAlloySmelter extends TileEntitySciCraftEnergy implements 
         } else {
             if (currentEnergyAmount < energyUse)
                 return false;
-            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.getSmeltingResult(this.inventory[0], this.inventory[1]);
+            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.smelting().getSmeltingResult(this.inventory[0], this.inventory[1]);
             if (itemstack == null)
                 return false;
             if (this.inventory[2] == null)
@@ -234,7 +234,7 @@ public class TileEntityAlloySmelter extends TileEntitySciCraftEnergy implements 
 
     public void smeltItem() {
         if (this.canSmelt()) {
-            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.getSmeltingResult(this.inventory[0], this.inventory[1]);
+            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.smelting().getSmeltingResult(this.inventory[0], this.inventory[1]);
 
             if (this.inventory[2] == null)
                 this.inventory[2] = itemstack.copy();
@@ -242,7 +242,7 @@ public class TileEntityAlloySmelter extends TileEntitySciCraftEnergy implements 
                 this.inventory[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
 
 
-            int[] decreaseAmount = MachineRecipes.AlloySmelterRecipes.getDecreaseAmount(this.inventory[0], this.inventory[1]);
+            int[] decreaseAmount = MachineRecipes.AlloySmelterRecipes.smelting().getDecreaseAmount(this.inventory[0], this.inventory[1]);
             this.inventory[0].stackSize -= decreaseAmount[0];
             this.inventory[1].stackSize -= decreaseAmount[1];
 

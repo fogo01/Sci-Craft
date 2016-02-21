@@ -103,5 +103,8 @@ public class Recipies {
         MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.sandstone), new ItemStack(Blocks.sand, 4));
         MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.clay), new ItemStack(Items.clay_ball, 4));
         MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.glowstone), new ItemStack(Items.glowstone_dust, 4));
+
+        MachineRecipes.AlloySmelterRecipes.smelting().addRecipe(new ItemStack(ModItems.COPPER_INGOT, 3), new ItemStack(ModItems.TIN_INGOT, 1), new ItemStack(ModItems.BRONZE_INGOT, 4));
+        MachineRecipes.AlloySmelterRecipes.smelting().addRecipe(new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.coal, 4), new ItemStack(ModItems.STEEL_INGOT, 1));
 	}
 }
