@@ -2,7 +2,7 @@ package com.fogo01.scicraft.client.gui.inventory;
 
 import com.fogo01.scicraft.container.inventory.ContainerBatteryCell;
 import com.fogo01.scicraft.reference.Reference;
-import com.fogo01.scicraft.reference.Units;
+import com.fogo01.scicraft.reference.Values;
 import com.fogo01.scicraft.tileentity.TileEntityBatteryCell;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
@@ -27,7 +27,7 @@ public class GuiBatteryCell extends GuiContainer {
         name = I18n.format("container.inventory", new Object[0]);
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, this.ySize - 96 + 2, 4210752);
 
-        name = "Energy: " + tileEntityBatteryCell.currentEnergyAmount + "/" + tileEntityBatteryCell.maxEnergyAmount + Units.Energy.ENERGY_STORAGE_SHORT;
+        name = "Energy: " + tileEntityBatteryCell.currentEnergyAmount + "/" + tileEntityBatteryCell.maxEnergyAmount + Values.ENERGY_STORAGE;
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 60, 4210752);
     }
 

@@ -2,6 +2,7 @@ package com.fogo01.scicraft.items;
 
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.reference.Reference;
+import com.fogo01.scicraft.reference.Values;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -20,7 +21,7 @@ public class ItemBattery extends ItemSciCraft {
         super();
         this.setUnlocalizedName(Names.Items.BATTERY);
         this.setMaxStackSize(1);
-        this.setMaxDamage(32000);
+        this.setMaxDamage(Values.Batteries.SMALL_ENERGY_STORAGE);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.fogo01.scicraft.tileentity;
 import com.fogo01.scicraft.blocks.containers.BlockAlloySmelter;
 import com.fogo01.scicraft.crafting.MachineRecipes;
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -13,14 +14,14 @@ public class TileEntityAlloySmelter extends TileEntitySciCraftEnergy implements 
     private static final int[] slotsTop = new int[]{0, 1};
     private static final int[] slotsBottom = new int[]{2};
     private static final int[] slotsSides = new int[]{3};
-    public int energyUse = 80;
-    public int cookSpeed = 200;
+    public int energyUse = Values.Machines.AlloySmelter.ENERGY_USE;
+    public int cookSpeed = Values.Machines.AlloySmelter.COOK_SPEED;
     public int cookTime = 0;
 
     public TileEntityAlloySmelter() {
-        maxEnergyAmount = 32000;
+        maxEnergyAmount = Values.Machines.AlloySmelter.ENERGY_STORAGE;
         currentEnergyAmount = 0;
-        transferRate = 1600;
+        transferRate = Values.Machines.AlloySmelter.TRANSFER_RATE;
         acceptingEnergy = true;
         inventory = new ItemStack[4];
     }

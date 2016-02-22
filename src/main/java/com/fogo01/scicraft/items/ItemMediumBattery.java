@@ -1,6 +1,7 @@
 package com.fogo01.scicraft.items;
 
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
@@ -12,7 +13,7 @@ public class ItemMediumBattery extends ItemSciCraft {
         super();
         this.setUnlocalizedName(Names.Items.MEDIUM_BATTERY);
         this.setMaxStackSize(1);
-        this.setMaxDamage((int)1e5);
+        this.setMaxDamage(Values.Batteries.MEDIUM_BATTERY_STORAGE);
     }
 
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {

@@ -1,9 +1,9 @@
 package com.fogo01.scicraft.tileentity;
 
-import com.fogo01.scicraft.blocks.containers.BlockAlloySmelter;
 import com.fogo01.scicraft.blocks.containers.BlockCrusher;
 import com.fogo01.scicraft.crafting.MachineRecipes;
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -14,14 +14,14 @@ public class TileEntityCrusher extends TileEntitySciCraftEnergy implements ISide
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{1};
     private static final int[] slotsSides = new int[]{2};
-    public int energyUse = 10;
-    public int crushSpeed = 20;
+    public int energyUse = Values.Machines.Crusher.ENERGY_USE;
+    public int crushSpeed = Values.Machines.Crusher.CRUSH_SPEED;
     public int crushTime = 0;
 
     public TileEntityCrusher() {
-        maxEnergyAmount = 32000;
+        maxEnergyAmount = Values.Machines.Crusher.ENERGY_STORAGE;
         currentEnergyAmount = 0;
-        transferRate = 1600;
+        transferRate = Values.Machines.Crusher.TRANSFER_RATE;
         acceptingEnergy = true;
         inventory = new ItemStack[3];
     }

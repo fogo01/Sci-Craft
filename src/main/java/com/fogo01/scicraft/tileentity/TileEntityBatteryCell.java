@@ -2,6 +2,7 @@ package com.fogo01.scicraft.tileentity;
 
 import com.fogo01.scicraft.reference.Chargeables;
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -18,9 +19,9 @@ public class TileEntityBatteryCell extends TileEntitySciCraftEnergy implements I
     private int maxItemEnergyAmount2 = 1;
 
     public TileEntityBatteryCell() {
-        maxEnergyAmount = (int)1e6;
+        maxEnergyAmount = Values.Machines.BatteryCell.ENERGY_STORAGE;
         currentEnergyAmount = 0;
-        transferRate = 16000;
+        transferRate = Values.Machines.BatteryCell.TRANSFER_RATE;
         acceptingEnergy = true;
         inventory = new ItemStack[2];
     }

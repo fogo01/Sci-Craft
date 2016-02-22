@@ -3,6 +3,7 @@ package com.fogo01.scicraft.tileentity;
 import com.fogo01.scicraft.blocks.containers.BlockSolarPanel;
 import com.fogo01.scicraft.reference.Chargeables;
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import com.fogo01.scicraft.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -17,12 +18,13 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
     private static final int[] slotsSides = new int[]{0};
     public int energyProduction = 0;
     public int itemEnergyAmount = 0;
+    private int baseEnergyProduction = Values.Machines.SolarPanel.ENERGY_PRODUCTION;
     private int maxItemEnergyAmount = 1;
 
     public TileEntitySolarPanel() {
-        maxEnergyAmount = 32000;
+        maxEnergyAmount = Values.Machines.SolarPanel.ENERGY_STORAGE;
         currentEnergyAmount = 0;
-        transferRate = 100;
+        transferRate = Values.Machines.SolarPanel.TRANSFER_RATE;
         acceptingEnergy = false;
         inventory = new ItemStack[1];
     }
@@ -201,7 +203,7 @@ public class TileEntitySolarPanel extends TileEntitySciCraftEnergy implements IS
                 if (this.blockType instanceof BlockSolarPanel) {
                     this.energyProduction = 0;
                     if (currentEnergyAmount < maxEnergyAmount)
-                        this.energyProduction = getLightLevel() * 80;
+                        this.energyProduction = getLightLevel() * this.baseEnergyProduction;
                 }
             }
 

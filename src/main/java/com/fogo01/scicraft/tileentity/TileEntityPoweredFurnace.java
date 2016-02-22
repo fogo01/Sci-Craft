@@ -2,6 +2,7 @@ package com.fogo01.scicraft.tileentity;
 
 import com.fogo01.scicraft.blocks.containers.BlockPoweredFurnace;
 import com.fogo01.scicraft.reference.Names;
+import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -13,14 +14,14 @@ public class TileEntityPoweredFurnace extends TileEntitySciCraftEnergy implement
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{1};
     private static final int[] slotsSides = new int[]{2};
-    public int energyUse = 10;
-    public int cookSpeed = 20;
+    public int energyUse = Values.Machines.PoweredFurnace.ENERGY_USE;
+    public int cookSpeed = Values.Machines.PoweredFurnace.COOK_SPEED;
     public int cookTime = 0;
 
     public TileEntityPoweredFurnace() {
-        maxEnergyAmount = 32000;
+        maxEnergyAmount = Values.Machines.PoweredFurnace.ENERGY_STORAGE;
         currentEnergyAmount = 0;
-        transferRate = 1600;
+        transferRate = Values.Machines.PoweredFurnace.TRANSFER_RATE;
         acceptingEnergy = true;
         inventory = new ItemStack[3];
     }
