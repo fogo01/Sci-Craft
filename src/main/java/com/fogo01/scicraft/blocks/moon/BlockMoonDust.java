@@ -1,5 +1,6 @@
-package com.fogo01.scicraft.blocks;
+package com.fogo01.scicraft.blocks.moon;
 
+import com.fogo01.scicraft.blocks.BlockSciCraft;
 import com.fogo01.scicraft.crativetab.CreativeTabSciCraft;
 import com.fogo01.scicraft.reference.Names;
 import net.minecraft.block.material.Material;

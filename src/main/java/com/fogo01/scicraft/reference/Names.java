@@ -2,7 +2,6 @@ package com.fogo01.scicraft.reference;
 
 public class Names {
     public static final class Blocks {
-        public static final String OVERWORLD_ORE = "Ore";
         public static final String[] OVERWORLD_ORES = {"AluminumOre", "CopperOre", "TinOre", "SilverOre", "LeadOre", "UraniumOre"};
 
 
@@ -22,7 +21,6 @@ public class Names {
 
         public static final String MOON_DUST = "MoonDust";
         public static final String MOON_ROCK = "MoonRock";
-        public static final String MOON_ORE = "MoonOre";
         public static final String[] MOON_ORES = {"MoonCoalOre", "MoonIronOre", "MoonGoldOre", "MoonLapisOre", "MoonRedstoneOre", "MoonDiamondOre", "MoonAluminumOre", "MoonCopperOre", "MoonTinOre", "MoonSilverOre", "MoonLeadOre", "UnobtaniumOre"};
 
         public static final String OIL_BLOCK = "OilBlock";

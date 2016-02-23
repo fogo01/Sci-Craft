@@ -78,24 +78,24 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.URANIUM_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 7)));
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.UNOBTANIUM_INGOT, 9), new ItemStack(ModBlocks.METAL_BLOCK, 1, 8)));
 
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 0), new ItemStack(ModItems.ALUMINUM_INGOT), 0.6F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 1), new ItemStack(ModItems.COPPER_INGOT), 0.4F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 2), new ItemStack(ModItems.TIN_INGOT), 0.4F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 3), new ItemStack(ModItems.SILVER_INGOT), 0.8F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 4), new ItemStack(ModItems.LEAD_INGOT), 0.8F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.ALUMINUM_ORE), new ItemStack(ModItems.ALUMINUM_INGOT), 0.6F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.COPPER_ORE), new ItemStack(ModItems.COPPER_INGOT), 0.4F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.TIN_ORE), new ItemStack(ModItems.TIN_INGOT), 0.4F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.SILVER_ORE), new ItemStack(ModItems.SILVER_INGOT), 0.8F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.LEAD_ORE), new ItemStack(ModItems.LEAD_INGOT), 0.8F);
 
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 0), new ItemStack(Blocks.coal_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 1), new ItemStack(Blocks.iron_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 2), new ItemStack(Blocks.gold_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 3), new ItemStack(Blocks.lapis_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 4), new ItemStack(Blocks.redstone_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 5), new ItemStack(Blocks.diamond_ore, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 6), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 0), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 7), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 1), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 8), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 2), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 9), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 3), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 10), new ItemStack(ModBlocks.OVERWORLD_ORE, 2, 4), 0.0F);
-        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ORE, 1, 11), new ItemStack(ModItems.UNOBTANIUM_INGOT), 1.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_COAL_ORE, 1), new ItemStack(Blocks.coal_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_IRON_ORE, 1), new ItemStack(Blocks.iron_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_GOLD_ORE, 1), new ItemStack(Blocks.gold_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_LAPIS_ORE, 1), new ItemStack(Blocks.lapis_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_REDSTONE_ORE, 1), new ItemStack(Blocks.redstone_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_DIAMOND_ORE, 1), new ItemStack(Blocks.diamond_ore, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_ALUMINUM_ORE, 1), new ItemStack(ModBlocks.ALUMINUM_ORE, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_COPPER_ORE, 1), new ItemStack(ModBlocks.COPPER_ORE, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_TIN_ORE, 1), new ItemStack(ModBlocks.TIN_ORE, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_SILVER_ORE, 1), new ItemStack(ModBlocks.SILVER_ORE, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_LEAD_ORE, 1), new ItemStack(ModBlocks.LEAD_ORE, 2), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(ModBlocks.MOON_UNOBTANIUM_ORE, 1), new ItemStack(ModItems.UNOBTANIUM_INGOT), 1.0F);
 
         MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.stone), new ItemStack(Blocks.cobblestone));
         MachineRecipes.CrusherRecipes.crushing().addRecipe(new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.gravel));

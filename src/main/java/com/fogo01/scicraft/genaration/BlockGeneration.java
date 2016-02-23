@@ -32,17 +32,17 @@ public class BlockGeneration implements IWorldGenerator {
 
     private void generateSurface(World world, Random random, int x, int z) {
         if(ConfigurationHandler.AlGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 0);
+            addOreSpawnModOres(ModBlocks.ALUMINUM_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 0);
         if(ConfigurationHandler.CuGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 1);
+            addOreSpawnModOres(ModBlocks.COPPER_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 0);
         if(ConfigurationHandler.SnGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 2);
+            addOreSpawnModOres(ModBlocks.TIN_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 48, 96, 0);
         if (ConfigurationHandler.AgGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 3);
+            addOreSpawnModOres(ModBlocks.SILVER_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 0);
         if (ConfigurationHandler.PbGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 4);
+            addOreSpawnModOres(ModBlocks.LEAD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 0);
         if (ConfigurationHandler.UGen)
-            addOreSpawnModOres(ModBlocks.OVERWORLD_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(2), 3, 13, 24, 5);
+            addOreSpawnModOres(ModBlocks.URANIUM_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(2), 3, 13, 24, 0);
 
         addOilWell(ModBlocks.OIL_BLOCK, world, random, x, z, 16, 16, 1, 1, 16, 30);
     }
@@ -67,18 +67,18 @@ public class BlockGeneration implements IWorldGenerator {
     }
 
     private void generateMoon(World world, Random random, int x, int z) {
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 5 + random.nextInt(5), 15, 5, 132, 0);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 5, 68, 1);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 2);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 7, 14, 34, 3);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 10, 5, 16, 4);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(5), 3, 5, 16, 5);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 6);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 7);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 8);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 9);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 10);
-        addOreSpawnMoon(ModBlocks.MOON_ORE, world, random, x, z, 16, 16, 1, 3, 5, 16, 11);
+        addOreSpawnMoon(ModBlocks.MOON_COAL_ORE, world, random, x, z, 16, 16, 5 + random.nextInt(5), 15, 5, 132, 0);
+        addOreSpawnMoon(ModBlocks.MOON_IRON_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(4), 12, 5, 68, 0);
+        addOreSpawnMoon(ModBlocks.MOON_GOLD_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 6, 5, 34, 0);
+        addOreSpawnMoon(ModBlocks.MOON_LAPIS_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 7, 14, 34, 0);
+        addOreSpawnMoon(ModBlocks.MOON_REDSTONE_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 10, 5, 16, 0);
+        addOreSpawnMoon(ModBlocks.MOON_DIAMOND_ORE, world, random, x, z, 16, 16, 1 + random.nextInt(5), 3, 5, 16, 0);
+        addOreSpawnMoon(ModBlocks.MOON_ALUMINUM_ORE, world, random, x, z, 16, 16, 2 + random.nextInt(3), 8, 16, 64, 0);
+        addOreSpawnMoon(ModBlocks.MOON_COPPER_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 0);
+        addOreSpawnMoon(ModBlocks.MOON_TIN_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 12, 48, 96, 0);
+        addOreSpawnMoon(ModBlocks.MOON_SILVER_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 0);
+        addOreSpawnMoon(ModBlocks.MOON_LEAD_ORE, world, random, x, z, 16, 16, 3 + random.nextInt(4), 6, 5, 34, 0);
+        addOreSpawnMoon(ModBlocks.MOON_UNOBTANIUM_ORE, world, random, x, z, 16, 16, 1, 3, 5, 16, 0);
     }
 
     private void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY) {

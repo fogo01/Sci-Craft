@@ -15,12 +15,12 @@ public class OreDict {
         OreDictionary.registerOre("ingotUranium", ModItems.URANIUM_INGOT);
         OreDictionary.registerOre("ingotUnobtanium", ModItems.UNOBTANIUM_INGOT);
 
-        OreDictionary.registerOre("oreAluminum", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 0));
-        OreDictionary.registerOre("oreCopper", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 1));
-        OreDictionary.registerOre("oreTin", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 2));
-        OreDictionary.registerOre("oreSilver", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 3));
-        OreDictionary.registerOre("oreLead", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 4));
-        OreDictionary.registerOre("oreUranium", new ItemStack(ModBlocks.OVERWORLD_ORE, 1, 5));
+        OreDictionary.registerOre("oreAluminum", ModBlocks.ALUMINUM_ORE);
+        OreDictionary.registerOre("oreCopper", ModBlocks.COPPER_ORE);
+        OreDictionary.registerOre("oreTin", ModBlocks.TIN_ORE);
+        OreDictionary.registerOre("oreSilver", ModBlocks.SILVER_ORE);
+        OreDictionary.registerOre("oreLead", ModBlocks.LEAD_ORE);
+        OreDictionary.registerOre("oreUranium", ModBlocks.URANIUM_ORE);
 
 
         OreDictionary.registerOre("blockAluminum", new ItemStack(ModBlocks.METAL_BLOCK, 1, 0));
