@@ -36,6 +36,13 @@ public class Values {
             public static final int ENERGY_USE = 80;
             public static final int COOK_SPEED = 200;
         }
+
+        public static final class Centrifuge {
+            public static final int ENERGY_STORAGE = 32000;
+            public static final int TRANSFER_RATE = 1600;
+            public static final int ENERGY_USE = 80;
+            public static final int COOK_SPEED = 200;
+        }
     }
 
     public static final class Batteries {

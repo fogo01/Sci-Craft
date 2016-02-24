@@ -16,6 +16,8 @@ public class Names {
         public static final String CRUSHER_ACTIVE = "CrusherActive";
         public static final String ALLOY_SMELTER = "AlloySmelter";
         public static final String ALLOY_SMELTER_ACTIVE = "AlloySmelterActive";
+        public static final String CENTRIFUGE = "Centrifuge";
+        public static final String CENTRIFUGE_ACTIVE = "CentrifugeActive";
         public static final String PIPE = "Pipe";
         public static final String ENERGY_CABLE = "EnergyCable";
 
@@ -75,6 +77,7 @@ public class Names {
         public static final String CONTAINER_POWERED_FURNACE = "container.PoweredFurnace";
         public static final String CONTAINER_CRUSHER = "container.Crusher";
         public static final String CONTAINER_ALLOY_SMELTER = "container.AlloySmelter";
+        public static final String CONTAINER_CENTRIFUGE = "container.Centrifuge";
     }
 
     public static final class Entities {

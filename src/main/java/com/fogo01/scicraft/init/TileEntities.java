@@ -11,6 +11,7 @@ public class TileEntities {
         GameRegistry.registerTileEntity(TileEntityPoweredFurnace.class, Names.Blocks.POWERED_FURNACE);
         GameRegistry.registerTileEntity(TileEntityCrusher.class, Names.Blocks.CRUSHER);
         GameRegistry.registerTileEntity(TileEntityAlloySmelter.class, Names.Blocks.ALLOY_SMELTER);
+        GameRegistry.registerTileEntity(TileEntityCentrifuge.class, Names.Blocks.CENTRIFUGE);
         GameRegistry.registerTileEntity(TileEntityEnergyCable.class, Names.Blocks.ENERGY_CABLE);
     }
 }

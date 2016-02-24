@@ -122,6 +122,7 @@ tile.scicraft:PoweredFurnace.name=Powered Furnace
 tile.scicraft:Crusher.name=Crusher
 tile.scicraft:AlloySmelter.name=Alloy Smelter
 tile.scicraft:AlloySmelterActive.name=Alloy Smelter Active
+tile.scicraft:Centrifuge.name=Centrifuge
 tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block
@@ -162,6 +163,7 @@ container.BatteryCell=Battery Cell
 container.PoweredFurnace=Powered Furnace
 container.Crusher=Crusher
 container.AlloySmelter=Alloy Smelter
+container.Centrifuge=Centrifuge
 
 
 # Entities
