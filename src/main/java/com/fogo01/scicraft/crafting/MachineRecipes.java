@@ -91,4 +91,48 @@ public class MachineRecipes {
             return null;
         }
     }
+
+    public static class CentrifugeRecipes {
+        private static final CentrifugeRecipes centrifugingBase = new CentrifugeRecipes();
+        private List<ItemStack[]> recipes = new ArrayList<ItemStack[]>();
+        private List<Float> chances = new ArrayList<Float>();
+
+        public static CentrifugeRecipes centrifuging() {
+            return centrifugingBase;
+        }
+
+        public void addRecipe(ItemStack input, ItemStack mainOutput, ItemStack rareOutput, float chance) {
+            recipes.add(new ItemStack[]{input, mainOutput, rareOutput});
+            chances.add(chance);
+        }
+
+        public ItemStack[] getCentrifugingResult(ItemStack input){
+            return getOutput(input);
+        }
+
+        public float getChance (ItemStack input) {
+            ItemStack[][] recipe = new ItemStack[recipes.size()][3];
+            recipes.toArray(recipe);
+
+            for (int i = 0; i < recipe.length; i++) {
+                if (input.isItemEqual(recipe[i][0])) {
+                       return chances.get(i);
+                }
+            }
+            return 0F;
+        }
+
+        private ItemStack[] getOutput(ItemStack input) {
+            ItemStack[][] recipe = new ItemStack[recipes.size()][3];
+            recipes.toArray(recipe);
+
+            for (int i = 0; i < recipe.length; i++) {
+                if (input.isItemEqual(recipe[i][0])) {
+                    if (input.stackSize >= recipe[i][0].stackSize)
+                        return new ItemStack[]{recipe[i][1], recipe[i][2]};
+                }
+            }
+            return null;
+        }
+    }
 }

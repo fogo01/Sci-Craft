@@ -40,7 +40,7 @@ public class GuiCentrifuge extends GuiContainer {
         int i = this.tileEntityCentrifuge.getEnergyAmountScaled(40);
         this.drawTexturedModalRect(k + 155, l + 57 - i, 176, 40 - i, 10, i);
 
-        i = this.tileEntityCentrifuge.getCookProgressScaled(34);
-        this.drawTexturedModalRect(k + 75, l + 30, 186, 1, i + 1, 26);
+        i = this.tileEntityCentrifuge.getCentrifugingProgressScaled(24);
+        this.drawTexturedModalRect(k + 74, l + 35, 186, 1, i + 1, 16);
     }
 }

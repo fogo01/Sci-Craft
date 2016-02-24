@@ -106,5 +106,7 @@ public class Recipies {
 
         MachineRecipes.AlloySmelterRecipes.smelting().addRecipe(new ItemStack(ModItems.COPPER_INGOT, 3), new ItemStack(ModItems.TIN_INGOT, 1), new ItemStack(ModItems.BRONZE_INGOT, 4));
         MachineRecipes.AlloySmelterRecipes.smelting().addRecipe(new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.coal, 4), new ItemStack(ModItems.STEEL_INGOT, 1));
+
+        MachineRecipes.CentrifugeRecipes.centrifuging().addRecipe(new ItemStack(ModBlocks.URANIUM_ORE, 1), new ItemStack(ModItems.URANIUM_INGOT, 1), new ItemStack(ModItems.STONE_DUST, 1), 0.25F);
 	}
 }

@@ -22,6 +22,8 @@ item.scicraft:MediumBattery.name=MediumBattery
 item.scicraft:OilBucket.name=Oil Bucket
 item.scicraft:FuelBucket.name=Fuel Bucket
 
+item.scicraft:StoneDust.name=Stone Dust
+
 item.scicraft:CopperSword.name=Copper Sword
 item.scicraft:TinSword.name=Tin Sword
 item.scicraft:SilverSword.name=Silver Sword

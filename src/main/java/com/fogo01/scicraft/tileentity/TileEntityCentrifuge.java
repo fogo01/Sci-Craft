@@ -15,8 +15,8 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
     private static final int[] slotsBottom = new int[]{2, 3};
     private static final int[] slotsSides = new int[]{1};
     public int energyUse = Values.Machines.Centrifuge.ENERGY_USE;
-    public int cookSpeed = Values.Machines.Centrifuge.COOK_SPEED;
-    public int cookTime = 0;
+    public int centrifugingSpeed = Values.Machines.Centrifuge.CENTRIFUGING_SPEED;
+    public int centrifugingTime = 0;
 
     public TileEntityCentrifuge() {
         maxEnergyAmount = Values.Machines.Centrifuge.ENERGY_STORAGE;
@@ -30,7 +30,7 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
         currentEnergyAmount = nbtTagCompound.getInteger("currentEnergyAmount");
-        cookTime = nbtTagCompound.getInteger("cookTime");
+        centrifugingTime = nbtTagCompound.getInteger("centrifugingTime");
 
         NBTTagList nbttaglist = nbtTagCompound.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
@@ -51,7 +51,7 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setInteger("currentEnergyAmount", currentEnergyAmount);
-        nbtTagCompound.setInteger("cookTime", cookTime);
+        nbtTagCompound.setInteger("centrifugingTime", centrifugingTime);
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < this.inventory.length; ++i) {
@@ -179,30 +179,30 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
         if (inventory[3] != null)
             transferEnergyFromItem(inventory[3], transferRate);
 
-        boolean flag = this.isSmelting();
+        boolean flag = this.isCentrifuging();
         boolean flag1 = false;
 
         if (!this.worldObj.isRemote) {
-            if (this.inventory[0] != null && this.inventory[1] != null) {
-                if (this.canSmelt()) {
-                    this.cookTime++;
+            if (this.inventory[0] != null) {
+                if (this.canCentrifuge()) {
+                    this.centrifugingTime++;
                     this.currentEnergyAmount -= energyUse;
 
-                    if (this.cookTime == cookSpeed) {
-                        this.cookTime = 0;
-                        this.smeltItem();
+                    if (this.centrifugingTime == centrifugingSpeed) {
+                        this.centrifugingTime = 0;
+                        this.centrifugeItem();
                         flag1 = true;
                     }
                 } else {
-                    this.cookTime = 0;
+                    this.centrifugingTime = 0;
                 }
             } else {
-                this.cookTime = 0;
+                this.centrifugingTime = 0;
             }
 
-            if (flag != isSmelting()) {
+            if (flag != isCentrifuging()) {
                 flag1 = true;
-                BlockCentrifuge.updateBlockState(this.isSmelting(), worldObj, xCoord, yCoord, zCoord);
+                BlockCentrifuge.updateBlockState(this.isCentrifuging(), worldObj, xCoord, yCoord, zCoord);
             }
         }
 
@@ -211,46 +211,60 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
         }
     }
 
-    private boolean isSmelting() {
-        return this.cookTime > 0;
+    private boolean isCentrifuging() {
+        return this.centrifugingTime > 0;
     }
 
-    private boolean canSmelt() {
-        if (this.inventory[0] == null || this.inventory[1] == null) {
+    private boolean canCentrifuge() {
+        if (this.inventory[0] == null) {
             return false;
         } else {
             if (currentEnergyAmount < energyUse)
                 return false;
-            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.smelting().getSmeltingResult(this.inventory[0], this.inventory[1]);
-            if (itemstack == null)
+            ItemStack[] itemstack = MachineRecipes.CentrifugeRecipes.centrifuging().getCentrifugingResult(this.inventory[0]);
+            if (itemstack == null || itemstack[0] == null || itemstack[1] == null)
                 return false;
-            if (this.inventory[2] == null)
+            if (this.inventory[1] == null && this.inventory[2] == null)
                 return true;
-            if (!this.inventory[2].isItemEqual(itemstack))
+            if (this.inventory[1] != null && !this.inventory[1].isItemEqual(itemstack[0]))
                 return false;
-            int result = inventory[2].stackSize + itemstack.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.inventory[2].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+            if (this.inventory[2] != null && !this.inventory[2].isItemEqual(itemstack[1]))
+                return false;
+
+            if (inventory[1] != null && inventory[2] != null) {
+                int result1 = inventory[1].stackSize + itemstack[0].stackSize;
+                int result2 = inventory[2].stackSize + itemstack[1].stackSize;
+                return (result1 <= getInventoryStackLimit() && result1 <= this.inventory[1].getMaxStackSize()) && (result2 <= getInventoryStackLimit() && result2 <= this.inventory[2].getMaxStackSize());
+            } else if (inventory[1] != null) {
+                int result1 = inventory[1].stackSize + itemstack[0].stackSize;
+                return (result1 <= getInventoryStackLimit() && result1 <= this.inventory[1].getMaxStackSize());
+            } else {
+                int result1 = inventory[2].stackSize + itemstack[1].stackSize;
+                return (result1 <= getInventoryStackLimit() && result1 <= this.inventory[2].getMaxStackSize());
+            }
         }
     }
 
-    public void smeltItem() {
-        if (this.canSmelt()) {
-            ItemStack itemstack = MachineRecipes.AlloySmelterRecipes.smelting().getSmeltingResult(this.inventory[0], this.inventory[1]);
+    public void centrifugeItem() {
+        if (this.canCentrifuge()) {
+            ItemStack itemstack[] = MachineRecipes.CentrifugeRecipes.centrifuging().getCentrifugingResult(this.inventory[0]);
 
-            if (this.inventory[2] == null)
-                this.inventory[2] = itemstack.copy();
-            else if (this.inventory[2].getItem() == itemstack.getItem())
-                this.inventory[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            if (this.inventory[1] == null)
+                this.inventory[1] = itemstack[0].copy();
+            else if (this.inventory[1].getItem() == itemstack[0].getItem())
+                this.inventory[1].stackSize += itemstack[0].stackSize;
 
+            float chance = MachineRecipes.CentrifugeRecipes.centrifuging().getChance(inventory[0]);
+                if (chance > Math.random()) {
+                    if (this.inventory[2] == null)
+                        this.inventory[2] = itemstack[1].copy();
+                    else if (this.inventory[2].getItem() == itemstack[1].getItem())
+                        this.inventory[2].stackSize += itemstack[1].stackSize;
+                }
 
-            int[] decreaseAmount = MachineRecipes.AlloySmelterRecipes.smelting().getDecreaseAmount(this.inventory[0], this.inventory[1]);
-            this.inventory[0].stackSize -= decreaseAmount[0];
-            this.inventory[1].stackSize -= decreaseAmount[1];
-
+            --this.inventory[0].stackSize;
             if (this.inventory[0].stackSize <= 0)
                 this.inventory[0] = null;
-            if (this.inventory[1].stackSize <= 1)
-                this.inventory[1] = null;
         }
     }
 
@@ -258,7 +272,7 @@ public class TileEntityCentrifuge extends TileEntitySciCraftEnergy implements IS
         return this.currentEnergyAmount * i / this.maxEnergyAmount;
     }
 
-    public int getCookProgressScaled(int i) {
-        return this.cookTime * i / this.cookSpeed;
+    public int getCentrifugingProgressScaled(int i) {
+        return this.centrifugingTime * i / this.centrifugingSpeed;
     }
 }

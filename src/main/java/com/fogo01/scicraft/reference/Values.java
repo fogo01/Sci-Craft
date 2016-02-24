@@ -12,7 +12,7 @@ public class Values {
         }
 
         public static final class BatteryCell {
-            public static final int ENERGY_STORAGE = 1000000;
+            public static final int ENERGY_STORAGE = 10000000;
             public static final int TRANSFER_RATE = 1600;
         }
 
@@ -41,12 +41,13 @@ public class Values {
             public static final int ENERGY_STORAGE = 32000;
             public static final int TRANSFER_RATE = 1600;
             public static final int ENERGY_USE = 80;
-            public static final int COOK_SPEED = 200;
+            public static final int CENTRIFUGING_SPEED = 400;
         }
     }
 
     public static final class Batteries {
         public static final int SMALL_ENERGY_STORAGE = 32000;
         public static final int MEDIUM_BATTERY_STORAGE = 100000;
+        public static final int LARGE_BATTERY_STORAGE = 1000000;
     }
 }

@@ -191,6 +191,9 @@ public class TileEntityBatteryCell extends TileEntitySciCraftEnergy implements I
 
     @Override
     public void updateEntity() {
+        if (!worldObj.isRemote)
+            this.tryEnergyTransfer();
+
         itemEnergyAmount1 = 0;
         maxItemEnergyAmount1 = 1;
         if (inventory[0] != null && isBattery(inventory[0])) {

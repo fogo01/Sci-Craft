@@ -52,7 +52,7 @@ public class TileEntitySciCraftEnergy extends TileEntitySciCraft {
     }
 
     public boolean canTransferTo(World world, int x, int y, int z) {
-        if (world.getTileEntity(xCoord, yCoord, zCoord) instanceof TileEntitySolarPanel || world.getTileEntity(x, y, z) instanceof TileEntityBatteryCell) {
+        if (world.getTileEntity(xCoord, yCoord, zCoord) instanceof TileEntitySolarPanel || world.getTileEntity(xCoord, yCoord, zCoord) instanceof TileEntityBatteryCell) {
             if (world.getTileEntity(x, y, z) instanceof TileEntitySciCraftEnergy) {
                 int meta = world.getBlockMetadata(xCoord, yCoord, zCoord);
                 if (meta == 2 && z < zCoord) {

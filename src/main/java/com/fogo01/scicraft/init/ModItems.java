@@ -40,6 +40,8 @@ public class ModItems {
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
     public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
 
+    public static final ItemSciCraft STONE_DUST = new ItemStoneDust();
+
     public static final ItemSciCraftSword[] SWORDS = {new ItemCopperSword(), new ItemTinSword(), new ItemSilverSword(), new ItemLeadSword(), new ItemBronzeSword(), new ItemSteelSword(), new ItemUnobtaniumSword()};
     public static final ItemSciCraftPickaxe[] PICKAXES = {new ItemCopperPickaxe(), new ItemTinPickaxe(), new ItemSilverPickaxe(), new ItemLeadPickaxe(), new ItemBronzePickaxe(), new ItemSteelPickaxe(), new ItemUnobtaniumPickaxe()};
     public static final ItemSciCraftShovel[] SHOVELS = {new ItemCopperShovel(), new ItemTinShovel(), new ItemSilverShovel(), new ItemLeadShovel(), new ItemBronzeShovel(), new ItemSteelShovel(), new ItemUnobtaniumShovel()};
@@ -75,6 +77,8 @@ public class ModItems {
 
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
         GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);
+
+        GameRegistry.registerItem(STONE_DUST, Names.Items.STONE_DUST);
 
         for (int i = 0; i < SWORDS.length; i++) {
             GameRegistry.registerItem(SWORDS[i], Names.Items.SWORDS[i]);

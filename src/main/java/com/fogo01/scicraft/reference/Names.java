@@ -53,6 +53,8 @@ public class Names {
         public static final String OIL_BUCKET = "OilBucket";
         public static final String FUEL_BUCKET = "FuelBucket";
 
+        public static final String STONE_DUST = "StoneDust";
+
         public static final String[] SWORDS = {"CopperSword", "TinSword", "SilverSword", "LeadSword", "BronzeSword", "SteelSword", "UnobtaniumSword"};
         public static final String[] PICKAXES = {"CopperPickaxe", "TinPickaxe", "SilverPickaxe", "LeadPickaxe", "BronzePickaxe", "SteelPickaxe", "UnobtaniumPickaxe"};
         public static final String[] SHOVELS = {"CopperShovel", "TinShovel", "SilverShovel", "LeadShovel", "BronzeShovel", "SteelShovel", "UnobtaniumShovel"};
