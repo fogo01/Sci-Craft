@@ -12,6 +12,7 @@ public class TileEntities {
         GameRegistry.registerTileEntity(TileEntityCrusher.class, Names.Blocks.CRUSHER);
         GameRegistry.registerTileEntity(TileEntityAlloySmelter.class, Names.Blocks.ALLOY_SMELTER);
         GameRegistry.registerTileEntity(TileEntityCentrifuge.class, Names.Blocks.CENTRIFUGE);
+        GameRegistry.registerTileEntity(TileEntityRefinery.class, Names.Blocks.REFINERY);
         GameRegistry.registerTileEntity(TileEntityEnergyCable.class, Names.Blocks.ENERGY_CABLE);
     }
 }

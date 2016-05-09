@@ -33,6 +33,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.CENTRIFUGE.ordinal()) {
                 TileEntityCentrifuge tileEntityCentrifuge = (TileEntityCentrifuge) world.getTileEntity(x, y, z);
                 return new ContainerCentrifuge(player.inventory, tileEntityCentrifuge);
+            } else if (ID == GUIs.REFINERY.ordinal()) {
+                TileEntityRefinery tileEntityRefinery = (TileEntityRefinery) world.getTileEntity(x, y, z);
+                return new ContainerRefinery(player.inventory, tileEntityRefinery);
             }
         }
         return null;
@@ -61,6 +64,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.CENTRIFUGE.ordinal()) {
                 TileEntityCentrifuge tileEntityCentrifuge = (TileEntityCentrifuge) world.getTileEntity(x, y, z);
                 return new GuiCentrifuge(player.inventory, tileEntityCentrifuge);
+            } else if (ID == GUIs.REFINERY.ordinal()) {
+                TileEntityRefinery tileEntityRefinery = (TileEntityRefinery) world.getTileEntity(x, y, z);
+                return new GuiRefinery(player.inventory, tileEntityRefinery);
             }
         }
         return null;

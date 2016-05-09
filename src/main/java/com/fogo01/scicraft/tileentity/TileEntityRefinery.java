@@ -1,19 +1,25 @@
 package com.fogo01.scicraft.tileentity;
 
 import com.fogo01.scicraft.blocks.containers.BlockCrusher;
+import com.fogo01.scicraft.blocks.containers.BlockRefinery;
 import com.fogo01.scicraft.crafting.MachineRecipes;
+import com.fogo01.scicraft.init.ModFluids;
+import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.fluids.Fluid;
 
 public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISidedInventory {
-    private static final int[] slotsTop = new int[]{0, 1};
-    private static final int[] slotsBottom = new int[]{0, 1, 2};
-    private static final int[] slotsSides = new int[]{2};
+    private static final int[] slotsTop = new int[]{0, 1, 2};
+    private static final int[] slotsBottom = new int[]{0, 1, 2, 3};
+    private static final int[] slotsSides = new int[]{3};
     public int energyUse = Values.Machines.Refinery.ENERGY_USE;
     public int refiningSpeed = Values.Machines.Refinery.REFINING_SPEED;
     public int refiningTime = 0;
@@ -28,13 +34,15 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
         currentEnergyAmount = 0;
         transferRate = Values.Machines.Refinery.TRANSFER_RATE;
         acceptingEnergy = true;
-        inventory = new ItemStack[3];
+        inventory = new ItemStack[4];
     }
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
         currentEnergyAmount = nbtTagCompound.getInteger("currentEnergyAmount");
+        currentOilAmount = nbtTagCompound.getInteger("currentOilAmount");
+        currentFuelAmount = nbtTagCompound.getInteger("currentFuelAmount");
 
         NBTTagList nbttaglist = nbtTagCompound.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
@@ -55,6 +63,8 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setInteger("currentEnergyAmount", currentEnergyAmount);
+        nbtTagCompound.setInteger("currentOilAmount", currentOilAmount);
+        nbtTagCompound.setInteger("currentFuelAmount", currentFuelAmount);
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < this.inventory.length; ++i) {
@@ -154,7 +164,7 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
     @Override
     public int getInventoryStackLimit() {
-        return 64;
+        return 1;
     }
 
     @Override
@@ -177,15 +187,51 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
         return true;
     }
 
+    public void moveLiquid(Fluid fluid, EntityPlayer player) {
+        if (fluid == ModFluids.OIL) {
+            if (maxOilAmount - currentOilAmount >= 1000 && player.getHeldItem().getItem() == ModItems.OIL_BUCKET) {
+                player.inventory.consumeInventoryItem(ModItems.OIL_BUCKET);
+                player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
+                currentOilAmount += 1000;
+            }
+        } else if (fluid == ModFluids.FUEL) {
+            if (currentFuelAmount >= 1000 && player.getHeldItem().getItem() == Items.bucket) {
+                player.inventory.consumeInventoryItem(Items.bucket);
+                player.inventory.addItemStackToInventory(new ItemStack(ModItems.FUEL_BUCKET));
+                currentFuelAmount -= 1000;
+            }
+        }
+    }
+
     @Override
     public void updateEntity() {
-        if (inventory[2] != null)
-            transferEnergyFromItem(inventory[2], transferRate);
+        if (inventory[3] != null)
+            transferEnergyFromItem(inventory[3], transferRate);
 
         boolean flag = this.isRefining();
         boolean flag1 = false;
 
         if (!this.worldObj.isRemote) {
+            if (inventory[0] != null && inventory[0].getItem() == ModItems.OIL_BUCKET && (inventory[2] == null || inventory[2].getItem() == Items.bucket)) {
+                if (maxOilAmount - currentOilAmount >= 1000) {
+                    if (inventory[2] == null)
+                        inventory[2] = new ItemStack(Items.bucket, 1);
+                    else {
+                        if (inventory[2].stackSize < inventory[1].getMaxStackSize())
+                            inventory[2].stackSize++;
+                        else
+                            return;
+                    }
+                    inventory[0].stackSize--;
+                    if (inventory[0].stackSize <= 0)
+                        inventory[0] = null;
+
+                    currentOilAmount += 1000;
+                }
+                flag1 = true;
+            }
+
+
             if (this.currentOilAmount > 0) {
                 if (this.canRefine()) {
                     this.refiningTime++;
@@ -203,7 +249,7 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
             if (flag != isRefining()) {
                 flag1 = true;
-                BlockCrusher.updateBlockState(this.isRefining(), worldObj, xCoord, yCoord, zCoord);
+                BlockRefinery.updateBlockState(this.isRefining(), worldObj, xCoord, yCoord, zCoord);
             }
         }
 

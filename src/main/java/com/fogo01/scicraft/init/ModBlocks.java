@@ -29,6 +29,8 @@ public class ModBlocks {
     public static final BlockSciCraftContainer ALLOY_SMELTER_ACTIVE = new BlockAlloySmelter(true);
     public static final BlockSciCraftContainer CENTRIFUGE = new BlockCentrifuge(false);
     public static final BlockSciCraftContainer CENTRIFUGE_ACTIVE = new BlockCentrifuge(true);
+    public static final BlockSciCraftContainer REFINERY = new BlockRefinery(false);
+    public static final BlockSciCraftContainer REFINERY_ACTIVE = new BlockRefinery(true);
     public static final BlockSciCraftContainer ENERGY_CABLE = new BlockEnergyCable();
 
     public static final BlockSciCraft MOON_DUST = new BlockMoonDust();
@@ -73,6 +75,8 @@ public class ModBlocks {
         GameRegistry.registerBlock(ALLOY_SMELTER_ACTIVE, Names.Blocks.ALLOY_SMELTER_ACTIVE);
         GameRegistry.registerBlock(CENTRIFUGE, Names.Blocks.CENTRIFUGE);
         GameRegistry.registerBlock(CENTRIFUGE_ACTIVE, Names.Blocks.CENTRIFUGE_ACTIVE);
+        GameRegistry.registerBlock(REFINERY, Names.Blocks.REFINERY);
+        GameRegistry.registerBlock(REFINERY_ACTIVE, Names.Blocks.REFINERY_ACTIVE);
         GameRegistry.registerBlock(ENERGY_CABLE, Names.Blocks.ENERGY_CABLE);
 
         GameRegistry.registerBlock(MOON_DUST, Names.Blocks.MOON_DUST);
