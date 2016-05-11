@@ -24,6 +24,9 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
     public int refiningSpeed = Values.Machines.Refinery.REFINING_SPEED;
     public int refiningTime = 0;
 
+    private int proportions = Values.Machines.Refinery.OIL_PER_FUEL_PROPORTIONS;
+    private int count = Values.Machines.Refinery.FUEL_PER_CYCLE;
+
     public int maxOilAmount = Values.Machines.Refinery.MAX_OIL_AMOUNT;
     public int maxFuelAmount = Values.Machines.Refinery.MAX_FUEL_AMOUNT;
     public int currentOilAmount = 0;
@@ -164,7 +167,7 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
     @Override
     public int getInventoryStackLimit() {
-        return 1;
+        return 64;
     }
 
     @Override
@@ -184,7 +187,18 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return true;
+        if (itemStack == null)
+            return false;
+        if (slot == 0)
+            return itemStack.getItem() == ModItems.OIL_BUCKET;
+        else if (slot == 1)
+            return itemStack.getItem() == ModItems.FUEL_BUCKET;
+        else if (slot == 2)
+            return itemStack.getItem() == Items.bucket;
+        else if (slot == 3)
+            return isBattery(itemStack);
+        else
+            return false;
     }
 
     public void moveLiquid(Fluid fluid, EntityPlayer player) {
@@ -214,21 +228,32 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
         if (!this.worldObj.isRemote) {
             if (inventory[0] != null && inventory[0].getItem() == ModItems.OIL_BUCKET && (inventory[2] == null || inventory[2].getItem() == Items.bucket)) {
                 if (maxOilAmount - currentOilAmount >= 1000) {
+                    if (inventory[2] == null || inventory[2].stackSize < inventory[2].getMaxStackSize())
                     if (inventory[2] == null)
-                        inventory[2] = new ItemStack(Items.bucket, 1);
-                    else {
-                        if (inventory[2].stackSize < inventory[1].getMaxStackSize())
-                            inventory[2].stackSize++;
-                        else
-                            return;
-                    }
+                        inventory[2] = new ItemStack(Items.bucket);
+                    else
+                        inventory[2].stackSize++;
+
                     inventory[0].stackSize--;
+                    currentOilAmount += 1000;
+
                     if (inventory[0].stackSize <= 0)
                         inventory[0] = null;
-
-                    currentOilAmount += 1000;
                 }
                 flag1 = true;
+            }
+
+            if (currentFuelAmount >= 1000) {
+                if (inventory[2] != null && inventory[2].getItem() == Items.bucket && inventory[1] == null) {
+                    inventory[1] = new ItemStack(ModItems.FUEL_BUCKET);
+                    currentFuelAmount -= 1000;
+
+                    inventory[2].stackSize--;
+
+                    if (inventory[2].stackSize <= 0)
+                        inventory[2] = null;
+                    flag1 = true;
+                }
             }
 
 
@@ -264,12 +289,12 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
 
     private boolean canRefine() {
-        if (this.currentOilAmount < 4) {
+        if (this.currentOilAmount < proportions * count) {
             return false;
         } else {
             if (currentEnergyAmount < energyUse)
                 return false;
-            if (currentFuelAmount >= maxFuelAmount)
+            if (currentFuelAmount + count >= maxFuelAmount)
                 return false;
             return true;
         }
@@ -278,8 +303,8 @@ public class TileEntityRefinery extends TileEntitySciCraftEnergy implements ISid
 
     public void refine() {
         if (this.canRefine()) {
-            currentOilAmount -= 8;
-            currentFuelAmount += 1;
+            currentOilAmount -= proportions * count;
+            currentFuelAmount += count;
         }
     }
 

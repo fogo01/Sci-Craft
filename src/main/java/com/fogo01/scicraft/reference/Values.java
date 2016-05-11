@@ -48,7 +48,9 @@ public class Values {
             public static final int ENERGY_STORAGE = 64000;
             public static final int TRANSFER_RATE = 3200;
             public static final int ENERGY_USE = 160;
-            public static final int REFINING_SPEED = 1;
+            public static final int REFINING_SPEED = 800;
+            public static final int OIL_PER_FUEL_PROPORTIONS = 4;
+            public static final int FUEL_PER_CYCLE = 10;
             public static final int MAX_OIL_AMOUNT = 8000;
             public static final int MAX_FUEL_AMOUNT = 8000;
         }

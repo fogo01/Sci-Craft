@@ -125,6 +125,7 @@ tile.scicraft:Crusher.name=Crusher
 tile.scicraft:AlloySmelter.name=Alloy Smelter
 tile.scicraft:AlloySmelterActive.name=Alloy Smelter Active
 tile.scicraft:Centrifuge.name=Centrifuge
+tile.scicraft:Refinery.name=Refinery
 tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block

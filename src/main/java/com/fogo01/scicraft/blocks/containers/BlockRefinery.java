@@ -117,13 +117,14 @@ public class BlockRefinery extends BlockSciCraftContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return metadata == 0 && side == 3 ? iconSide : side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? iconSide : this.blockIcon));
+        return metadata == 0 && side == 3 ? (isActive ? iconSideActive : iconSide) : side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : (side == metadata ? (isActive ? iconSideActive : iconSide) : this.blockIcon));
     }
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
         blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
         iconSide = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_side"));
+        iconSideActive = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_side_on"));
         iconTop = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_top"));
         iconBottom = iconRegister.registerIcon(String.format("%s%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()), "_bottom"));
     }
