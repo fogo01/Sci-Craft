@@ -167,7 +167,9 @@ container.PoweredFurnace=Powered Furnace
 container.Crusher=Crusher
 container.AlloySmelter=Alloy Smelter
 container.Centrifuge=Centrifuge
+container.Refinery=Refinery
 
 
 # Entities
 entity.scicraft:Alien.name=Alien
+entity.scicraft:AlienAnt.name=Alien Ant

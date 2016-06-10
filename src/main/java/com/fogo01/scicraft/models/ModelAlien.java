@@ -81,6 +81,10 @@ public class ModelAlien extends ModelBase {
 
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+
+        this.head.rotateAngleY = f3 / (180F / (float)Math.PI);
+        this.head.rotateAngleX = f4 / (180F / (float)Math.PI);
+
         this.rightleg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
         this.leftleg.rotateAngleX = MathHelper.cos(f * 0.6662f + (float)Math.PI) * 1.4f * f1;
 

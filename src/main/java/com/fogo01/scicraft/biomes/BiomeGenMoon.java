@@ -1,6 +1,7 @@
 package com.fogo01.scicraft.biomes;
 
 import com.fogo01.scicraft.entities.monsters.EntityAlien;
+import com.fogo01.scicraft.entities.monsters.EntityAlienAnt;
 import com.fogo01.scicraft.init.ModBlocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -20,5 +21,6 @@ public class BiomeGenMoon extends BiomeGenBase {
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityAlien.class, 8, 1, 5));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityAlienAnt.class, 8, 4, 8));
     }
 }

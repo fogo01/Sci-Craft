@@ -87,6 +87,7 @@ public class Names {
 
     public static final class Entities {
         public static final String ENTITY_ALIEN = "Alien";
+        public static final String ENTITY_ALIEN_ANT = "AlienAnt";
     }
 
     public static final class Fluids {
