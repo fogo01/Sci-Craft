@@ -16,6 +16,9 @@ item.scicraft:UnobtaniumIngot.name=Unobtanium Ingot
 
 item.scicraft:Wrench.name=Wrench
 item.scicraft:Multimeter.name=Multimeter
+
+item.scicraft:PlasmaLauncher.name=Plasma Launcher
+
 item.scicraft:Battery.name=Battery
 item.scicraft:MediumBattery.name=MediumBattery
 
@@ -173,3 +176,6 @@ container.Refinery=Refinery
 # Entities
 entity.scicraft:Alien.name=Alien
 entity.scicraft:AlienAnt.name=Alien Ant
+
+#Deaths
+death.attack.Vacuum=%1$s suffocated in space

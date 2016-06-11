@@ -7,7 +7,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityAlien extends EntityMob {
+public class EntityAlien extends EntitySciCraftMoon {
     public EntityAlien(World world) {
         super(world);
         this.setSize(0.8f, 2.5f);

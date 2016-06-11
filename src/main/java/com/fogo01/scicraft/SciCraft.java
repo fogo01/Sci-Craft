@@ -6,6 +6,7 @@ import com.fogo01.scicraft.genaration.BlockGeneration;
 import com.fogo01.scicraft.handler.BucketHandler;
 import com.fogo01.scicraft.handler.ConfigurationHandler;
 import com.fogo01.scicraft.handler.GuiHandler;
+import com.fogo01.scicraft.handler.SciCraftEventHandler;
 import com.fogo01.scicraft.init.*;
 import com.fogo01.scicraft.proxy.IProxy;
 import com.fogo01.scicraft.reference.Reference;
@@ -48,6 +49,7 @@ public class SciCraft {
         BucketHandler.INSTANCE.buckets.put(ModBlocks.OIL_BLOCK, ModItems.OIL_BUCKET);
         BucketHandler.INSTANCE.buckets.put(ModBlocks.FUEL_BLOCK, ModItems.FUEL_BUCKET);
         MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
+        MinecraftForge.EVENT_BUS.register(new SciCraftEventHandler());
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 
