@@ -39,10 +39,14 @@ public class ModItems {
     public static final ItemSciCraft BATTERY = new ItemBattery();
     public static final ItemSciCraft MEDIUM_BATTERY = new ItemMediumBattery();
 
+    public static final ItemSciCraft ROCKET_PART = new ItemRocketPart();
+
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
     public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
 
     public static final ItemSciCraft STONE_DUST = new ItemStoneDust();
+
+    public static final ItemSciCraft ROCKET = new ItemRocket();
 
     public static final ItemSciCraftSword[] SWORDS = {new ItemCopperSword(), new ItemTinSword(), new ItemSilverSword(), new ItemLeadSword(), new ItemBronzeSword(), new ItemSteelSword(), new ItemUnobtaniumSword()};
     public static final ItemSciCraftPickaxe[] PICKAXES = {new ItemCopperPickaxe(), new ItemTinPickaxe(), new ItemSilverPickaxe(), new ItemLeadPickaxe(), new ItemBronzePickaxe(), new ItemSteelPickaxe(), new ItemUnobtaniumPickaxe()};
@@ -79,10 +83,14 @@ public class ModItems {
         GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);
         GameRegistry.registerItem(MEDIUM_BATTERY, Names.Items.MEDIUM_BATTERY);
 
+        GameRegistry.registerItem(ROCKET_PART, Names.Items.ROCKET_PART);
+
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
         GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);
 
         GameRegistry.registerItem(STONE_DUST, Names.Items.STONE_DUST);
+
+        GameRegistry.registerItem(ROCKET, Names.Items.ROCKET);
 
         for (int i = 0; i < SWORDS.length; i++) {
             GameRegistry.registerItem(SWORDS[i], Names.Items.SWORDS[i]);

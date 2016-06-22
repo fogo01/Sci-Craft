@@ -20,7 +20,28 @@ item.scicraft:Multimeter.name=Multimeter
 item.scicraft:PlasmaLauncher.name=Plasma Launcher
 
 item.scicraft:Battery.name=Battery
-item.scicraft:MediumBattery.name=MediumBattery
+item.scicraft:MediumBattery.name=Medium Battery
+
+item.scicraft:Rocket.name=Rocket
+item.scicraft:RocketNoseConeT1.name=Rocket Nose Cone T1
+item.scicraft:RocketNoseConeT2.name=Rocket Nose Cone T2
+item.scicraft:RocketNoseConeT3.name=Rocket Nose Cone T3
+
+item.scicraft:RocketFuselageT1.name=Rocket Fuselage T1
+item.scicraft:RocketFuselageT2.name=Rocket Fuselage T2
+item.scicraft:RocketFuselageT3.name=Rocket Fuselage T3
+
+item.scicraft:RocketEngineT1.name=Rocket Engine T1
+item.scicraft:RocketEngineT2.name=Rocket Engine T2
+item.scicraft:RocketEngineT3.name=Rocket Engine T3
+
+item.scicraft:RocketBoosterT1.name=Rocket Booster T1
+item.scicraft:RocketBoosterT2.name=Rocket Booster T2
+item.scicraft:RocketBoosterT3.name=Rocket Booster T3
+
+item.scicraft:RocketFinT1.name=Rocket Fin T1
+item.scicraft:RocketFinT2.name=Rocket Fin T2
+item.scicraft:RocketFinT3.name=Rocket Fin T3
 
 item.scicraft:OilBucket.name=Oil Bucket
 item.scicraft:FuelBucket.name=Fuel Bucket
@@ -129,6 +150,9 @@ tile.scicraft:AlloySmelter.name=Alloy Smelter
 tile.scicraft:AlloySmelterActive.name=Alloy Smelter Active
 tile.scicraft:Centrifuge.name=Centrifuge
 tile.scicraft:Refinery.name=Refinery
+
+tile.scicraft:RocketFactory.name=Rocket Factory
+
 tile.scicraft:EnergyCable.name=Energy Cable
 
 tile.scicraft:AluminumBlock.name=Aluminum Block
@@ -171,6 +195,7 @@ container.Crusher=Crusher
 container.AlloySmelter=Alloy Smelter
 container.Centrifuge=Centrifuge
 container.Refinery=Refinery
+container.RocketFactory=Rocket Factory
 
 
 # Entities

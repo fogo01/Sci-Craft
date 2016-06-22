@@ -1,8 +1,6 @@
 package com.fogo01.scicraft.tileentity;
 
-import com.fogo01.scicraft.blocks.containers.BlockCrusher;
 import com.fogo01.scicraft.blocks.containers.BlockRefinery;
-import com.fogo01.scicraft.crafting.MachineRecipes;
 import com.fogo01.scicraft.init.ModFluids;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.Names;
@@ -10,7 +8,6 @@ import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

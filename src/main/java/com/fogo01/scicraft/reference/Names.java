@@ -23,6 +23,8 @@ public class Names {
         public static final String PIPE = "Pipe";
         public static final String ENERGY_CABLE = "EnergyCable";
 
+        public static final String ROCKET_FACTORY = "RocketFactory";
+
         public static final String MOON_DUST = "MoonDust";
         public static final String MOON_ROCK = "MoonRock";
         public static final String[] MOON_ORES = {"MoonCoalOre", "MoonIronOre", "MoonGoldOre", "MoonLapisOre", "MoonRedstoneOre", "MoonDiamondOre", "MoonAluminumOre", "MoonCopperOre", "MoonTinOre", "MoonSilverOre", "MoonLeadOre", "UnobtaniumOre"};
@@ -54,10 +56,15 @@ public class Names {
         public static final String MEDIUM_BATTERY = "MediumBattery";
         public static final String LARGE_BATTERY = "LargeBattery";
 
+        public static final String ROCKET_PART = "RocketPart";
+        public static final String[] ROCKET_PARTS = {"RocketNoseConeT1", "RocketNoseConeT2", "RocketNoseConeT3", "RocketFuselageT1", "RocketFuselageT2", "RocketFuselageT3", "RocketEngineT1", "RocketEngineT2", "RocketEngineT3", "RocketBoosterT1", "RocketBoosterT2", "RocketBoosterT3", "RocketFinT1", "RocketFinT2", "RocketFinT3"};
+
         public static final String OIL_BUCKET = "OilBucket";
         public static final String FUEL_BUCKET = "FuelBucket";
 
         public static final String STONE_DUST = "StoneDust";
+
+        public static final String ROCKET = "Rocket";
 
         public static final String[] SWORDS = {"CopperSword", "TinSword", "SilverSword", "LeadSword", "BronzeSword", "SteelSword", "UnobtaniumSword"};
         public static final String[] PICKAXES = {"CopperPickaxe", "TinPickaxe", "SilverPickaxe", "LeadPickaxe", "BronzePickaxe", "SteelPickaxe", "UnobtaniumPickaxe"};
@@ -85,11 +92,13 @@ public class Names {
         public static final String CONTAINER_ALLOY_SMELTER = "container.AlloySmelter";
         public static final String CONTAINER_CENTRIFUGE = "container.Centrifuge";
         public static final String CONTAINER_REFINERY = "container.Refinery";
+        public static final String CONTAINER_ROCKET_FACTORY = "container.RocketFactory";
     }
 
     public static final class Entities {
         public static final String ENTITY_ALIEN = "Alien";
         public static final String ENTITY_ALIEN_ANT = "AlienAnt";
+        public static final String ENTITY_ROCKET = "Rocket";
     }
 
     public static final class Fluids {

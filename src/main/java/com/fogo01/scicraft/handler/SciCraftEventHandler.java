@@ -4,9 +4,16 @@ import com.fogo01.scicraft.entities.monsters.EntitySciCraftMoon;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.reference.DamageSources;
 import com.fogo01.scicraft.reference.Dimensions;
+import com.fogo01.scicraft.utility.LogHelper;
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.event.world.BlockEvent;
 
 public class SciCraftEventHandler {
 
@@ -48,6 +55,26 @@ public class SciCraftEventHandler {
 
             } else {
                 event.entity.motionY += 0.06D;
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void bucketEvent (FillBucketEvent event) {
+        if (event.entityPlayer.dimension == Dimensions.IDs.DIMENSION_ID_MOON) {
+            if (event.current.isItemEqual(new ItemStack(Items.water_bucket))) {
+                event.world.setBlock(event.target.sideHit == 4 ? event.target.blockX - 1 : event.target.sideHit == 5 ? event.target.blockX + 1 : event.target.blockX, event.target.sideHit == 0 ? event.target.blockY - 1 : event.target.sideHit == 1 ? event.target.blockY + 1 : event.target.blockY, event.target.sideHit == 2 ? event.target.blockZ - 1 : event.target.sideHit == 3 ? event.target.blockZ + 1 : event.target.blockZ, Blocks.ice);
+                event.result = new ItemStack(Items.bucket);
+                event.setResult(Event.Result.ALLOW);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void iceBreak (BlockEvent.BreakEvent event) {
+        if (event.getPlayer().dimension == Dimensions.IDs.DIMENSION_ID_MOON) {
+            if (event.block == Blocks.ice) {
+                event.world.setBlockToAir(event.x, event.y, event.z);
             }
         }
     }

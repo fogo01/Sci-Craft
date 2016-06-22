@@ -1,8 +1,10 @@
 package com.fogo01.scicraft.proxy;
 
 import com.fogo01.scicraft.entities.monsters.*;
+import com.fogo01.scicraft.entities.rockets.EntityRocket;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.models.*;
+import com.fogo01.scicraft.render.entities.RenderRocket;
 import com.fogo01.scicraft.render.items.RenderPlasmaLauncher;
 import com.fogo01.scicraft.render.tileentities.*;
 import com.fogo01.scicraft.render.mobs.*;
@@ -22,6 +24,7 @@ public class ClientProxy extends CommonProxy {
     public void registerRenderThings() {
         RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class, new RenderEntityAlien(new ModelAlien(), 0));
         RenderingRegistry.registerEntityRenderingHandler(EntityAlienAnt.class, new RenderEntityAlienAnt(new ModelAlienAnt(), 0));
+        RenderingRegistry.registerEntityRenderingHandler(EntityRocket.class, new RenderRocket());
 
         MinecraftForgeClient.registerItemRenderer(ModItems.PLASMA_LAUNCHER, (IItemRenderer)new RenderPlasmaLauncher());
     }
