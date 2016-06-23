@@ -1,6 +1,6 @@
 [
 {
-  "modid": "Sci-Craft",
+  "modid": "SciCraft",
   "name": "Sci-Craft",
   "description": "A minecraft mod about science fiction, space and stuff",
   "version": "${version}",
@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["fogo01", "witchrall"],
   "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "logoFile": "/assets/scicraft/textures/SciCraft.png",
   "screenshots": [],
   "dependencies": []
 }
