@@ -2,18 +2,32 @@ package com.fogo01.scicraft.handler;
 
 import com.fogo01.scicraft.entities.monsters.EntitySciCraftMoon;
 import com.fogo01.scicraft.init.ModItems;
+import com.fogo01.scicraft.models.ModelFlag;
 import com.fogo01.scicraft.reference.DamageSources;
 import com.fogo01.scicraft.reference.Dimensions;
+import com.fogo01.scicraft.reference.Reference;
 import com.fogo01.scicraft.utility.LogHelper;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import org.lwjgl.opengl.GL11;
 
 public class SciCraftEventHandler {
 
@@ -71,7 +85,7 @@ public class SciCraftEventHandler {
     }
 
     @SubscribeEvent
-    public void iceBreak (BlockEvent.BreakEvent event) {
+    public void iceBreakEvent (BlockEvent.BreakEvent event) {
         if (event.getPlayer().dimension == Dimensions.IDs.DIMENSION_ID_MOON) {
             if (event.block == Blocks.ice) {
                 event.world.setBlockToAir(event.x, event.y, event.z);
@@ -79,12 +93,52 @@ public class SciCraftEventHandler {
         }
     }
 
-    /**
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void playerRenderEvent (RenderPlayerEvent.Post event) {
+        if (event.entityPlayer.getDisplayName().contains("fogo01")) {
+            GL11.glPushMatrix();
+            float pixel = 1/16F;
+
+            Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MOD_ID + ":textures/models/Flag.png"));
+
+            //new ModelFlag().render(event.entityPlayer, 0F, 0F, 0.1F, 0F, 0F, 0.0625F);
+
+            //GL11.glScalef(0.1F, 0.1F, 0.1F);
+
+            ModelFlag model = new ModelFlag();
+
+            //event.renderer.modelBipedMain.bipedBody.addChild(((ModelRenderer)model.boxList.get(0)));
+            //event.renderer.modelBipedMain.bipedBody.addChild(((ModelRenderer)model.boxList.get(1)));
+
+            //GL11.glRotatef(180F, 0F, 1F, 0F);
+            GL11.glRotatef(180F, 1F, 0F, 0F);
+            GL11.glTranslatef(0F, 0.2F, 0F);
+
+            GL11.glRotatef(event.entityPlayer.renderYawOffset, 0F, 1F, 0F);
+
+            model.render(event.entityPlayer, 0F, 0F, 0.1F, 0F, 0F, 0.0625F);
+
+            /**
+            Tessellator tessellator = Tessellator.instance;
+
+            tessellator.startDrawingQuads();{
+                tessellator.addVertexWithUV(event.entityPlayer.posY, 0, 5 * pixel, 0 * pixel, 6 * pixel);
+                tessellator.addVertexWithUV(0, 1, 5 * pixel, 16 * pixel, 6 * pixel);
+                tessellator.addVertexWithUV(1, 1, 5 * pixel, 16 * pixel, 0 * pixel);
+                tessellator.addVertexWithUV(1, 0, 5 * pixel, 0 * pixel, 0 * pixel);
+            }
+            tessellator.draw();
+            */
+
+            GL11.glPopMatrix();
+        }
+    }
+
     @SubscribeEvent
     public void usernameEvent(PlayerEvent.NameFormat event) {
         if (event.username.equals("fogo01")) {
             event.displayname = event.username + ", the author of Sci-Craft";
         }
     }
-    */
 }

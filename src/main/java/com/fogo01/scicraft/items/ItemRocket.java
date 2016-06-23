@@ -19,7 +19,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ItemRocket extends ItemSciCraft {
-    @SideOnly(Side.CLIENT)
     private IIcon[] icons = new IIcon[243];
 
 

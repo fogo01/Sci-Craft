@@ -48,6 +48,8 @@ public class SciCraft {
 
         BucketHandler.INSTANCE.buckets.put(ModBlocks.OIL_BLOCK, ModItems.OIL_BUCKET);
         BucketHandler.INSTANCE.buckets.put(ModBlocks.FUEL_BLOCK, ModItems.FUEL_BUCKET);
+
+
         MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
         MinecraftForge.EVENT_BUS.register(new SciCraftEventHandler());
 
