@@ -39,8 +39,12 @@ public class ItemRocket extends ItemSciCraft {
 
         EntityRocket entityRocket = new EntityRocket(world, movingObjectPosition.blockX, movingObjectPosition.blockY, movingObjectPosition.blockZ);
 
-        int[] rocketParts = itemStack.stackTagCompound.getIntArray("rocketParts");
-        entityRocket.setParts(rocketParts[0], rocketParts[1], rocketParts[2], rocketParts[3], rocketParts[4]);
+        if (itemStack.stackTagCompound != null) {
+            int[] rocketParts = itemStack.stackTagCompound.getIntArray("rocketParts");
+            entityRocket.setParts(rocketParts[0], rocketParts[1], rocketParts[2], rocketParts[3], rocketParts[4]);
+        } else {
+            entityRocket.setParts(1, 1, 1, 1, 1);
+        }
 
         if (!world.isRemote)
             world.spawnEntityInWorld(entityRocket);

@@ -14,6 +14,8 @@ public class TileEntities {
         GameRegistry.registerTileEntity(TileEntityCentrifuge.class, Names.Blocks.CENTRIFUGE);
         GameRegistry.registerTileEntity(TileEntityRefinery.class, Names.Blocks.REFINERY);
 
+        GameRegistry.registerTileEntity(TileEntityTeleporter.class, Names.Blocks.TELEPORTER);
+
         GameRegistry.registerTileEntity(TileEntityRocketFactory.class, Names.Blocks.ROCKET_FACTORY);
 
         GameRegistry.registerTileEntity(TileEntityEnergyCable.class, Names.Blocks.ENERGY_CABLE);

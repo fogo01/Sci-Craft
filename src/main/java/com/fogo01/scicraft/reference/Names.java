@@ -20,6 +20,9 @@ public class Names {
         public static final String REFINERY_ACTIVE = "RefineryActive";
         public static final String CENTRIFUGE = "Centrifuge";
         public static final String CENTRIFUGE_ACTIVE = "CentrifugeActive";
+
+        public static final String TELEPORTER = "Teleporter";
+
         public static final String PIPE = "Pipe";
         public static final String ENERGY_CABLE = "EnergyCable";
 
@@ -92,6 +95,7 @@ public class Names {
         public static final String CONTAINER_ALLOY_SMELTER = "container.AlloySmelter";
         public static final String CONTAINER_CENTRIFUGE = "container.Centrifuge";
         public static final String CONTAINER_REFINERY = "container.Refinery";
+        public static final String CONTAINER_TELEPORTER = "container.Teleporter";
         public static final String CONTAINER_ROCKET_FACTORY = "container.RocketFactory";
     }
 

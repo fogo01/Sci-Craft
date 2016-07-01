@@ -39,6 +39,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.ROCKET_FACTORY.ordinal()) {
                 TileEntityRocketFactory tileEntityRocketFactory = (TileEntityRocketFactory) world.getTileEntity(x, y, z);
                 return new ContainerRocketFactory(player.inventory, tileEntityRocketFactory);
+            } else if (ID == GUIs.TELEPORTER.ordinal()) {
+                TileEntityTeleporter tileEntityTeleporter = (TileEntityTeleporter) world.getTileEntity(x, y, z);
+                return new ContainerTeleporter(player.inventory, tileEntityTeleporter);
             }
         }
         return null;
@@ -73,6 +76,9 @@ public class GuiHandler implements IGuiHandler {
             } else if (ID == GUIs.ROCKET_FACTORY.ordinal()) {
                 TileEntityRocketFactory tileEntityRocketFactory = (TileEntityRocketFactory) world.getTileEntity(x, y, z);
                 return new GuiRocketFactory(player.inventory, tileEntityRocketFactory);
+            } else if (ID == GUIs.TELEPORTER.ordinal()) {
+                TileEntityTeleporter tileEntityTeleporter = (TileEntityTeleporter) world.getTileEntity(x, y, z);
+                return new GuiTeleporter(player.inventory, tileEntityTeleporter);
             }
         }
         return null;

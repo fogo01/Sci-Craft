@@ -54,6 +54,12 @@ public class Values {
             public static final int MAX_OIL_AMOUNT = 8000;
             public static final int MAX_FUEL_AMOUNT = 8000;
         }
+
+        public static final class Teleporter {
+            public static final int ENERGY_STORAGE = 64000;
+            public static final int TRANSFER_RATE = 3200;
+            public static final int ENERGY_USE = 1000;
+        }
     }
 
     public static final class Batteries {
