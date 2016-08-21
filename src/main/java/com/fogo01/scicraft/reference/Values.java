@@ -62,6 +62,13 @@ public class Values {
         }
     }
 
+    public static final class Items {
+        public static final class LaserRifle {
+            public static final int ENERGY_STORAGE = 32000;
+            public static final int ENERGY_USE = 10;
+        }
+    }
+
     public static final class Batteries {
         public static final int SMALL_ENERGY_STORAGE = 32000;
         public static final int MEDIUM_BATTERY_STORAGE = 100000;

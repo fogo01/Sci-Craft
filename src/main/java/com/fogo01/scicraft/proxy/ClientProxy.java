@@ -5,6 +5,7 @@ import com.fogo01.scicraft.entities.rockets.EntityRocket;
 import com.fogo01.scicraft.init.ModItems;
 import com.fogo01.scicraft.models.*;
 import com.fogo01.scicraft.render.entities.RenderRocket;
+import com.fogo01.scicraft.render.items.RenderLaserRifle;
 import com.fogo01.scicraft.render.items.RenderPlasmaLauncher;
 import com.fogo01.scicraft.render.tileentities.*;
 import com.fogo01.scicraft.render.mobs.*;
@@ -26,7 +27,8 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityAlienAnt.class, new RenderEntityAlienAnt(new ModelAlienAnt(), 0));
         RenderingRegistry.registerEntityRenderingHandler(EntityRocket.class, new RenderRocket());
 
-        MinecraftForgeClient.registerItemRenderer(ModItems.PLASMA_LAUNCHER, (IItemRenderer)new RenderPlasmaLauncher());
+        MinecraftForgeClient.registerItemRenderer(ModItems.LASER_RIFLE, new RenderLaserRifle());
+        MinecraftForgeClient.registerItemRenderer(ModItems.PLASMA_LAUNCHER, new RenderPlasmaLauncher());
     }
 
     @Override

@@ -53,6 +53,7 @@ public class Names {
         public static final String WRENCH = "Wrench";
         public static final String MULTIMETER = "Multimeter";
 
+        public static final String LASER_RIFLE = "LaserRifle";
         public static final String PLASMA_LAUNCHER = "PlasmaLauncher";
 
         public static final String BATTERY = "Battery";

@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class Chargeables {
-    public static final Item[] items = new Item[]{ModItems.BATTERY, ModItems.MEDIUM_BATTERY};
+    public static final Item[] items = new Item[]{ModItems.BATTERY, ModItems.MEDIUM_BATTERY, ModItems.LASER_RIFLE};
     public static final Item[] batteries = new Item[]{ModItems.BATTERY, ModItems.MEDIUM_BATTERY};
 }

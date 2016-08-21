@@ -34,6 +34,7 @@ public class ModItems {
     public static final ItemSciCraft WRENCH = new ItemWrench();
     public static final ItemSciCraft MULTIMETER = new ItemMultimeter();
 
+    public static final ItemSciCraft LASER_RIFLE = new ItemLaserRifle();
     public static final ItemSciCraft PLASMA_LAUNCHER = new ItemPlasmaLauncher();
 
     public static final ItemSciCraft BATTERY = new ItemBattery();
@@ -78,6 +79,7 @@ public class ModItems {
         GameRegistry.registerItem(WRENCH, Names.Items.WRENCH);
         GameRegistry.registerItem(MULTIMETER, Names.Items.MULTIMETER);
 
+        GameRegistry.registerItem(LASER_RIFLE, Names.Items.LASER_RIFLE);
         GameRegistry.registerItem(PLASMA_LAUNCHER, Names.Items.PLASMA_LAUNCHER);
 
         GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);

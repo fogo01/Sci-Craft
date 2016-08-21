@@ -1,19 +1,21 @@
 package com.fogo01.scicraft.items;
 
+import com.fogo01.scicraft.entities.projectile.EntityLaserBeam;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.reference.Values;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemMediumBattery extends ItemSciCraft {
-    public ItemMediumBattery() {
+public class ItemLaserRifle extends ItemSciCraft {
+    public ItemLaserRifle() {
         super();
-        this.setUnlocalizedName(Names.Items.MEDIUM_BATTERY);
+        this.setUnlocalizedName(Names.Items.LASER_RIFLE);
         this.setMaxStackSize(1);
-        this.setMaxDamage(Values.Batteries.MEDIUM_BATTERY_STORAGE);
+        this.setMaxDamage(Values.Items.LaserRifle.ENERGY_STORAGE);
     }
 
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
@@ -25,5 +27,14 @@ public class ItemMediumBattery extends ItemSciCraft {
             list.add("Energy: " + EnumChatFormatting.YELLOW + (itemStack.getMaxDamage() - itemStack.getItemDamage()) + "/" + itemStack.getMaxDamage() + Values.ENERGY_STORAGE);
         else
             list.add("Energy: " + EnumChatFormatting.RED + (itemStack.getMaxDamage() - itemStack.getItemDamage()) + "/" + itemStack.getMaxDamage() + Values.ENERGY_STORAGE);
+    }
+
+    @Override
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+        EntityLaserBeam laserBeam = new EntityLaserBeam(world, player);
+
+        world.spawnEntityInWorld(laserBeam);
+
+        return itemStack;
     }
 }
