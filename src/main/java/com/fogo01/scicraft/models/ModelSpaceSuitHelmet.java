@@ -20,7 +20,7 @@ public class ModelSpaceSuitHelmet extends ModelBiped {
     ModelRenderer leftleg;
     ModelRenderer HelmetTop;
     ModelRenderer HelmetFront1;
-    ModelRenderer Helmetleft1;
+    ModelRenderer HelmetLeft1;
     ModelRenderer HelmetFront2;
     ModelRenderer HelmetFL2F;
     ModelRenderer HelmetFR2F;
@@ -128,12 +128,12 @@ public class ModelSpaceSuitHelmet extends ModelBiped {
         HelmetFront1.setTextureSize(64, 64);
         HelmetFront1.mirror = true;
         setRotation(HelmetFront1, 0F, 0F, 0F);
-        Helmetleft1 = new ModelRenderer(this, 24, 34);
-        Helmetleft1.addBox(-2F, -10F, -4F, 4, 1, 1);
-        Helmetleft1.setRotationPoint(0F, 0F, 0F);
-        Helmetleft1.setTextureSize(64, 64);
-        Helmetleft1.mirror = true;
-        setRotation(Helmetleft1, 0F, -1.570796F, 0F);
+        HelmetLeft1 = new ModelRenderer(this, 24, 34);
+        HelmetLeft1.addBox(-2F, -10F, -4F, 4, 1, 1);
+        HelmetLeft1.setRotationPoint(0F, 0F, 0F);
+        HelmetLeft1.setTextureSize(64, 64);
+        HelmetLeft1.mirror = true;
+        setRotation(HelmetLeft1, 0F, -1.570796F, 0F);
         HelmetFront2 = new ModelRenderer(this, 24, 36);
         HelmetFront2.addBox(-3F, -9F, -5F, 6, 1, 1);
         HelmetFront2.setRotationPoint(0F, 0F, 0F);
@@ -467,7 +467,7 @@ public class ModelSpaceSuitHelmet extends ModelBiped {
 
         this.bipedHead.addChild(HelmetTop);
         this.bipedHead.addChild(HelmetFront1);
-        this.bipedHead.addChild(Helmetleft1);
+        this.bipedHead.addChild(HelmetLeft1);
         this.bipedHead.addChild(HelmetFront2);
         this.bipedHead.addChild(HelmetFL2F);
         this.bipedHead.addChild(HelmetFR2F);
@@ -536,7 +536,7 @@ public class ModelSpaceSuitHelmet extends ModelBiped {
         leftleg.render(f5);
         HelmetTop.render(f5);
         HelmetFront1.render(f5);
-        Helmetleft1.render(f5);
+        HelmetLeft1.render(f5);
         HelmetFront2.render(f5);
         HelmetFL2F.render(f5);
         HelmetFR2F.render(f5);

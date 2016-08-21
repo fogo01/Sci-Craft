@@ -31,10 +31,13 @@ public class ItemLaserRifle extends ItemSciCraft {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        EntityLaserBeam laserBeam = new EntityLaserBeam(world, player);
+        if (player.capabilities.isCreativeMode || itemStack.getItemDamage() < itemStack.getMaxDamage()) {
+            EntityLaserBeam laserBeam = new EntityLaserBeam(world, player);
 
-        world.spawnEntityInWorld(laserBeam);
-
+            world.spawnEntityInWorld(laserBeam);
+            if (!player.capabilities.isCreativeMode)
+                itemStack.setItemDamage(itemStack.getItemDamage() + Values.Items.LaserRifle.ENERGY_USE);
+        }
         return itemStack;
     }
 }

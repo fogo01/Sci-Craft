@@ -4,6 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
@@ -45,9 +47,11 @@ public class EntityLaserBeam extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition movingObjectPosition) {
         Entity entity = movingObjectPosition.entityHit;
-        if (entity != null && entity != player) {
-            entity.attackEntityFrom(DamageSource.causePlayerDamage(player), 1);
-            entity.setVelocity(this.motionX, this.motionY, this.motionZ);
+        if (entity != null && entity != player && entity instanceof EntityLivingBase) {
+            entity.attackEntityFrom(DamageSource.causePlayerDamage(player), 0);
+
+            entity.setVelocity(0D, 0D, 0D);
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 4));
         }
         this.setDead();
     }
@@ -82,9 +86,7 @@ public class EntityLaserBeam extends EntityThrowable {
         }
 
         life++;
-        if(life >= 80) {
+        if(life >= 80)
             this.setDead();
-            //this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1, true);
-        }
     }
 }
