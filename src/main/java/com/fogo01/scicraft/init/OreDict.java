@@ -1,5 +1,6 @@
 package com.fogo01.scicraft.init;
 
+import com.fogo01.scicraft.reference.Names;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -21,6 +22,10 @@ public class OreDict {
         OreDictionary.registerOre("oreSilver", ModBlocks.SILVER_ORE);
         OreDictionary.registerOre("oreLead", ModBlocks.LEAD_ORE);
         OreDictionary.registerOre("oreUranium", ModBlocks.URANIUM_ORE);
+
+        String[] metals = {"Iron", "Gold", "Aluminum", "Copper", "Tin", "Silver", "Lead", "Bronze", "Steel", "Unobtanium"};
+        for (int i = 0; i < Names.Items.METAL_DUSTS.length; i++)
+            OreDictionary.registerOre("dust" + metals[i], new ItemStack(ModItems.METAL_DUST, 1, i));
 
 
         OreDictionary.registerOre("blockAluminum", new ItemStack(ModBlocks.METAL_BLOCK, 1, 0));

@@ -143,6 +143,10 @@ tile.scicraft:SilverOre.name=Silver Ore
 tile.scicraft:LeadOre.name=Lead Ore
 tile.scicraft:UraniumOre.name=Uranium Ore
 
+tile.scicraft:ClearGlass=Clear Glass
+
+tile.scicraft:Crate.name=Crate
+
 tile.scicraft:SolarPanel.name=Solar Panel
 tile.scicraft:BatteryCell.name=Battery Cell
 tile.scicraft:PoweredFurnace.name=Powered Furnace

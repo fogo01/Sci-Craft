@@ -14,12 +14,12 @@ import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
 
-public class SkyRenderer extends IRenderHandler {
+public class SkyRendererMoon extends IRenderHandler {
     private int starGLCallList;
     private int glSkyList;
     private int glSkyList2;
 
-    public SkyRenderer() {
+    public SkyRendererMoon() {
         RenderGlobal renderGlobal = Minecraft.getMinecraft().renderGlobal;
         this.glSkyList2 = (this.glSkyList = (this.starGLCallList = ReflectionHelper.getPrivateValue(RenderGlobal.class, renderGlobal, "starGLCallList")) + 1) + 1;
     }

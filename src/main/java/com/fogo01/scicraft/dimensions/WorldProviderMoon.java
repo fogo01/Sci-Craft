@@ -3,7 +3,7 @@ package com.fogo01.scicraft.dimensions;
 import com.fogo01.scicraft.init.BiomeRegistry;
 import com.fogo01.scicraft.reference.Dimensions;
 import com.fogo01.scicraft.render.dimensions.CloudRenderer;
-import com.fogo01.scicraft.render.dimensions.SkyRenderer;
+import com.fogo01.scicraft.render.dimensions.SkyRendererMoon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -52,7 +52,7 @@ public class WorldProviderMoon extends WorldProvider {
 
     @SideOnly(Side.CLIENT)
     public boolean renderClouds() {
-        return true;
+        return false;
     }
 
     @SideOnly(Side.CLIENT)
@@ -106,7 +106,7 @@ public class WorldProviderMoon extends WorldProvider {
 
     @Override
     public IRenderHandler getSkyRenderer() {
-        return new SkyRenderer();
+        return new SkyRendererMoon();
     }
 
     @Override

@@ -8,6 +8,10 @@ public class Names {
         public static final String METAL_BLOCK = "Block";
         public static final String[] METAL_BLOCKS ={"AluminumBlock", "CopperBlock", "TinBlock", "SilverBlock", "LeadBlock", "BronzeBlock", "SteelBlock", "UraniumBlock", "UnobtaniumBlock"};
 
+        public static final String CLEAR_GLASS = "ClearGlass";
+
+        public static final String CRATE = "Crate";
+
         public static final String SOLAR_PANEL = "SolarPanel";
         public static final String BATTERY_CELL = "BatteryCell";
         public static final String POWERED_FURNACE = "PoweredFurnace";
@@ -50,8 +54,12 @@ public class Names {
         public static final String STEEL_INGOT = "SteelIngot";
         public static final String UNOBTANIUM_INGOT = "UnobtaniumIngot";
 
+        public static final String METAL_DUST = "MetalDust";
+        public static final String[] METAL_DUSTS = {"IronDust", "GoldDust", "AluminumDust", "CopperDust", "TinDust", "SilverDust", "UraniumDust", "BronzeDust", "SteelDust", "UnobtaniumDust"};
+
         public static final String WRENCH = "Wrench";
         public static final String MULTIMETER = "Multimeter";
+        public static final String BLOCK_TRANSPORTER = "BlockTransporter";
 
         public static final String LASER_RIFLE = "LaserRifle";
         public static final String PLASMA_LAUNCHER = "PlasmaLauncher";

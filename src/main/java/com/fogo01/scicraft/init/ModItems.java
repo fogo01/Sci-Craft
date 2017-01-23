@@ -31,8 +31,11 @@ public class ModItems {
     public static final ItemSciCraft STEEL_INGOT = new ItemSteelIngot();
     public static final ItemSciCraft UNOBTANIUM_INGOT = new ItemUnobtaniumIngot();
 
+    public static final ItemSciCraft METAL_DUST = new ItemMetalDust();
+
     public static final ItemSciCraft WRENCH = new ItemWrench();
     public static final ItemSciCraft MULTIMETER = new ItemMultimeter();
+    public static final ItemSciCraft BLOCK_TRANSPORTER = new ItemBlockTransporter();
 
     public static final ItemSciCraft LASER_RIFLE = new ItemLaserRifle();
     public static final ItemSciCraft PLASMA_LAUNCHER = new ItemPlasmaLauncher();
@@ -76,8 +79,11 @@ public class ModItems {
         GameRegistry.registerItem(STEEL_INGOT, Names.Items.STEEL_INGOT);
         GameRegistry.registerItem(UNOBTANIUM_INGOT, Names.Items.UNOBTANIUM_INGOT);
 
+        GameRegistry.registerItem(METAL_DUST, Names.Items.METAL_DUST);
+
         GameRegistry.registerItem(WRENCH, Names.Items.WRENCH);
         GameRegistry.registerItem(MULTIMETER, Names.Items.MULTIMETER);
+        GameRegistry.registerItem(BLOCK_TRANSPORTER, Names.Items.BLOCK_TRANSPORTER);
 
         GameRegistry.registerItem(LASER_RIFLE, Names.Items.LASER_RIFLE);
         GameRegistry.registerItem(PLASMA_LAUNCHER, Names.Items.PLASMA_LAUNCHER);

@@ -20,9 +20,13 @@ import java.util.Random;
 public abstract class BlockSciCraftContainer extends BlockContainer {
     public static boolean keepInventory = false;
 
-    protected BlockSciCraftContainer() {
-        super(Material.rock);
+    public BlockSciCraftContainer(Material material) {
+        super(material);
         this.setCreativeTab(CreativeTabSciCraft.SciCraft_TAB);
+    }
+
+    public BlockSciCraftContainer(){
+        this(Material.rock);
     }
 
     public void rotate(World world, int x, int y, int z) {

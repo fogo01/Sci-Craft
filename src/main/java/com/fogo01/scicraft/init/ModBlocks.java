@@ -8,6 +8,7 @@ import com.fogo01.scicraft.blocks.moon.*;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.blocks.BlockSciCraft;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.material.Material;
 
 public class ModBlocks {
     public static final BlockSciCraft ALUMINUM_ORE = new BlockAluminumOre();
@@ -18,6 +19,10 @@ public class ModBlocks {
     public static final BlockSciCraft URANIUM_ORE = new BlockUraniumOre();
 
     public static final BlockSciCraft METAL_BLOCK = new BlockMetalBlock();
+
+    public static final BlockSciCraft CLEAR_GLASS = new BlockClearGlass();
+
+    public static final BlockSciCraftContainer CRATE = new BlockCrate();
 
     public static final BlockSciCraftContainer SOLAR_PANEL = new BlockSolarPanel();
     public static final BlockSciCraftContainer BATTERY_CELL = new BlockBatteryCell();
@@ -69,6 +74,10 @@ public class ModBlocks {
         GameRegistry.registerBlock(URANIUM_ORE, Names.Blocks.OVERWORLD_ORES[5]);
 
         GameRegistry.registerBlock(METAL_BLOCK, ItemBlockMetalBlock.class, Names.Blocks.METAL_BLOCK);
+
+        GameRegistry.registerBlock(CLEAR_GLASS, Names.Blocks.CLEAR_GLASS);
+
+        GameRegistry.registerBlock(CRATE, Names.Blocks.CRATE);
 
         GameRegistry.registerBlock(SOLAR_PANEL, Names.Blocks.SOLAR_PANEL);
         GameRegistry.registerBlock(BATTERY_CELL, Names.Blocks.BATTERY_CELL);
