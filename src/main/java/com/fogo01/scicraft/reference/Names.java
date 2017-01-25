@@ -76,6 +76,8 @@ public class Names {
 
         public static final String STONE_DUST = "StoneDust";
 
+        public static final String JETPACK = "Jetpack";
+
         public static final String ROCKET = "Rocket";
 
         public static final String[] SWORDS = {"CopperSword", "TinSword", "SilverSword", "LeadSword", "BronzeSword", "SteelSword", "UnobtaniumSword"};
