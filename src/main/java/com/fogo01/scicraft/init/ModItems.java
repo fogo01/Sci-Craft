@@ -33,16 +33,12 @@ public class ModItems {
 
     public static final ItemSciCraft METAL_DUST = new ItemMetalDust();
 
-    public static final ItemSciCraft STONE_DUST = new ItemStoneDust();
-
     public static final ItemSciCraft WRENCH = new ItemWrench();
     public static final ItemSciCraft MULTIMETER = new ItemMultimeter();
     public static final ItemSciCraft BLOCK_TRANSPORTER = new ItemBlockTransporter();
 
     public static final ItemSciCraft LASER_RIFLE = new ItemLaserRifle();
     public static final ItemSciCraft PLASMA_LAUNCHER = new ItemPlasmaLauncher();
-
-    public static final ItemSciCraftArmor JETPACK = new ItemJetpack();
 
     public static final ItemSciCraft BATTERY = new ItemBattery();
     public static final ItemSciCraft MEDIUM_BATTERY = new ItemMediumBattery();
@@ -52,6 +48,7 @@ public class ModItems {
     public static final ItemSciCraftBucket OIL_BUCKET = new ItemOilBucket();
     public static final ItemSciCraftBucket FUEL_BUCKET = new ItemFuelBucket();
 
+    public static final ItemSciCraft STONE_DUST = new ItemStoneDust();
 
     public static final ItemSciCraft ROCKET = new ItemRocket();
 
@@ -84,16 +81,12 @@ public class ModItems {
 
         GameRegistry.registerItem(METAL_DUST, Names.Items.METAL_DUST);
 
-        GameRegistry.registerItem(STONE_DUST, Names.Items.STONE_DUST);
-
         GameRegistry.registerItem(WRENCH, Names.Items.WRENCH);
         GameRegistry.registerItem(MULTIMETER, Names.Items.MULTIMETER);
         GameRegistry.registerItem(BLOCK_TRANSPORTER, Names.Items.BLOCK_TRANSPORTER);
 
         GameRegistry.registerItem(LASER_RIFLE, Names.Items.LASER_RIFLE);
         GameRegistry.registerItem(PLASMA_LAUNCHER, Names.Items.PLASMA_LAUNCHER);
-
-        GameRegistry.registerItem(JETPACK, Names.Items.JETPACK);
 
         GameRegistry.registerItem(BATTERY, Names.Items.BATTERY);
         GameRegistry.registerItem(MEDIUM_BATTERY, Names.Items.MEDIUM_BATTERY);
@@ -103,6 +96,7 @@ public class ModItems {
         GameRegistry.registerItem(OIL_BUCKET, Names.Items.OIL_BUCKET);
         GameRegistry.registerItem(FUEL_BUCKET, Names.Items.FUEL_BUCKET);
 
+        GameRegistry.registerItem(STONE_DUST, Names.Items.STONE_DUST);
 
         GameRegistry.registerItem(ROCKET, Names.Items.ROCKET);
 

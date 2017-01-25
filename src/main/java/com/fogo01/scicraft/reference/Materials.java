@@ -25,6 +25,5 @@ public class Materials {
         public static final ItemArmor.ArmorMaterial ARMOR_UNOBTANIUM = EnumHelper.addArmorMaterial("Unobtanium", 20, new int[]{3, 7, 6, 3}, 10);
         public static final ItemArmor.ArmorMaterial ARMOR_SPACESUIT = EnumHelper.addArmorMaterial("SpaceSuit", 5, new int[]{1, 3, 2, 1}, 0);
         public static final ItemArmor.ArmorMaterial ARMOR_THOUGH_SPACESUIT = EnumHelper.addArmorMaterial("ThoughSpaceSuit", 15, new int[]{2, 6, 5, 2}, 0);
-        public static final ItemArmor.ArmorMaterial ARMOR_UTILITY = EnumHelper.addArmorMaterial("Utility", 0, new int[]{0, 0, 0, 0}, 0);
     }
 }
