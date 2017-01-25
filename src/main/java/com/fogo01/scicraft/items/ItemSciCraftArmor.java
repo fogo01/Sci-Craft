@@ -1,6 +1,7 @@
 package com.fogo01.scicraft.items;
 
 import com.fogo01.scicraft.crativetab.CreativeTabSciCraft;
+import com.fogo01.scicraft.reference.Materials;
 import com.fogo01.scicraft.reference.Names;
 import com.fogo01.scicraft.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
@@ -18,6 +19,8 @@ public class ItemSciCraftArmor extends ItemArmor {
 
     @Override
     public String getArmorTexture(ItemStack itemStack, Entity entity, int slot, String type) {
+        if (((ItemSciCraftArmor)itemStack.getItem()).getArmorMaterial() == Materials.Armor.ARMOR_UTILITY)
+            return Reference.MOD_ID + ":textures/models/armor/Utility_layer_" + (itemStack.getUnlocalizedName().contains("Leggings") ? "2" : "1") + ".png";
         for (int i = 0; i < Names.Items.ARMOR_TYPES.length; i++) {
             if (itemStack.getUnlocalizedName().contains(Names.Items.ARMOR_TYPES[i]))
                 return Reference.MOD_ID + ":textures/models/armor/" + Names.Items.ARMOR_TYPES[i] + "_layer_" + (itemStack.getUnlocalizedName().contains("Leggings") ? "2" : "1") + ".png";
