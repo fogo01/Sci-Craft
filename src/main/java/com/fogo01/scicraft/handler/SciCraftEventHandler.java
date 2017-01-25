@@ -3,6 +3,7 @@ package com.fogo01.scicraft.handler;
 import com.fogo01.scicraft.entities.ExtendedPlayer;
 import com.fogo01.scicraft.entities.monsters.EntitySciCraftMoon;
 import com.fogo01.scicraft.init.ModItems;
+import com.fogo01.scicraft.init.ModPotions;
 import com.fogo01.scicraft.models.ModelFlag;
 import com.fogo01.scicraft.reference.DamageSources;
 import com.fogo01.scicraft.reference.Dimensions;
@@ -16,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.EntityEvent;
@@ -43,6 +45,15 @@ public class SciCraftEventHandler {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void potionEvent(LivingEvent.LivingUpdateEvent event) {
+        if (event.entityLiving.isPotionActive(ModPotions.RADIATION)) {
+            if (event.entityLiving.worldObj.getTotalWorldTime() % 20 == 0) {
+                event.entityLiving.attackEntityFrom(DamageSource.generic, 2);
             }
         }
     }

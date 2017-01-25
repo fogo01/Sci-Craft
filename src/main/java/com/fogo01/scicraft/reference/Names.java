@@ -118,4 +118,8 @@ public class Names {
         public static final String FLUID_OIL = "Oil";
         public static final String FLUID_FUEL = "Fuel";
     }
+
+    public static final class Potions {
+        public static final String RADIATION = "Radiation";
+    }
 }

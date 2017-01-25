@@ -143,7 +143,7 @@ tile.scicraft:SilverOre.name=Silver Ore
 tile.scicraft:LeadOre.name=Lead Ore
 tile.scicraft:UraniumOre.name=Uranium Ore
 
-tile.scicraft:ClearGlass=Clear Glass
+tile.scicraft:ClearGlass.name=Clear Glass
 
 tile.scicraft:Crate.name=Crate
 
@@ -206,6 +206,9 @@ container.RocketFactory=Rocket Factory
 # Entities
 entity.scicraft:Alien.name=Alien
 entity.scicraft:AlienAnt.name=Alien Ant
+
+#Potion
+potion.Radiation=Radiation
 
 #Deaths
 death.attack.Vacuum=%1$s suffocated in space
